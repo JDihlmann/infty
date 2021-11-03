@@ -1,0 +1,71 @@
+{
+	"name": "Infty",
+	"description": "Infinite world generation with wave form collapse",
+	"version": "1.0.0",
+	"private": true,
+	"author": "Jan-Niklas Dihlmann (@jdihlmann)",
+	"license": "MIT",
+	"keywords": [
+		"nextjs",
+		"threejs",
+		"typescript"
+	],
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+		"type-check": "tsc",
+		"lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+		"format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+		"postinstall": "husky install",
+		"commit": "cz"
+	},
+	"lint-staged": {
+		"./src/**/*.{ts,js,jsx,tsx}": [
+			"yarn lint --fix",
+			"yarn format"
+		]
+	},
+	"dependencies": {
+		"next": "11.1.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"@react-three/drei": "7.12.4",
+		"@react-three/fiber": "7.0.7",
+		"@react-three/postprocessing": "2.0.5",
+		"@types/three": "0.131.1",
+		"immer": "^9.0.5",
+		"leva": "^0.9.14",
+		"nanoid": "^3.1.28",
+		"react-responsive": "^9.0.0-beta.4",
+		"tailwindcss": "latest",
+		"three": "0.132.2",
+		"three-stdlib": "^2.4.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "13.2.1",
+		"@commitlint/config-conventional": "13.2.0",
+		"@types/node": "14.17.21",
+		"@types/react": "17.0.27",
+		"@types/react-dom": "17.0.9",
+		"@typescript-eslint/eslint-plugin": "4.33.0",
+		"@typescript-eslint/parser": "4.33.0",
+		"autoprefixer": "latest",
+		"commitizen": "4.2.4",
+		"cz-conventional-changelog": "3.3.0",
+		"eslint": "7.32.0",
+		"eslint-config-next": "11.1.2",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-import-resolver-typescript": "2.5.0",
+		"eslint-plugin-prettier": "4.0.0",
+		"husky": "7.0.2",
+		"lint-staged": "11.2.3",
+		"prettier": "2.4.1",
+		"typescript": "4.4.3"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	}
+}

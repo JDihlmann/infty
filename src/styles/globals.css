@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: "Redaction";
+	font-style: bold;
+	font-name-instance: "Bold";
+	font-weight: 700;
+	src: url("/fonts/Redaction_50-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Redaction";
+	font-style: normal;
+	font-name-instance: "Regular";
+	font-weight: 500;
+	src: url("/fonts/Redaction_50-Regular.woff2") format("woff2");
+}
