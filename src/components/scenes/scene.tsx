@@ -24,7 +24,7 @@ const Scene: FunctionComponent<SceneProps> = ({}) => {
 		>
 			<Camera />
 			<Environment />
-			<Postprocessing />
+			{/* <Postprocessing /> */}
 		</Canvas>
 	)
 }

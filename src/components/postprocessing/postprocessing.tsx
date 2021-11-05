@@ -6,7 +6,7 @@ const Postprocessing = () => {
 		<EffectComposer multisampling={0}>
 			{
 				//@ts-ignore
-				<SSAO samples={31} radius={10} intensity={20} luminanceInfluence={0.1} color="black" />
+				<SSAO samples={32} radius={3} intensity={10} luminanceInfluence={0.1} color="black" />
 			}
 		</EffectComposer>
 	)
