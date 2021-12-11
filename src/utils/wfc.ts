@@ -44,6 +44,24 @@ export class Model {
 				}
 			}
 		}
+
+		for (let x = 0; x < this.size.x; x++) {
+			for (let y = 0; y < this.size.y; y++) {
+				for (let z = 0; z < this.size.z; z++) {
+					if (
+						x === 0 ||
+						y === 0 ||
+						z === 0 ||
+						x === this.size.x - 1 ||
+						y === this.size.y - 1 ||
+						z === this.size.z - 1
+					) {
+						this.observeWith({ x: x, y: y, z: z }, 0)
+						this.propagate({ x: x, y: y, z: z })
+					}
+				}
+			}
+		}
 	}
 
 	public run = (seed: number, limit: number): boolean => {
@@ -53,7 +71,10 @@ export class Model {
 			if (nodeIndex != null) {
 				this.observe(nodeIndex)
 				const success = this.propagate(nodeIndex)
-				if (!success) return false
+				if (!success) {
+					console.log("Could not be solved")
+					return false
+				}
 			} else {
 				return true
 			}
@@ -68,6 +89,11 @@ export class Model {
 		const pick = MathUtils.randInt(0, wave.length - 1)
 
 		this.waves[x][y][z] = [wave[pick]]
+	}
+
+	private observeWith = (nodeIndex: Vector3, observeIndex: number): void => {
+		const { x, y, z } = nodeIndex
+		this.waves[x][y][z] = [observeIndex]
 	}
 
 	private propagate = (nodeIndex: Vector3): boolean => {
