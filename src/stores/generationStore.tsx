@@ -1,6 +1,6 @@
 import {
 	Prototype,
-	Vector3,
+	Vector3 as V3,
 	Model as ModelWFC,
 	NeighbourPrototype,
 	NeighbourPrototypeString,
@@ -10,6 +10,7 @@ import create, { State, StateCreator } from "zustand"
 import constraints from "@/models/constraints.json"
 
 import Module from "@/stores/wasm"
+import { Vector3 } from "three"
 
 export interface Pos3 {
 	x: number
@@ -17,11 +18,19 @@ export interface Pos3 {
 	z: number
 }
 
+interface PrototypeObject {
+	id: string
+	key: string
+	position: Vector3
+}
+
 type GenerationStore = {
 	prototypes: Prototype[]
-	size: Vector3
+	size: V3
 	wfc: ModelWFC
 	initializeModule: () => void
+	prototypeObjects: PrototypeObject[]
+	setGeneration: (waves: number[][][][]) => void
 }
 
 const constraintIdArray = Object.keys(constraints)
@@ -77,8 +86,33 @@ export const useGenerationStore = create<GenerationStore>(
 		size: { x: 10, y: 10, z: 10 },
 		prototypes: constraintArray,
 		wfc: new ModelWFC(),
+		prototypeObjects: [],
 		//wasmExports: WASM.wasmExports,
 		initializeModule: initializeModule,
+		setGeneration: (waves: number[][][][]): void => {
+			set((state) => {
+				const prototypeObjects: PrototypeObject[] = []
+				const prototypeIds: string[] = useGenerationStore.getState().prototypes.map((p) => p.id)
+
+				for (let x = 0; x < waves.length; x++) {
+					for (let y = 0; y < waves[0].length; y++) {
+						for (let z = 0; z < waves[0][0].length; z++) {
+							const protoypeId = waves[x][y][z][0]
+
+							if (prototypeIds[protoypeId] !== "Empty") {
+								prototypeObjects.push({
+									key: "" + x + "" + y + "" + z,
+									id: prototypeIds[protoypeId],
+									position: new Vector3(x, y, z),
+								})
+							}
+						}
+					}
+				}
+
+				state.prototypeObjects = prototypeObjects
+			})
+		},
 	}))
 )
 
