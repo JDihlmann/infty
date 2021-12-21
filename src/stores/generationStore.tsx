@@ -60,6 +60,8 @@ Object.entries(constraints).forEach(([key, value]) => {
 	})
 })
 
+console.log(constraintArray)
+
 const initializeModule = () => {
 	//@ts-ignore
 	Module().then(function (Wasm) {

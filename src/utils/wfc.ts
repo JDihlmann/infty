@@ -54,12 +54,6 @@ export class Model {
 			}
 		}
 
-		// console.log([...Array(this.prototypes.length).keys()])
-		//console.log("Model initialized")
-		//console.log(this.prototypes)
-		//if(this.wa
-		// console.log(this.waves)
-
 		/* for (let x = 0; x < this.size.x; x++) {
 			for (let y = 0; y < this.size.y; y++) {
 				for (let z = 0; z < this.size.z; z++) {

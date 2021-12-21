@@ -4,6 +4,8 @@ import Edge from "@/models/Edge"
 import Poles from "@/models/Poles"
 import Stairs from "@/models/Stairs"
 import Tube from "@/models/Tube"
+import Roof from "@/models/Roof"
+import Window from "@/models/Window"
 import { useGenerationStore } from "@/stores/generationStore"
 import { MathUtils, Object3D, Vector3 } from "three"
 
@@ -14,7 +16,6 @@ const Displayer = () => {
 		const nameId = id.split("_")[0]
 
 		const obj = new Object3D()
-		console.log(id)
 		obj.rotateOnWorldAxis(new Vector3(1, 0, 0), MathUtils.degToRad(parseInt(id.split("_")[1]) * 90))
 		obj.rotateOnWorldAxis(
 			new Vector3(0, 0, 1),
@@ -42,6 +43,12 @@ const Displayer = () => {
 
 			case "Tube":
 				return <Tube key={key} position={pos} rotation={obj.rotation} />
+
+			case "Roof":
+				return <Roof key={key} position={pos} rotation={obj.rotation} />
+
+			case "Window":
+				return <Window key={key} position={pos} rotation={obj.rotation} />
 		}
 	}
 
