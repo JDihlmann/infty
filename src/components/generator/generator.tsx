@@ -2,37 +2,14 @@ import { useGenerationStore } from "@/stores/generationStore"
 import { Prototype } from "@/utils/wfc"
 import { Environment as EnvironmentLight, Html } from "@react-three/drei"
 import { useState } from "react"
-import { Color, Euler, MathUtils, Vector3 } from "three"
-import Corner_1 from "@/models/Corner_1"
-import Corner_2 from "@/models/Corner_2"
-import Corner_3 from "@/models/Corner_3"
-import Corner_4 from "@/models/Corner_4"
-import Corner_5 from "@/models/Corner_5"
-import EdgeB_1 from "@/models/EdgeB_1"
-import EdgeB_2 from "@/models/EdgeB_2"
-import EdgeB_3 from "@/models/EdgeB_3"
-import EdgeB_4 from "@/models/EdgeB_4"
-import EdgeC_1 from "@/models/EdgeC_1"
-import EdgeC_2 from "@/models/EdgeC_2"
-import EdgeC_3 from "@/models/EdgeC_3"
-import EdgeC_4 from "@/models/EdgeC_4"
-import EdgeT_1 from "@/models/EdgeT_1"
-import EdgeT_2 from "@/models/EdgeT_2"
-import EdgeT_3 from "@/models/EdgeT_3"
-import EdgeT_4 from "@/models/EdgeT_4"
-import Tube_1 from "@/models/Tube_1"
-import Tube_2 from "@/models/Tube_2"
-import Tube_3 from "@/models/Tube_3"
-import StairT_1 from "@/models/StairT_1"
-import StairT_2 from "@/models/StairT_2"
-import StairT_3 from "@/models/StairT_3"
-import StairT_4 from "@/models/StairT_4"
-import StairB_1 from "@/models/StairB_1"
-import StairB_2 from "@/models/StairB_2"
-import StairB_3 from "@/models/StairB_3"
-import StairB_4 from "@/models/StairB_4"
+import { Color, Euler, MathUtils, Object3D, Vector3 } from "three"
+import Arch from "@/models/Arch"
+import Corner from "@/models/Corner"
+import Edge from "@/models/Edge"
+import Poles from "@/models/Poles"
+import Stairs from "@/models/Stairs"
+import Tube from "@/models/Tube"
 import { Position } from "@react-three/drei/helpers/Position"
-import { parsePrototypes } from "@/models/config"
 
 interface ProtypeObject {
 	id: string
@@ -47,96 +24,38 @@ const Generator = () => {
 
 	const [generation, setGeneration] = useState<ProtypeObject[] | undefined>()
 
-	const getMeshForId = (
-		id: string,
-		key: string,
-		rotation: Euler | undefined,
-		position: Vector3 | undefined
-	) => {
-		switch (id) {
-			case "Corner_1":
-				return <Corner_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+	const getMeshForId = (id: string, key: string, position: Vector3 | undefined) => {
+		const nameId = id.split("_")[0]
 
-			case "Corner_2":
-				return <Corner_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+		const obj = new Object3D()
+		console.log(id)
+		obj.rotateOnWorldAxis(new Vector3(1, 0, 0), MathUtils.degToRad(parseInt(id.split("_")[1]) * 90))
+		obj.rotateOnWorldAxis(
+			new Vector3(0, 0, 1),
+			MathUtils.degToRad(-parseInt(id.split("_")[2]) * 90)
+		)
+		obj.rotateOnWorldAxis(new Vector3(0, 1, 0), MathUtils.degToRad(parseInt(id.split("_")[3]) * 90))
 
-			case "Corner_3":
-				return <Corner_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+		const pos = position?.clone().add(new Vector3(0.5, 0.5, 0.5))
 
-			case "Corner_4":
-				return <Corner_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+		switch (nameId) {
+			case "Arch":
+				return <Arch key={key} position={pos} rotation={obj.rotation} />
 
-			case "Corner_5":
-				return <Corner_5 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+			case "Corner":
+				return <Corner key={key} position={pos} rotation={obj.rotation} />
 
-			case "EdgeB_1":
-				return <EdgeB_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+			case "Edge":
+				return <Edge key={key} position={pos} rotation={obj.rotation} />
 
-			case "EdgeB_2":
-				return <EdgeB_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+			case "Poles":
+				return <Poles key={key} position={pos} rotation={obj.rotation} />
 
-			case "EdgeB_3":
-				return <EdgeB_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+			case "Stairs":
+				return <Stairs key={key} position={pos} rotation={obj.rotation} />
 
-			case "EdgeB_4":
-				return <EdgeB_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeC_1":
-				return <EdgeC_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeC_2":
-				return <EdgeC_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeC_3":
-				return <EdgeC_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeC_4":
-				return <EdgeC_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeT_1":
-				return <EdgeT_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeT_2":
-				return <EdgeT_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeT_3":
-				return <EdgeT_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "EdgeT_4":
-				return <EdgeT_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "Tube_1":
-				return <Tube_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "Tube_2":
-				return <Tube_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "Tube_3":
-				return <Tube_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairT_1":
-				return <StairT_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairT_2":
-				return <StairT_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairT_3":
-				return <StairT_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairT_4":
-				return <StairT_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairB_1":
-				return <StairB_1 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairB_2":
-				return <StairB_2 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairB_3":
-				return <StairB_3 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
-
-			case "StairB_4":
-				return <StairB_4 key={key} position={position} rotation={[0, MathUtils.degToRad(90), 0]} />
+			case "Tube":
+				return <Tube key={key} position={pos} rotation={obj.rotation} />
 		}
 	}
 
@@ -149,7 +68,7 @@ const Generator = () => {
 				for (let z = 0; z < waves[0][0].length; z++) {
 					const protoypeId = waves[x][y][z][0]
 
-					if (prototypeIds[protoypeId] !== "empty") {
+					if (prototypeIds[protoypeId] !== "Empty") {
 						prototypeObjects.push({
 							key: "" + x + "" + y + "" + z,
 							id: prototypeIds[protoypeId],
@@ -178,9 +97,7 @@ const Generator = () => {
 			</Html>
 
 			{generation &&
-				generation.map((protype) =>
-					getMeshForId(protype.id, protype.key, new Euler(0, 0, 2), protype.position)
-				)}
+				generation.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
 		</group>
 	)
 }

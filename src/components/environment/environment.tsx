@@ -1,34 +1,16 @@
 import { Environment as EnvironmentLight, Html } from "@react-three/drei"
 import { Suspense, useEffect } from "react"
-import { MathUtils } from "three"
+import { MathUtils, Object3D, Vector3 } from "three"
 import Generator from "../generator/generator"
 import Module from "@/stores/wasm"
+import { useGenerationStore } from "@/stores/generationStore"
 
 const Environment = () => {
-	useEffect(() => {
-		//var processHelper = null
-		//@ts-ignore
-		Module().then(function (Wasm) {
-			const test_func = Wasm.cwrap("test_function")
-			console.log("Test Function")
-			console.log(test_func())
+	const initializeModel = useGenerationStore((state) => state.initializeModule)
 
-			/*const width = 10;
-      const height = 10;
-      var sizes = Wasm._malloc(8);
-      Wasm.HEAP32.set(new Int32Array([height, width]), sizes / 4);
-      processHelper = new Wasm.ConstraintPropagationSolverProcessHelper2(
-        2,
-        1,
-        sizes
-      );*/
-		})
-		return () => {
-			//if (processHelper !== null) {
-			//	processHelper.delete()
-			//}
-		}
-	})
+	useEffect(() => {
+		initializeModel()
+	}, [initializeModel])
 
 	return (
 		<Suspense fallback={null}>
@@ -37,12 +19,7 @@ const Environment = () => {
 			<ambientLight intensity={0.4} />
 
 			<gridHelper args={[100, 100]} />
-			{/* <Generator /> */}
-
-			{/* <mesh receiveShadow position={[0, -0.51, 0]} scale={[100, 0.1, 100]}>
-				<boxGeometry />
-				<meshStandardMaterial color={"white"} />
-			</mesh> */}
+			<Generator />
 		</Suspense>
 	)
 }

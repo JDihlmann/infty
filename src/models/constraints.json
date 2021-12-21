@@ -1,0 +1,98 @@
+{
+	"Empty": {
+		"px": ["Empty", "Corner_0_2_0", "Tube_0_0_0", "Tube_0_0_2"],
+		"nx": [
+			"Empty",
+			"Tube_1_0_0",
+			"Corner_0_2_0",
+			"Tube_0_0_0",
+			"Tube_0_0_2",
+			"Edge_0_0_0",
+			"Edge_0_0_3"
+		],
+		"nz": [
+			"Empty",
+			"Edge_0_3_1",
+			"Corner_0_2_0",
+			"Tube_0_0_0",
+			"Tube_0_0_2",
+			"Tube_1_0_1",
+			"Edge_0_0_3"
+		],
+		"pz": [
+			"Empty",
+			"Corner_0_2_0",
+			"Tube_0_0_0",
+			"Tube_0_0_2",
+			"Edge_0_0_0",
+			"Tube_1_0_1",
+			"Edge_0_0_3"
+		],
+		"py": ["Empty", "Edge_0_3_1", "Tube_1_0_0", "Tube_1_0_1"],
+		"ny": ["Empty", "Edge_0_3_1", "Tube_1_0_0", "Edge_0_0_0", "Tube_1_0_1", "Edge_0_0_3"]
+	},
+	"Edge_0_3_1": {
+		"px": ["Tube_1_0_1"],
+		"nx": ["Empty"],
+		"nz": ["Tube_1_0_0"],
+		"pz": ["Empty"],
+		"py": ["Empty"],
+		"ny": ["Empty"]
+	},
+	"Tube_1_0_0": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Edge_0_0_0"],
+		"pz": ["Edge_0_3_1"],
+		"py": ["Empty"],
+		"ny": ["Empty"]
+	},
+	"Corner_0_2_0": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Empty"],
+		"pz": ["Empty"],
+		"py": ["Tube_0_0_0"],
+		"ny": ["Empty"]
+	},
+	"Tube_0_0_0": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Empty"],
+		"pz": ["Empty"],
+		"py": ["Tube_0_0_2"],
+		"ny": ["Corner_0_2_0"]
+	},
+	"Tube_0_0_2": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Empty"],
+		"pz": ["Empty"],
+		"py": ["Edge_0_0_0", "Edge_0_0_3"],
+		"ny": ["Tube_0_0_0"]
+	},
+	"Edge_0_0_0": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Empty"],
+		"pz": ["Tube_1_0_0"],
+		"py": ["Empty"],
+		"ny": ["Tube_0_0_2"]
+	},
+	"Tube_1_0_1": {
+		"px": ["Edge_0_0_3"],
+		"nx": ["Edge_0_3_1"],
+		"nz": ["Empty"],
+		"pz": ["Empty"],
+		"py": ["Empty"],
+		"ny": ["Empty"]
+	},
+	"Edge_0_0_3": {
+		"px": ["Empty"],
+		"nx": ["Tube_1_0_1"],
+		"nz": ["Empty"],
+		"pz": ["Empty"],
+		"py": ["Empty"],
+		"ny": ["Tube_0_0_2"]
+	}
+}

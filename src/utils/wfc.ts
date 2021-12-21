@@ -8,6 +8,15 @@ export interface NeighbourPrototype {
 	nz: number[]
 }
 
+export interface NeighbourPrototypeString {
+	px?: string[]
+	nx?: string[]
+	py?: string[]
+	ny?: string[]
+	pz?: string[]
+	nz?: string[]
+}
+
 export interface Prototype {
 	id: string
 	neighbourCells: NeighbourPrototype
@@ -45,7 +54,13 @@ export class Model {
 			}
 		}
 
-		for (let x = 0; x < this.size.x; x++) {
+		// console.log([...Array(this.prototypes.length).keys()])
+		//console.log("Model initialized")
+		//console.log(this.prototypes)
+		//if(this.wa
+		// console.log(this.waves)
+
+		/* for (let x = 0; x < this.size.x; x++) {
 			for (let y = 0; y < this.size.y; y++) {
 				for (let z = 0; z < this.size.z; z++) {
 					if (
@@ -61,7 +76,7 @@ export class Model {
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 	public run = (seed: number, limit: number): boolean => {
