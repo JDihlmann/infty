@@ -8,7 +8,7 @@ import {
 import produce, { Draft } from "immer"
 import create, { State, StateCreator } from "zustand"
 import constraints from "@/models/constraints.json"
-
+import WFC from "@/stores/wfc"
 import { Vector3 } from "three"
 
 export interface Pos3 {
@@ -26,7 +26,8 @@ interface PrototypeObject {
 type GenerationStore = {
 	prototypes: Prototype[]
 	size: V3
-	module: any
+	wfcModule: any
+	initWFCModule: () => void
 	wfc: ModelWFC
 	prototypeObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
@@ -58,6 +59,8 @@ Object.entries(constraints).forEach(([key, value]) => {
 		neighbourCells: neighboursCells,
 	})
 })
+
+console.log(JSON.stringify(constraintArray))
 
 /* const initializeModule = (): any => {
 	//@ts-ignore
@@ -92,7 +95,15 @@ export const useGenerationStore = create<GenerationStore>(
 		wfc: new ModelWFC(),
 		prototypeObjects: [],
 		//wasmExports: WASM.wasmExports,
-		module: null,
+		wfcModule: undefined,
+		initWFCModule: (): void => {
+			//@ts-ignore
+			WFC().then((mod) => {
+				set((state) => {
+					state.wfcModule = mod
+				})
+			})
+		},
 		setGeneration: (waves: number[][][][]): void => {
 			set((state) => {
 				const prototypeObjects: PrototypeObject[] = []

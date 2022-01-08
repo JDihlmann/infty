@@ -2032,7 +2032,7 @@ var Module = (function () {
 		wasmBinaryFile = "wasm.wasm"
 		if (!isDataURI(wasmBinaryFile)) {
 			wasmBinaryFile = locateFile(wasmBinaryFile)
-			wasmBinaryFile = "http://localhost:3000/wasm.wasm"
+			wasmBinaryFile = "http://localhost:3000/wfc.wasm"
 		}
 
 		function getBinary(file) {

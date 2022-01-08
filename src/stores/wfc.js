@@ -270,7 +270,7 @@ var $MODULE_NAME = (() => {
 		else if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
 			if (ENVIRONMENT_IS_WORKER) {
 				// Check worker, not web, since window could be polyfilled
-				scriptDirectory = window.self.location.href
+				scriptDirectory = self.location.href
 			} else if (typeof document !== "undefined" && document.currentScript) {
 				// web
 				scriptDirectory = document.currentScript.src
@@ -1789,98 +1789,92 @@ var $MODULE_NAME = (() => {
 		// include: URIUtils.js
 
 		// Prefix of data URIs emitted by SINGLE_FILE and related options.
-		//var dataURIPrefix = 'data:application/octet-stream;base64,';
+		var dataURIPrefix = "data:application/octet-stream;base64,"
 
 		// Indicates whether filename is a base64 data URI.
-		/*
-function isDataURI(filename) {
-  // Prefix of data URIs emitted by SINGLE_FILE and related options.
-  return filename.startsWith(dataURIPrefix);
-}
+		function isDataURI(filename) {
+			// Prefix of data URIs emitted by SINGLE_FILE and related options.
+			return filename.startsWith(dataURIPrefix)
+		}
 
-// Indicates whether filename is delivered via file protocol (as opposed to http/https)
-function isFileURI(filename) {
-  return filename.startsWith('file://');
-}
+		// Indicates whether filename is delivered via file protocol (as opposed to http/https)
+		function isFileURI(filename) {
+			return filename.startsWith("file://")
+		}
 
-// end include: URIUtils.js
-function createExportWrapper(name, fixedasm) {
-  return function() {
-    var displayName = name;
-    var asm = fixedasm;
-    if (!fixedasm) {
-      asm = Module['asm'];
-    }
-    assert(runtimeInitialized, 'native function `' + displayName + '` called before runtime initialization');
-    assert(!runtimeExited, 'native function `' + displayName + '` called after runtime exit (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-    if (!asm[name]) {
-      assert(asm[name], 'exported native function `' + displayName + '` not found');
-    }
-    return asm[name].apply(null, arguments);
-  };
-}
+		// end include: URIUtils.js
+		function createExportWrapper(name, fixedasm) {
+			return function () {
+				var displayName = name
+				var asm = fixedasm
+				if (!fixedasm) {
+					asm = Module["asm"]
+				}
+				assert(
+					runtimeInitialized,
+					"native function `" + displayName + "` called before runtime initialization"
+				)
+				assert(
+					!runtimeExited,
+					"native function `" +
+						displayName +
+						"` called after runtime exit (use NO_EXIT_RUNTIME to keep it alive after main() exits)"
+				)
+				if (!asm[name]) {
+					assert(asm[name], "exported native function `" + displayName + "` not found")
+				}
+				return asm[name].apply(null, arguments)
+			}
+		}
 
-var wasmBinaryFile;
-  wasmBinaryFile = 'wfc.wasm';
-  /*
-if (!isDataURI(wasmBinaryFile)) {
-    wasmBinaryFile = locateFile(wasmBinaryFile);
-  }
+		var wasmBinaryFile
+		wasmBinaryFile = "wfc.wasm"
+		if (!isDataURI(wasmBinaryFile)) {
+			wasmBinaryFile = locateFile(wasmBinaryFile)
+			wasmBinaryFile = "http://localhost:3000/wfc.wasm"
+		}
 
-function getBinary(file) {
-  try {
-    if (file == wasmBinaryFile && wasmBinary) {
-      return new Uint8Array(wasmBinary);
-    }
-    if (readBinary) {
-      return readBinary(file);
-    } else {
-      throw "both async and sync fetching of the wasm failed";
-    }
-  }
-  catch (err) {
-    abort(err);
-  }
-}
+		function getBinary(file) {
+			try {
+				if (file == wasmBinaryFile && wasmBinary) {
+					return new Uint8Array(wasmBinary)
+				}
+				if (readBinary) {
+					return readBinary(file)
+				} else {
+					throw "both async and sync fetching of the wasm failed"
+				}
+			} catch (err) {
+				abort(err)
+			}
+		}
 
-function getBinaryPromise() {
-  // If we don't have the binary yet, try to to load it asynchronously.
-  // Fetch has some additional restrictions over XHR, like it can't be used on a file:// url.
-  // See https://github.com/github/fetch/pull/92#issuecomment-140665932
-  // Cordova or Electron apps are typically loaded from a file:// url.
-  // So use fetch if it is available and the url is not a file, otherwise fall back to XHR.
-  if (!wasmBinary && (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER)) {
-    if (typeof fetch === 'function'
-    ) {
-      return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
-        if (!response['ok']) {
-          throw "failed to load wasm binary file at '" + wasmBinaryFile + "'";
-        }
-        return response['arrayBuffer']();
-      }).catch(function () {
-          return getBinary(wasmBinaryFile);
-      });
-    }
-  }
+		function getBinaryPromise() {
+			// If we don't have the binary yet, try to to load it asynchronously.
+			// Fetch has some additional restrictions over XHR, like it can't be used on a file:// url.
+			// See https://github.com/github/fetch/pull/92#issuecomment-140665932
+			// Cordova or Electron apps are typically loaded from a file:// url.
+			// So use fetch if it is available and the url is not a file, otherwise fall back to XHR.
+			if (!wasmBinary && (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER)) {
+				if (typeof fetch === "function") {
+					return fetch(wasmBinaryFile, { credentials: "same-origin" })
+						.then(function (response) {
+							if (!response["ok"]) {
+								throw "failed to load wasm binary file at '" + wasmBinaryFile + "'"
+							}
+							return response["arrayBuffer"]()
+						})
+						.catch(function () {
+							return getBinary(wasmBinaryFile)
+						})
+				}
+			}
 
-  // Otherwise, getBinary should be able to get it synchronously
-  return Promise.resolve().then(function() { return getBinary(wasmBinaryFile); });
-}
-
-*/
-
-		const getBinaryPromise = () =>
-			new Promise((resolve, reject) => {
-				fetch(wasmBinaryFile, { credentials: "same-origin" })
-					.then((response) => {
-						if (!response["ok"]) {
-							throw "failed to load wasm binary file at '" + wasmBinaryFile + "'"
-						}
-						return response["arrayBuffer"]()
-					})
-					.then(resolve)
-					.catch(reject)
+			// Otherwise, getBinary should be able to get it synchronously
+			return Promise.resolve().then(function () {
+				return getBinary(wasmBinaryFile)
 			})
+		}
 
 		// Create the wasm instance.
 		// Receives the wasm imports, returns the exports.
@@ -1962,7 +1956,7 @@ function getBinaryPromise() {
 				if (
 					!wasmBinary &&
 					typeof WebAssembly.instantiateStreaming === "function" &&
-					// !isDataURI(wasmBinaryFile) &&
+					!isDataURI(wasmBinaryFile) &&
 					typeof fetch === "function"
 				) {
 					return fetch(wasmBinaryFile, { credentials: "same-origin" }).then(function (response) {
@@ -4018,6 +4012,72 @@ function getBinaryPromise() {
 			requestedSize = requestedSize >>> 0
 			abortOnCannotGrowMemory(requestedSize)
 		}
+
+		var SYSCALLS = {
+			mappings: {},
+			buffers: [null, [], []],
+			printChar: function (stream, curr) {
+				var buffer = SYSCALLS.buffers[stream]
+				assert(buffer)
+				if (curr === 0 || curr === 10) {
+					;(stream === 1 ? out : err)(UTF8ArrayToString(buffer, 0))
+					buffer.length = 0
+				} else {
+					buffer.push(curr)
+				}
+			},
+			varargs: undefined,
+			get: function () {
+				assert(SYSCALLS.varargs != undefined)
+				SYSCALLS.varargs += 4
+				var ret = HEAP32[(SYSCALLS.varargs - 4) >> 2]
+				return ret
+			},
+			getStr: function (ptr) {
+				var ret = UTF8ToString(ptr)
+				return ret
+			},
+			get64: function (low, high) {
+				if (low >= 0) assert(high === 0)
+				else assert(high === -1)
+				return low
+			},
+		}
+		function _fd_close(fd) {
+			abort("it should not be possible to operate on streams when !SYSCALLS_REQUIRE_FILESYSTEM")
+			return 0
+		}
+
+		function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
+			abort("it should not be possible to operate on streams when !SYSCALLS_REQUIRE_FILESYSTEM")
+		}
+
+		function flush_NO_FILESYSTEM() {
+			// flush anything remaining in the buffers during shutdown
+			if (typeof _fflush !== "undefined") _fflush(0)
+			var buffers = SYSCALLS.buffers
+			if (buffers[1].length) SYSCALLS.printChar(1, 10)
+			if (buffers[2].length) SYSCALLS.printChar(2, 10)
+		}
+		function _fd_write(fd, iov, iovcnt, pnum) {
+			// hack to support printf in SYSCALLS_REQUIRE_FILESYSTEM=0
+			var num = 0
+			for (var i = 0; i < iovcnt; i++) {
+				var ptr = HEAP32[iov >> 2]
+				var len = HEAP32[(iov + 4) >> 2]
+				iov += 8
+				for (var j = 0; j < len; j++) {
+					SYSCALLS.printChar(fd, HEAPU8[ptr + j])
+				}
+				num += len
+			}
+			HEAP32[pnum >> 2] = num
+			return 0
+		}
+
+		function _setTempRet0(val) {
+			setTempRet0(val)
+		}
 		embind_init_charCodes()
 		BindingError = Module["BindingError"] = extendError(Error, "BindingError")
 		InternalError = Module["InternalError"] = extendError(Error, "InternalError")
@@ -4079,6 +4139,10 @@ function getBinaryPromise() {
 			abort: _abort,
 			emscripten_memcpy_big: _emscripten_memcpy_big,
 			emscripten_resize_heap: _emscripten_resize_heap,
+			fd_close: _fd_close,
+			fd_seek: _fd_seek,
+			fd_write: _fd_write,
+			setTempRet0: _setTempRet0,
 		}
 		var asm = createWasm()
 		/** @type {function(...*):?} */
@@ -4134,6 +4198,9 @@ function getBinaryPromise() {
 
 		/** @type {function(...*):?} */
 		var _free = (Module["_free"] = createExportWrapper("free"))
+
+		/** @type {function(...*):?} */
+		var dynCall_jiji = (Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji"))
 
 		// === Auto-generated postamble setup entry stuff ===
 
@@ -5929,7 +5996,7 @@ function getBinaryPromise() {
 			}
 			try {
 				// it doesn't matter if it fails
-				var flush = null
+				var flush = flush_NO_FILESYSTEM
 				if (flush) flush()
 			} catch (e) {}
 			out = oldOut
