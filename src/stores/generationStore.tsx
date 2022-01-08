@@ -9,7 +9,6 @@ import produce, { Draft } from "immer"
 import create, { State, StateCreator } from "zustand"
 import constraints from "@/models/constraints.json"
 
-import Module from "@/stores/wasm"
 import { Vector3 } from "three"
 
 export interface Pos3 {
@@ -27,8 +26,8 @@ interface PrototypeObject {
 type GenerationStore = {
 	prototypes: Prototype[]
 	size: V3
+	module: any
 	wfc: ModelWFC
-	initializeModule: () => void
 	prototypeObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
 }
@@ -60,21 +59,24 @@ Object.entries(constraints).forEach(([key, value]) => {
 	})
 })
 
-console.log(constraintArray)
-
-const initializeModule = () => {
+/* const initializeModule = (): any => {
 	//@ts-ignore
 	Module().then(function (Wasm) {
-		const test_func = Wasm.cwrap("test_function")
-		console.log("Test Function")
-		console.log(test_func())
+		//const test_func = Wasm.cwrap("test_function")
+		// console.log("Test Function")
+		// console.log(test_func())
+		console.log(Wasm)
+		const processHelper = new Wasm.ConstraintPropagationSolverProcessHelper3D(2, 1, 10, 10, 10)
+		return processHelper
 
 		// const height = 10
 		// var sizes = Wasm._malloc(8)
 		// Wasm.HEAP32.set(new Int32Array([height, width]), sizes / 4)
 		// processHelper = new Wasm.ConstraintPropagationSolverProcessHelper2(2, 1, sizes)
 	})
-}
+}*/
+
+// const module = initializeModule()
 
 const immer =
 	<T extends State>(
@@ -90,7 +92,7 @@ export const useGenerationStore = create<GenerationStore>(
 		wfc: new ModelWFC(),
 		prototypeObjects: [],
 		//wasmExports: WASM.wasmExports,
-		initializeModule: initializeModule,
+		module: null,
 		setGeneration: (waves: number[][][][]): void => {
 			set((state) => {
 				const prototypeObjects: PrototypeObject[] = []
