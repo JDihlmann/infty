@@ -54,12 +54,13 @@ export class Model {
 			}
 		}
 
-		/* for (let x = 0; x < this.size.x; x++) {
+		// Zero Pad
+		for (let x = 0; x < this.size.x; x++) {
 			for (let y = 0; y < this.size.y; y++) {
 				for (let z = 0; z < this.size.z; z++) {
 					if (
 						x === 0 ||
-						y === 0 ||
+						// y === 0 ||
 						z === 0 ||
 						x === this.size.x - 1 ||
 						y === this.size.y - 1 ||
@@ -70,7 +71,7 @@ export class Model {
 					}
 				}
 			}
-		}*/
+		}
 	}
 
 	public run = (seed: number, limit: number): boolean => {
@@ -95,6 +96,51 @@ export class Model {
 	private observe = (nodeIndex: Vector3): void => {
 		const { x, y, z } = nodeIndex
 		const wave = this.waves[x][y][z]
+
+		/*let pick = 0
+		if (wave.length >= 1) {
+			const waveSet = new Set(wave)
+			if (waveSet.has(0)) {
+				const dir = [-1, 0, 1]
+				let zeroCount = 0
+				let nonZeroCount = 0
+				dir.forEach((dx) => {
+					dir.forEach((dy) => {
+						dir.forEach((dz) => {
+							if (Math.abs(dx) + Math.abs(dy) + Math.abs(dz) <= 1) {
+								if (
+									x + dx >= 0 &&
+									x + dx < this.size.x &&
+									y + dy >= 0 &&
+									y + dy < this.size.y &&
+									z + dz >= 0 &&
+									z + dz < this.size.z
+								) {
+									const neighbourWave = this.waves[x + dx][y + dy][z + dz]
+									if (this.waves[x + dx][y + dy][z + dz].length === 1) {
+										if (neighbourWave[0] === 0) {
+											zeroCount++
+										} else {
+											nonZeroCount++
+										}
+									}
+								}
+							}
+						})
+					})
+				})
+
+				if (zeroCount > nonZeroCount) {
+					pick = 0
+				} else {
+					waveSet.delete(0)
+					MathUtils.randInt(0, waveSet.size - 1)
+				}
+			} else {
+				pick = MathUtils.randInt(0, wave.length - 1)
+			}
+		}*/
+
 		const pick = MathUtils.randInt(0, wave.length - 1)
 
 		this.waves[x][y][z] = [wave[pick]]

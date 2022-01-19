@@ -1,5 +1,6 @@
 import Body from "@/components/body/body"
 import Generator from "@/components/generator/generator"
+import GeneratorJS from "@/components/generator/generatorJS"
 
 import Scene from "@/components/scenes/scene"
 import { useRouter } from "next/router"
@@ -14,7 +15,8 @@ const Home = () => {
 				<Scene />
 			</div>
 			<Body>
-				<Generator />
+				{/* <Generator /> */}
+				<GeneratorJS />
 			</Body>
 		</>
 	)

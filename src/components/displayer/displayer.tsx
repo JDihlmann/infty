@@ -11,6 +11,7 @@ import { MathUtils, Object3D, Vector3 } from "three"
 
 const Displayer = () => {
 	const prototypeObjects = useGenerationStore((state) => state.prototypeObjects)
+	const size = useGenerationStore((state) => state.size)
 
 	const getMeshForId = (id: string, key: string, position: Vector3 | undefined) => {
 		const nameId = id.split("_")[0]
@@ -53,7 +54,7 @@ const Displayer = () => {
 	}
 
 	return (
-		<group>
+		<group position={[-Math.floor(size.x / 2), 0, -Math.floor(size.z / 2)]}>
 			{prototypeObjects &&
 				prototypeObjects.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
 		</group>

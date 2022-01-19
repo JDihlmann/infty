@@ -60,27 +60,6 @@ Object.entries(constraints).forEach(([key, value]) => {
 	})
 })
 
-console.log(JSON.stringify(constraintArray))
-
-/* const initializeModule = (): any => {
-	//@ts-ignore
-	Module().then(function (Wasm) {
-		//const test_func = Wasm.cwrap("test_function")
-		// console.log("Test Function")
-		// console.log(test_func())
-		console.log(Wasm)
-		const processHelper = new Wasm.ConstraintPropagationSolverProcessHelper3D(2, 1, 10, 10, 10)
-		return processHelper
-
-		// const height = 10
-		// var sizes = Wasm._malloc(8)
-		// Wasm.HEAP32.set(new Int32Array([height, width]), sizes / 4)
-		// processHelper = new Wasm.ConstraintPropagationSolverProcessHelper2(2, 1, sizes)
-	})
-}*/
-
-// const module = initializeModule()
-
 const immer =
 	<T extends State>(
 		config: StateCreator<T, (fn: (draft: Draft<T>) => void) => void>
@@ -90,7 +69,7 @@ const immer =
 
 export const useGenerationStore = create<GenerationStore>(
 	immer((set, get) => ({
-		size: { x: 10, y: 10, z: 10 },
+		size: { x: 50, y: 3, z: 50 },
 		prototypes: constraintArray,
 		wfc: new ModelWFC(),
 		prototypeObjects: [],
@@ -112,7 +91,10 @@ export const useGenerationStore = create<GenerationStore>(
 				for (let x = 0; x < waves.length; x++) {
 					for (let y = 0; y < waves[0].length; y++) {
 						for (let z = 0; z < waves[0][0].length; z++) {
-							const protoypeId = waves[x][y][z][0]
+							let protoypeId = waves[x][y][z][0]
+							if (protoypeId == -1) {
+								protoypeId = 0
+							}
 
 							if (prototypeIds[protoypeId] !== "Empty") {
 								prototypeObjects.push({

@@ -16,15 +16,13 @@
 			"Corner_1_0_2",
 			"Corner_0_2_1",
 			"Stairs_0_0_1",
-			"Edge_2_1_0",
-			"Tube_1_0_2",
-			"Edge_3_1_0",
 			"Edge_0_2_1",
 			"Tube_0_0_0",
 			"Edge_0_0_1",
 			"Edge_0_2_2",
 			"Tube_0_0_1",
 			"Edge_0_0_2",
+			"Tube_1_0_2",
 			"Edge_0_2_0",
 			"Edge_0_0_0"
 		],
@@ -45,15 +43,13 @@
 			"Arch_0_0_1",
 			"Stairs_2_0_1",
 			"Corner_1_0_1",
-			"Tube_1_0_2",
 			"Tube_0_0_0",
 			"Edge_0_2_2",
 			"Tube_0_0_1",
 			"Edge_0_0_2",
+			"Tube_1_0_2",
 			"Edge_0_2_0",
 			"Edge_0_0_0",
-			"Edge_1_1_0",
-			"Edge_0_1_0",
 			"Edge_0_2_3",
 			"Edge_0_0_3"
 		],
@@ -73,14 +69,12 @@
 			"Arch_0_0_1",
 			"Stairs_2_0_1",
 			"Corner_1_0_1",
-			"Edge_2_1_0",
 			"Edge_0_2_1",
 			"Tube_0_0_0",
 			"Edge_0_0_1",
 			"Edge_0_2_2",
 			"Tube_0_0_1",
 			"Edge_0_0_2",
-			"Edge_1_1_0",
 			"Edge_0_2_3",
 			"Edge_0_0_3"
 		],
@@ -101,14 +95,12 @@
 			"Arch_0_0_1",
 			"Stairs_2_0_1",
 			"Corner_1_0_1",
-			"Edge_3_1_0",
 			"Edge_0_2_1",
 			"Tube_0_0_0",
 			"Edge_0_0_1",
 			"Tube_0_0_1",
 			"Edge_0_2_0",
 			"Edge_0_0_0",
-			"Edge_0_1_0",
 			"Edge_0_2_3",
 			"Edge_0_0_3"
 		],
@@ -128,11 +120,7 @@
 			"Arch_0_0_1",
 			"Stairs_2_0_1",
 			"Corner_1_0_1",
-			"Edge_2_1_0",
-			"Tube_1_0_2",
-			"Edge_3_1_0",
-			"Edge_1_1_0",
-			"Edge_0_1_0"
+			"Tube_1_0_2"
 		],
 		"ny": [
 			"Empty",
@@ -146,14 +134,10 @@
 			"Corner_1_0_2",
 			"Stairs_0_0_1",
 			"Corner_1_0_1",
-			"Edge_2_1_0",
-			"Tube_1_0_2",
-			"Edge_3_1_0",
 			"Edge_0_0_1",
 			"Edge_0_0_2",
+			"Tube_1_0_2",
 			"Edge_0_0_0",
-			"Edge_1_1_0",
-			"Edge_0_1_0",
 			"Edge_0_0_3"
 		]
 	},
@@ -166,24 +150,8 @@
 		"ny": ["Empty"]
 	},
 	"Tube_1_0_1": {
-		"px": [
-			"Tube_1_0_1",
-			"Stairs_0_0_3",
-			"Corner_1_0_1",
-			"Edge_1_1_0",
-			"Edge_0_1_0",
-			"Edge_0_2_3",
-			"Edge_0_0_3"
-		],
-		"nx": [
-			"Corner_1_0_3",
-			"Tube_1_0_1",
-			"Stairs_0_0_1",
-			"Edge_2_1_0",
-			"Edge_3_1_0",
-			"Edge_0_2_1",
-			"Edge_0_0_1"
-		],
+		"px": ["Tube_1_0_1", "Stairs_0_0_3", "Corner_1_0_1", "Edge_0_2_3", "Edge_0_0_3"],
+		"nx": ["Corner_1_0_3", "Tube_1_0_1", "Stairs_0_0_1", "Edge_0_2_1", "Edge_0_0_1"],
 		"nz": ["Empty"],
 		"pz": ["Empty"],
 		"py": ["Empty"],
@@ -333,30 +301,6 @@
 		"py": ["Empty"],
 		"ny": ["Empty"]
 	},
-	"Edge_2_1_0": {
-		"px": ["Tube_1_0_1"],
-		"nx": ["Empty"],
-		"nz": ["Tube_1_0_2"],
-		"pz": ["Empty"],
-		"py": ["Empty"],
-		"ny": ["Empty"]
-	},
-	"Tube_1_0_2": {
-		"px": ["Empty"],
-		"nx": ["Empty"],
-		"nz": ["Edge_3_1_0", "Edge_0_2_0", "Edge_0_0_0", "Edge_0_1_0"],
-		"pz": ["Edge_2_1_0", "Edge_0_2_2", "Edge_0_0_2", "Edge_1_1_0"],
-		"py": ["Empty"],
-		"ny": ["Empty"]
-	},
-	"Edge_3_1_0": {
-		"px": ["Tube_1_0_1"],
-		"nx": ["Empty"],
-		"nz": ["Empty"],
-		"pz": ["Tube_1_0_2"],
-		"py": ["Empty"],
-		"ny": ["Empty"]
-	},
 	"Edge_0_2_1": {
 		"px": ["Tube_1_0_1"],
 		"nx": ["Empty"],
@@ -405,6 +349,14 @@
 		"py": ["Empty"],
 		"ny": ["Tube_0_0_1"]
 	},
+	"Tube_1_0_2": {
+		"px": ["Empty"],
+		"nx": ["Empty"],
+		"nz": ["Edge_0_2_0", "Edge_0_0_0"],
+		"pz": ["Edge_0_2_2", "Edge_0_0_2"],
+		"py": ["Empty"],
+		"ny": ["Empty"]
+	},
 	"Edge_0_2_0": {
 		"px": ["Empty"],
 		"nx": ["Empty"],
@@ -420,22 +372,6 @@
 		"pz": ["Tube_1_0_2"],
 		"py": ["Empty"],
 		"ny": ["Tube_0_0_1"]
-	},
-	"Edge_1_1_0": {
-		"px": ["Empty"],
-		"nx": ["Tube_1_0_1"],
-		"nz": ["Tube_1_0_2"],
-		"pz": ["Empty"],
-		"py": ["Empty"],
-		"ny": ["Empty"]
-	},
-	"Edge_0_1_0": {
-		"px": ["Empty"],
-		"nx": ["Tube_1_0_1"],
-		"nz": ["Empty"],
-		"pz": ["Tube_1_0_2"],
-		"py": ["Empty"],
-		"ny": ["Empty"]
 	},
 	"Edge_0_2_3": {
 		"px": ["Empty"],
