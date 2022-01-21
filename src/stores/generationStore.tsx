@@ -69,7 +69,7 @@ const immer =
 
 export const useGenerationStore = create<GenerationStore>(
 	immer((set, get) => ({
-		size: { x: 50, y: 3, z: 50 },
+		size: { x: 50, y: 10, z: 50 },
 		prototypes: constraintArray,
 		wfc: new ModelWFC(),
 		prototypeObjects: [],
@@ -96,7 +96,8 @@ export const useGenerationStore = create<GenerationStore>(
 								protoypeId = 0
 							}
 
-							if (prototypeIds[protoypeId] !== "Empty") {
+							const prototypeName = prototypeIds[protoypeId]
+							if (prototypeName !== "Empty" && prototypeName !== undefined) {
 								prototypeObjects.push({
 									key: "" + x + "" + y + "" + z,
 									id: prototypeIds[protoypeId],

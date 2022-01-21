@@ -23,12 +23,8 @@ const Generator = () => {
 			console.log("Module")
 			console.log(prototypes)
 			console.log("Prototypes Length: " + prototypes.length)
-			const processHelper = new wfcModule.ConstraintPropagationSolverProcessHelper3D(
-				prototypes.length + 1,
-				1,
-				size.z,
-				size.y,
-				size.x,
+			const processHelper = new wfcModule.ConstraintPropagationSolverProcessHelper3D_1_50_50_10(
+				prototypes.length,
 				false
 			)
 
@@ -67,7 +63,7 @@ const Generator = () => {
 					logError(processHelper, "set rule")
 				})
 
-				const diag = [-1, 0, 1]
+				/* const diag = [-1, 0, 1]
 
 				prototypes.forEach((prototype, otherId) => {
 					diag.forEach((z) => {
@@ -80,19 +76,19 @@ const Generator = () => {
 							})
 						})
 					})
-				})
+				}) */
 
-				diag.forEach((z) => {
+				/* diag.forEach((z) => {
 					diag.forEach((y) => {
 						diag.forEach((x) => {
 							processHelper.set_rule(id, prototypes.length, z, y, x, true)
 							logError(processHelper, "set rule")
 						})
 					})
-				})
+				}) */
 			})
 
-			const diag = [-1, 0, 1]
+			/* const diag = [-1, 0, 1]
 			diag.forEach((z) => {
 				diag.forEach((y) => {
 					diag.forEach((x) => {
@@ -100,11 +96,10 @@ const Generator = () => {
 						logError(processHelper, "set rule")
 					})
 				})
-			})
+			}) */
 
 			console.log("started run")
 			var t0 = performance.now()
-			console.log(t0)
 			processHelper.run()
 
 			console.log("finished run")
@@ -123,17 +118,16 @@ const Generator = () => {
 				.fill(0)
 				.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
 
-			for (let x = 0; x < 10; x++) {
-				for (let y = 0; y < 10; y++) {
-					for (let z = 0; z < 10; z++) {
-						console.log(processHelper.query(z, y, x) - 1)
-
+			for (let x = 0; x < size.x; x++) {
+				for (let y = 0; y < size.y; y++) {
+					for (let z = 0; z < size.z; z++) {
 						waves[x][y][z] = [processHelper.query(z, y, x) - 1]
+						logError(processHelper, "query")
 					}
 				}
 			}
 
-			logError(processHelper, "query")
+			console.log("Generated Succesfully")
 
 			setGeneration(waves)
 		}

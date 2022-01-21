@@ -15,8 +15,8 @@ const Home = () => {
 				<Scene />
 			</div>
 			<Body>
-				{/* <Generator /> */}
-				<GeneratorJS />
+				<Generator />
+				{/* <GeneratorJS /> */}
 			</Body>
 		</>
 	)
