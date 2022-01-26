@@ -8,9 +8,11 @@ import Roof from "@/models/Roof"
 import Window from "@/models/Window"
 import { useGenerationStore } from "@/stores/generationStore"
 import { MathUtils, Object3D, Vector3 } from "three"
+import { Html } from "@react-three/drei"
 
 const Displayer = () => {
 	const prototypeObjects = useGenerationStore((state) => state.prototypeObjects)
+	const entropyObjects = useGenerationStore((state) => state.entropyObjects)
 	const size = useGenerationStore((state) => state.size)
 
 	const getMeshForId = (id: string, key: string, position: Vector3 | undefined) => {
@@ -57,6 +59,15 @@ const Displayer = () => {
 		<group position={[-Math.floor(size.x / 2), 0, -Math.floor(size.z / 2)]}>
 			{prototypeObjects &&
 				prototypeObjects.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
+			{entropyObjects &&
+				entropyObjects.map((entropy) => {
+					const pos = entropy.position.clone().add(new Vector3(0.5, 0.5, 0.5))
+					return (
+						<Html key={entropy.key} position={pos} center>
+							{entropy.id}
+						</Html>
+					)
+				})}
 		</group>
 	)
 }

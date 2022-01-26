@@ -30,7 +30,9 @@ type GenerationStore = {
 	initWFCModule: () => void
 	wfc: ModelWFC
 	prototypeObjects: PrototypeObject[]
+	entropyObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
+	debugEntropy: (waves: number[][][][], wavesEntropy: number[][][]) => void
 }
 
 const constraintIdArray = Object.keys(constraints)
@@ -69,10 +71,11 @@ const immer =
 
 export const useGenerationStore = create<GenerationStore>(
 	immer((set, get) => ({
-		size: { x: 50, y: 10, z: 50 },
+		size: { x: 5, y: 5, z: 5 },
 		prototypes: constraintArray,
 		wfc: new ModelWFC(),
 		prototypeObjects: [],
+		entropyObjects: [],
 		//wasmExports: WASM.wasmExports,
 		wfcModule: undefined,
 		initWFCModule: (): void => {
@@ -109,6 +112,56 @@ export const useGenerationStore = create<GenerationStore>(
 				}
 
 				state.prototypeObjects = prototypeObjects
+			})
+		},
+		debugEntropy: (waves: number[][][][], wavesEntropy: number[][][]): void => {
+			set((state) => {
+				const prototypeObjects: PrototypeObject[] = []
+
+				for (let x = 0; x < wavesEntropy.length; x++) {
+					for (let y = 0; y < wavesEntropy[0].length; y++) {
+						for (let z = 0; z < wavesEntropy[0][0].length; z++) {
+							if (waves[x][y][z][0] != -1) {
+								console.log("Empty")
+								const diag = [-1, 0, 1]
+								diag.forEach((dx) => {
+									diag.forEach((dy) => {
+										diag.forEach((dz) => {
+											if (Math.abs(dx) + Math.abs(dy) + Math.abs(dz) == 1) {
+												if (
+													x + dx >= 0 &&
+													x + dx < wavesEntropy.length &&
+													y + dy >= 0 &&
+													y + dy < wavesEntropy[0].length &&
+													z + dz >= 0 &&
+													z + dz < wavesEntropy[0][0].length
+												) {
+													if (waves[x + dx][y + dy][z + dz][0] == -1) {
+														let found = false
+														prototypeObjects.forEach((p) => {
+															if (p.key == x + dx + "" + (y + dy) + "" + (z + dz)) {
+																found = true
+															}
+														})
+
+														if (!found) {
+															prototypeObjects.push({
+																key: "" + x + dx + "" + y + dy + "" + z + dz,
+																id: "" + wavesEntropy[x + dx][y + dy][z + dz],
+																position: new Vector3(x + dx, y + dy, z + dz),
+															})
+														}
+													}
+												}
+											}
+										})
+									})
+								})
+							}
+						}
+					}
+				}
+				state.entropyObjects = prototypeObjects
 			})
 		},
 	}))
