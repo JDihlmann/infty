@@ -27,7 +27,11 @@ const Generator = () => {
 		if (wfcModule) {
 			const processHelper = new wfcModule.ConstraintPropagationSolverProcessHelper3D(
 				prototypes.length,
-				false
+				false,
+				1,
+				size.x,
+				size.y,
+				size.z
 			)
 
 			logError(processHelper, "init")
@@ -117,6 +121,7 @@ const Generator = () => {
 					}
 				}
 			}
+			console.log(waves)
 
 			console.log("Generated Succesfully")
 

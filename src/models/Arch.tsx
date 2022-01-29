@@ -12,7 +12,7 @@ type GLTFResult = GLTF & {
 		Arch: THREE.Mesh
 	}
 	materials: {
-		["Material.081"]: THREE.MeshStandardMaterial
+		["Material.123"]: THREE.MeshStandardMaterial
 	}
 }
 
@@ -21,7 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/Arch.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh geometry={nodes.Arch.geometry} material={materials["Material.081"]} scale={0.5} />
+			<mesh geometry={nodes.Arch.geometry} material={materials["Material.123"]} scale={0.5} />
 		</group>
 	)
 }

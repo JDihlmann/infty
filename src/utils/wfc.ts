@@ -72,14 +72,6 @@ export class Model {
 				}
 			}
 		}
-
-		// Floor Pad
-		/* for (let x = 0; x < this.size.x; x++) {
-			for (let z = 0; z < this.size.z; z++) {
-				this.observeWith({ x: x, y: 0, z: z }, -1)
-				this.propagate({ x: x, y: 0, z: z })
-			}
-		}*/
 	}
 
 	public run = (seed: number, limit: number): boolean => {

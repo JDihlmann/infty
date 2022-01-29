@@ -9,21 +9,25 @@ import { GLTF } from "three-stdlib"
 
 type GLTFResult = GLTF & {
 	nodes: {
-		Window: THREE.Mesh
+		FlatStairWithWallRightUper: THREE.Mesh
 	}
 	materials: {
-		["Material.137"]: THREE.MeshStandardMaterial
+		["Material.143"]: THREE.MeshStandardMaterial
 	}
 }
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const group = useRef<THREE.Group>()
-	const { nodes, materials } = useGLTF("/Window.glb") as GLTFResult
+	const { nodes, materials } = useGLTF("/FlatStairWithWallRightUper.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh geometry={nodes.Window.geometry} material={materials["Material.137"]} scale={0.5} />
+			<mesh
+				geometry={nodes.FlatStairWithWallRightUper.geometry}
+				material={materials["Material.143"]}
+				scale={[-1, 1, 0.13]}
+			/>
 		</group>
 	)
 }
 
-useGLTF.preload("/Window.glb")
+useGLTF.preload("/FlatStairWithWallRightUper.glb")

@@ -9,25 +9,25 @@ import { GLTF } from "three-stdlib"
 
 type GLTFResult = GLTF & {
 	nodes: {
-		Poles: THREE.Mesh
+		BendWallOuter: THREE.Mesh
 	}
 	materials: {
-		["Material.076"]: THREE.MeshStandardMaterial
+		["Material.438"]: THREE.MeshStandardMaterial
 	}
 }
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const group = useRef<THREE.Group>()
-	const { nodes, materials } = useGLTF("/Poles.glb") as GLTFResult
+	const { nodes, materials } = useGLTF("/BendWallOuter.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<mesh
-				geometry={nodes.Poles.geometry}
-				material={materials["Material.076"]}
-				scale={[0.08, 0.5, 0.08]}
+				geometry={nodes.BendWallOuter.geometry}
+				material={materials["Material.438"]}
+				scale={[-0.5, -0.5, 0.5]}
 			/>
 		</group>
 	)
 }
 
-useGLTF.preload("/Poles.glb")
+useGLTF.preload("/BendWallOuter.glb")

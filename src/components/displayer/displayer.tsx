@@ -1,11 +1,30 @@
 import Arch from "@/models/Arch"
+import ArchLeft from "@/models/ArchLeft"
+import ArchRight from "@/models/ArchRight"
+import BendWall from "@/models/BendWall"
+import BendWallOuter from "@/models/BendWallOuter"
+import BendWallOuterLower from "@/models/BendWallOuterLower"
+import BendWallOuterTop from "@/models/BendWallOuterTop"
+import BendWallTop from "@/models/BendWallTop"
+import Connector from "@/models/Connector"
 import Corner from "@/models/Corner"
+import CornerFull from "@/models/CornerFull"
+import CornerFullHalfLower from "@/models/CornerFullHalfLower"
+import CornerHalfLower from "@/models/CornerHalfLower"
+import DoubleSided from "@/models/DoubleSided"
 import Edge from "@/models/Edge"
-import Poles from "@/models/Poles"
+import EdgeHalfLower from "@/models/EdgeHalfLower"
+import FlatStairsFreeUper from "@/models/FlatStairsFreeUper"
+import FlatStairWithWallLeftLowerUper from "@/models/FlatStairWithWallLeftLowerUper"
+import FlatStairWithWallRightUper from "@/models/FlatStairWithWallRightUper"
+import Loop from "@/models/Loop"
+import LoopHalfLower from "@/models/LoopHalfLower"
 import Stairs from "@/models/Stairs"
-import Tube from "@/models/Tube"
-import Roof from "@/models/Roof"
-import Window from "@/models/Window"
+import StairsLeft from "@/models/StairsLeft"
+import StairsRight from "@/models/StairsRight"
+import StairWithWallLeft from "@/models/StairWithWallLeft"
+import StairWithWallRight from "@/models/StairWithWallRight"
+import Wall from "@/models/Wall"
 import { useGenerationStore } from "@/stores/generationStore"
 import { MathUtils, Object3D, Vector3 } from "three"
 import { Html } from "@react-three/drei"
@@ -31,27 +50,58 @@ const Displayer = () => {
 		switch (nameId) {
 			case "Arch":
 				return <Arch key={key} position={pos} rotation={obj.rotation} />
-
+			case "ArchLeft":
+				return <ArchLeft key={key} position={pos} rotation={obj.rotation} />
+			case "ArchRight":
+				return <ArchRight key={key} position={pos} rotation={obj.rotation} />
+			case "BendWall":
+				return <BendWall key={key} position={pos} rotation={obj.rotation} />
+			case "BendWallOuter":
+				return <BendWallOuter key={key} position={pos} rotation={obj.rotation} />
+			case "BendWallOuterLower":
+				return <BendWallOuterLower key={key} position={pos} rotation={obj.rotation} />
+			case "BendWallOuterTop":
+				return <BendWallOuterTop key={key} position={pos} rotation={obj.rotation} />
+			case "BendWallTop":
+				return <BendWallTop key={key} position={pos} rotation={obj.rotation} />
+			case "Connector":
+				return <Connector key={key} position={pos} rotation={obj.rotation} />
 			case "Corner":
 				return <Corner key={key} position={pos} rotation={obj.rotation} />
-
+			case "CornerFull":
+				return <CornerFull key={key} position={pos} rotation={obj.rotation} />
+			case "CornerFullHalfLower":
+				return <CornerFullHalfLower key={key} position={pos} rotation={obj.rotation} />
+			case "CornerHalfLower":
+				return <CornerHalfLower key={key} position={pos} rotation={obj.rotation} />
+			case "DoubleSided":
+				return <DoubleSided key={key} position={pos} rotation={obj.rotation} />
 			case "Edge":
 				return <Edge key={key} position={pos} rotation={obj.rotation} />
-
-			case "Poles":
-				return <Poles key={key} position={pos} rotation={obj.rotation} />
-
+			case "EdgeHalfLower":
+				return <EdgeHalfLower key={key} position={pos} rotation={obj.rotation} />
+			case "FlatStairsFreeUper":
+				return <FlatStairsFreeUper key={key} position={pos} rotation={obj.rotation} />
+			case "FlatStairWithWallLeftLowerUper":
+				return <FlatStairWithWallLeftLowerUper key={key} position={pos} rotation={obj.rotation} />
+			case "FlatStairWithWallRightUper":
+				return <FlatStairWithWallRightUper key={key} position={pos} rotation={obj.rotation} />
+			case "Loop":
+				return <Loop key={key} position={pos} rotation={obj.rotation} />
+			case "LoopHalfLower":
+				return <LoopHalfLower key={key} position={pos} rotation={obj.rotation} />
 			case "Stairs":
 				return <Stairs key={key} position={pos} rotation={obj.rotation} />
-
-			case "Tube":
-				return <Tube key={key} position={pos} rotation={obj.rotation} />
-
-			case "Roof":
-				return <Roof key={key} position={pos} rotation={obj.rotation} />
-
-			case "Window":
-				return <Window key={key} position={pos} rotation={obj.rotation} />
+			case "StairsLeft":
+				return <StairsLeft key={key} position={pos} rotation={obj.rotation} />
+			case "StairsRight":
+				return <StairsRight key={key} position={pos} rotation={obj.rotation} />
+			case "StairWithWallLeft":
+				return <StairWithWallLeft key={key} position={pos} rotation={obj.rotation} />
+			case "StairWithWallRight":
+				return <StairWithWallRight key={key} position={pos} rotation={obj.rotation} />
+			case "Wall":
+				return <Wall key={key} position={pos} rotation={obj.rotation} />
 		}
 	}
 

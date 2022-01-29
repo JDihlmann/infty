@@ -12,7 +12,7 @@ type GLTFResult = GLTF & {
 		Corner: THREE.Mesh
 	}
 	materials: {
-		["Material.041"]: THREE.MeshStandardMaterial
+		["Material.104"]: THREE.MeshStandardMaterial
 	}
 }
 
@@ -21,7 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/Corner.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh geometry={nodes.Corner.geometry} material={materials["Material.041"]} scale={0.5} />
+			<mesh geometry={nodes.Corner.geometry} material={materials["Material.104"]} scale={0.5} />
 		</group>
 	)
 }
