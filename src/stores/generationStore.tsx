@@ -1,15 +1,9 @@
-import {
-	Prototype,
-	Vector3 as V3,
-	Model as ModelWFC,
-	NeighbourPrototype,
-	NeighbourPrototypeString,
-} from "@/utils/wfc"
 import produce, { Draft } from "immer"
 import create, { State, StateCreator } from "zustand"
 import constraints from "@/models/constraints.json"
 import WFC from "@/stores/wfc"
 import { Vector3 } from "three"
+import { DigitalGlitch } from "three-stdlib"
 
 export interface Pos3 {
 	x: number
@@ -17,6 +11,10 @@ export interface Pos3 {
 	z: number
 }
 
+export interface Prototype {
+	id: string
+	neighbourCells: Record<string, number[]>
+}
 interface PrototypeObject {
 	id: string
 	key: string
@@ -25,10 +23,10 @@ interface PrototypeObject {
 
 type GenerationStore = {
 	prototypes: Prototype[]
-	size: V3
+	size: Pos3
 	wfcModule: any
 	initWFCModule: () => void
-	wfc: ModelWFC
+	waves: number[][][][]
 	prototypeObjects: PrototypeObject[]
 	entropyObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
@@ -38,14 +36,16 @@ type GenerationStore = {
 const constraintIdArray = Object.keys(constraints)
 const constraintArray: Prototype[] = []
 Object.entries(constraints).forEach(([key, value]) => {
-	const neighboursCells: NeighbourPrototype = {
-		px: [],
-		nx: [],
-		py: [],
-		ny: [],
-		pz: [],
-		nz: [],
-	}
+	const neighboursCells: Record<string, number[]> = {}
+
+	const diag = [-1, 0, 1]
+	diag.forEach((dx) => {
+		diag.forEach((dy) => {
+			diag.forEach((dz) => {
+				neighboursCells["" + dx + "_" + dy + "_" + dz + ""] = []
+			})
+		})
+	})
 
 	Object.entries(value).forEach(([key, value]) => {
 		const neighbourCellAxis = value.map((id) => {
@@ -71,11 +71,11 @@ const immer =
 
 export const useGenerationStore = create<GenerationStore>(
 	immer((set, get) => ({
-		size: { x: 1, y: 2, z: 1 },
+		size: { x: 32, y: 16, z: 32 },
 		prototypes: constraintArray,
-		wfc: new ModelWFC(),
 		prototypeObjects: [],
 		entropyObjects: [],
+		waves: [[[]]],
 		//wasmExports: WASM.wasmExports,
 		wfcModule: undefined,
 		initWFCModule: (): void => {
@@ -111,6 +111,7 @@ export const useGenerationStore = create<GenerationStore>(
 					}
 				}
 
+				state.waves = waves
 				state.prototypeObjects = prototypeObjects
 			})
 		},

@@ -1,32 +1,6 @@
 {
     "Empty": {
-        "px": [
-            "Empty",
-            "Corner_0_0_2",
-            "Edge_1_0_2",
-            "Corner_0_3_2",
-            "Edge_0_0_2",
-            "Wall_0_0_2",
-            "Edge_0_3_2",
-            "Corner_0_0_1",
-            "Edge_1_0_1",
-            "Corner_0_3_1",
-            "BendWallOuterTop_3_0_1",
-            "BendWallOuter_1_0_0",
-            "BendWallOuterTop_1_0_0",
-            "BendWallOuterTop_3_0_0",
-            "BendWallOuter_1_0_3",
-            "BendWallOuterTop_1_0_3",
-            "BendWallTop_3_0_1",
-            "BendWall_1_0_0",
-            "BendWallTop_1_0_0",
-            "BendWallTop_3_0_0",
-            "BendWall_1_0_3",
-            "BendWallTop_1_0_3",
-            "StairWithWallLeft_0_0_1",
-            "StairWithWallRight_0_0_1"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty",
             "Corner_0_0_0",
             "Edge_1_0_0",
@@ -43,91 +17,23 @@
             "BendWallOuterTop_3_0_2",
             "BendWallOuter_1_0_1",
             "BendWallOuterTop_1_0_1",
-            "BendWallTop_3_0_3",
-            "BendWall_1_0_2",
-            "BendWallTop_1_0_2",
-            "BendWallTop_3_0_2",
-            "BendWall_1_0_1",
-            "BendWallTop_1_0_1",
+            "BendWallOuterLower_3_0_3",
+            "BendWallOuterLower_3_0_2",
+            "StairsRight_0_0_2",
+            "StairsRight_0_0_3",
+            "StairsLeft_0_0_3",
+            "StairsLeft_0_0_0",
             "StairWithWallLeft_0_0_3",
-            "StairWithWallRight_0_0_3"
+            "StairWithWallRight_0_0_3",
+            "ArchLeft_0_3_1",
+            "ArchRight_0_3_3",
+            "EdgeHalfLower_0_0_0",
+            "LoopHalfLower_0_0_0",
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_2"
         ],
-        "nz": [
-            "Empty",
-            "Corner_0_0_3",
-            "Edge_1_0_3",
-            "Corner_0_3_3",
-            "Edge_0_0_3",
-            "Wall_0_0_3",
-            "Edge_0_3_3",
-            "Corner_0_0_2",
-            "Edge_1_0_2",
-            "Corner_0_3_2",
-            "BendWallOuterTop_3_0_2",
-            "BendWallOuter_1_0_1",
-            "BendWallOuterTop_1_0_1",
-            "BendWallOuterTop_3_0_1",
-            "BendWallOuter_1_0_0",
-            "BendWallOuterTop_1_0_0",
-            "BendWallTop_3_0_2",
-            "BendWall_1_0_1",
-            "BendWallTop_1_0_1",
-            "BendWallTop_3_0_1",
-            "BendWall_1_0_0",
-            "BendWallTop_1_0_0",
-            "StairWithWallLeft_0_0_2",
-            "StairWithWallRight_0_0_2"
-        ],
-        "pz": [
-            "Empty",
-            "Corner_0_0_1",
-            "Edge_1_0_1",
-            "Corner_0_3_1",
-            "Edge_0_0_1",
-            "Wall_0_0_1",
-            "Edge_0_3_1",
-            "Corner_0_0_0",
-            "Edge_1_0_0",
-            "Corner_0_3_0",
-            "BendWallOuterTop_3_0_0",
-            "BendWallOuter_1_0_3",
-            "BendWallOuterTop_1_0_3",
-            "BendWallOuterTop_3_0_3",
-            "BendWallOuter_1_0_2",
-            "BendWallOuterTop_1_0_2",
-            "BendWallTop_3_0_0",
-            "BendWall_1_0_3",
-            "BendWallTop_1_0_3",
-            "BendWallTop_3_0_3",
-            "BendWall_1_0_2",
-            "BendWallTop_1_0_2",
-            "StairWithWallLeft_0_0_0",
-            "StairWithWallRight_0_0_0"
-        ],
-        "py": [
-            "Empty",
-            "Corner_0_0_2",
-            "Corner_0_0_3",
-            "Corner_0_0_0",
-            "Corner_0_0_1",
-            "Edge_0_0_2",
-            "Edge_0_0_3",
-            "Edge_0_0_0",
-            "Edge_0_0_1",
-            "Wall_0_1_0",
-            "Wall_0_1_1",
-            "Wall_0_1_2",
-            "Wall_0_1_3",
-            "BendWallOuterTop_3_0_1",
-            "BendWallOuterTop_3_0_2",
-            "BendWallOuterTop_3_0_3",
-            "BendWallOuterTop_3_0_0",
-            "BendWallTop_3_0_1",
-            "BendWallTop_3_0_2",
-            "BendWallTop_3_0_3",
-            "BendWallTop_3_0_0"
-        ],
-        "ny": [
+        "0_-1_0": [
+            "Floor",
             "Empty",
             "Corner_0_3_2",
             "Corner_0_3_3",
@@ -145,1610 +51,2847 @@
             "BendWallOuterTop_1_0_1",
             "BendWallOuterTop_1_0_2",
             "BendWallOuterTop_1_0_3",
-            "BendWallTop_1_0_0",
-            "BendWallTop_1_0_1",
-            "BendWallTop_1_0_2",
-            "BendWallTop_1_0_3",
+            "StairsRight_0_0_0",
+            "StairsRight_0_0_1",
+            "StairsRight_0_0_2",
+            "StairsRight_0_0_3",
+            "StairsLeft_0_0_0",
+            "StairsLeft_0_0_1",
+            "StairsLeft_0_0_2",
+            "StairsLeft_0_0_3",
             "StairWithWallLeft_0_0_2",
             "StairWithWallLeft_0_0_3",
             "StairWithWallLeft_0_0_0",
             "StairWithWallLeft_0_0_1",
+            "StairWithWallRight_0_0_0",
+            "StairWithWallRight_0_0_1",
             "StairWithWallRight_0_0_2",
             "StairWithWallRight_0_0_3",
+            "FlatStairWithWallRightUper_0_0_0",
+            "FlatStairWithWallRightUper_0_0_1",
+            "FlatStairWithWallRightUper_0_0_2",
+            "FlatStairWithWallRightUper_0_0_3",
+            "EdgeHalfLower_0_0_2",
+            "EdgeHalfLower_0_0_3",
+            "EdgeHalfLower_0_0_0",
+            "EdgeHalfLower_0_0_1",
+            "LoopHalfLower_0_0_2",
+            "LoopHalfLower_0_0_3",
+            "LoopHalfLower_0_0_0",
+            "LoopHalfLower_0_0_1",
+            "FlatStairWithWallLeftLowerUper_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "0_0_-1": [
+            "Empty",
+            "Corner_0_0_3",
+            "Edge_1_0_3",
+            "Corner_0_3_3",
+            "Edge_0_0_3",
+            "Wall_0_0_3",
+            "Edge_0_3_3",
+            "Corner_0_0_2",
+            "Edge_1_0_2",
+            "Corner_0_3_2",
+            "BendWallOuterTop_3_0_2",
+            "BendWallOuter_1_0_1",
+            "BendWallOuterTop_1_0_1",
+            "BendWallOuterTop_3_0_1",
+            "BendWallOuter_1_0_0",
+            "BendWallOuterTop_1_0_0",
+            "BendWallOuterLower_3_0_2",
+            "BendWallOuterLower_3_0_1",
+            "StairsRight_0_0_1",
+            "StairsRight_0_0_2",
+            "StairsLeft_0_0_2",
+            "StairsLeft_0_0_3",
+            "StairWithWallLeft_0_0_2",
+            "StairWithWallRight_0_0_2",
+            "ArchLeft_0_3_0",
+            "ArchRight_0_3_2",
+            "EdgeHalfLower_0_0_3",
+            "LoopHalfLower_0_0_3",
+            "ArchLeft_0_3_1",
+            "ArchRight_0_3_1"
+        ],
+        "0_0_1": [
+            "Empty",
+            "Corner_0_0_1",
+            "Edge_1_0_1",
+            "Corner_0_3_1",
+            "Edge_0_0_1",
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "Corner_0_0_0",
+            "Edge_1_0_0",
+            "Corner_0_3_0",
+            "BendWallOuterTop_3_0_0",
+            "BendWallOuter_1_0_3",
+            "BendWallOuterTop_1_0_3",
+            "BendWallOuterTop_3_0_3",
+            "BendWallOuter_1_0_2",
+            "BendWallOuterTop_1_0_2",
+            "BendWallOuterLower_3_0_0",
+            "BendWallOuterLower_3_0_3",
+            "StairsRight_0_0_3",
+            "StairsRight_0_0_0",
+            "StairsLeft_0_0_0",
+            "StairsLeft_0_0_1",
+            "StairWithWallLeft_0_0_0",
             "StairWithWallRight_0_0_0",
-            "StairWithWallRight_0_0_1"
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_0",
+            "EdgeHalfLower_0_0_1",
+            "LoopHalfLower_0_0_1",
+            "ArchLeft_0_3_3",
+            "ArchRight_0_3_3"
+        ],
+        "0_1_0": [
+            "Empty",
+            "ArchLeft_0_3_3",
+            "ArchLeft_0_3_0",
+            "ArchLeft_0_3_1",
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_1",
+            "ArchRight_0_3_2",
+            "ArchRight_0_3_3",
+            "ArchRight_0_3_0",
+            "Arch_0_3_3",
+            "Arch_0_3_0",
+            "Arch_0_3_1",
+            "Arch_0_3_2",
+            "LoopHalfLower_0_0_2",
+            "LoopHalfLower_0_0_3",
+            "LoopHalfLower_0_0_0",
+            "LoopHalfLower_0_0_1"
+        ],
+        "1_0_0": [
+            "Empty",
+            "Corner_0_0_2",
+            "Edge_1_0_2",
+            "Corner_0_3_2",
+            "Edge_0_0_2",
+            "Wall_0_0_2",
+            "Edge_0_3_2",
+            "Corner_0_0_1",
+            "Edge_1_0_1",
+            "Corner_0_3_1",
+            "BendWallOuterTop_3_0_1",
+            "BendWallOuter_1_0_0",
+            "BendWallOuterTop_1_0_0",
+            "BendWallOuterTop_3_0_0",
+            "BendWallOuter_1_0_3",
+            "BendWallOuterTop_1_0_3",
+            "BendWallOuterLower_3_0_1",
+            "BendWallOuterLower_3_0_0",
+            "StairsRight_0_0_0",
+            "StairsRight_0_0_1",
+            "StairsLeft_0_0_1",
+            "StairsLeft_0_0_2",
+            "StairWithWallLeft_0_0_1",
+            "StairWithWallRight_0_0_1",
+            "ArchLeft_0_3_3",
+            "ArchRight_0_3_1",
+            "EdgeHalfLower_0_0_2",
+            "LoopHalfLower_0_0_2",
+            "ArchLeft_0_3_0",
+            "ArchRight_0_3_0"
+        ]
+    },
+    "Floor": {
+        "-1_0_0": [
+            "Floor"
+        ],
+        "0_-1_0": [],
+        "0_0_-1": [
+            "Floor"
+        ],
+        "0_0_1": [
+            "Floor"
+        ],
+        "0_1_0": [
+            "Empty",
+            "Corner_0_0_2",
+            "Corner_0_0_3",
+            "Corner_0_0_0",
+            "Corner_0_0_1",
+            "Edge_0_0_2",
+            "Edge_0_0_3",
+            "Edge_0_0_0",
+            "Edge_0_0_1",
+            "Wall_0_1_0",
+            "Wall_0_1_1",
+            "Wall_0_1_2",
+            "Wall_0_1_3",
+            "BendWallOuterTop_3_0_1",
+            "BendWallOuterTop_3_0_2",
+            "BendWallOuterTop_3_0_3",
+            "BendWallOuterTop_3_0_0"
+        ],
+        "1_0_0": [
+            "Floor"
         ]
     },
     "Corner_0_0_2": {
-        "px": [
-            "Edge_0_0_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
-            "Edge_0_0_2"
+        "0_-1_0": [
+            "Floor"
         ],
-        "pz": [
+        "0_0_-1": [
+            "Edge_0_0_2",
+            "Wall_0_1_1",
+            "Corner_0_0_1"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
+        "0_1_0": [
             "Edge_1_0_2",
             "Corner_0_3_2"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_3",
+            "Wall_0_1_2",
+            "Corner_0_0_3"
         ]
     },
     "Corner_0_0_3": {
-        "nz": [
-            "Edge_0_0_0"
+        "-1_0_0": [
+            "Edge_0_0_3",
+            "Wall_0_1_2",
+            "Corner_0_0_2"
         ],
-        "pz": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
+            "Edge_0_0_0",
+            "Wall_0_1_3",
+            "Corner_0_0_0"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "nx": [
-            "Edge_0_0_3"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "Edge_1_0_3",
             "Corner_0_3_3"
         ],
-        "ny": [
+        "1_0_0": [
             "Empty"
         ]
     },
     "Corner_0_0_0": {
-        "nx": [
-            "Edge_0_0_1"
+        "-1_0_0": [
+            "Edge_0_0_1",
+            "Wall_0_1_0",
+            "Corner_0_0_1"
         ],
-        "px": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
             "Empty"
         ],
-        "pz": [
-            "Edge_0_0_0"
+        "0_0_1": [
+            "Edge_0_0_0",
+            "Wall_0_1_3",
+            "Corner_0_0_3"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "Edge_1_0_0",
             "Corner_0_3_0"
         ],
-        "ny": [
+        "1_0_0": [
             "Empty"
         ]
     },
     "Corner_0_0_1": {
-        "pz": [
-            "Edge_0_0_2"
-        ],
-        "nz": [
+        "-1_0_0": [
             "Empty"
         ],
-        "px": [
-            "Edge_0_0_1"
+        "0_-1_0": [
+            "Floor"
         ],
-        "nx": [
+        "0_0_-1": [
             "Empty"
         ],
-        "py": [
+        "0_0_1": [
+            "Edge_0_0_2",
+            "Wall_0_1_1",
+            "Corner_0_0_2"
+        ],
+        "0_1_0": [
             "Edge_1_0_1",
             "Corner_0_3_1"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_1",
+            "Wall_0_1_0",
+            "Corner_0_0_0"
         ]
     },
     "Edge_1_0_2": {
-        "px": [
-            "Wall_0_0_3"
+        "-1_0_0": [
+            "Empty",
+            "ArchLeft_0_3_0"
         ],
-        "nx": [
-            "Empty"
-        ],
-        "nz": [
-            "Wall_0_0_2"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "Edge_1_0_2",
-            "Corner_0_3_2"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Corner_0_0_2",
-            "Edge_1_0_2"
-        ]
-    },
-    "Edge_1_0_3": {
-        "nz": [
-            "Wall_0_0_0"
+            "Edge_1_0_2",
+            "Connector_0_0_0"
         ],
-        "pz": [
-            "Empty"
+        "0_0_-1": [
+            "Wall_0_0_2",
+            "Connector_0_0_0",
+            "Edge_1_0_1"
         ],
-        "nx": [
+        "0_0_1": [
+            "Empty",
+            "ArchRight_0_3_1"
+        ],
+        "0_1_0": [
+            "Edge_1_0_2",
+            "Corner_0_3_2",
+            "Edge_0_3_3",
+            "Wall_0_0_2",
+            "Edge_0_3_2",
             "Wall_0_0_3"
         ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "Edge_1_0_3",
-            "Corner_0_3_3"
-        ],
-        "ny": [
-            "Corner_0_0_3",
+        "1_0_0": [
+            "Wall_0_0_3",
+            "Connector_0_0_0",
             "Edge_1_0_3"
         ]
     },
-    "Edge_1_0_0": {
-        "nx": [
-            "Wall_0_0_1"
+    "Edge_1_0_3": {
+        "-1_0_0": [
+            "Wall_0_0_3",
+            "Connector_0_0_0",
+            "Edge_1_0_2"
         ],
-        "px": [
-            "Empty"
+        "0_-1_0": [
+            "Corner_0_0_3",
+            "Edge_1_0_3",
+            "Connector_0_0_0"
         ],
-        "pz": [
+        "0_0_-1": [
+            "Wall_0_0_0",
+            "Connector_0_0_0",
+            "Edge_1_0_0"
+        ],
+        "0_0_1": [
+            "Empty",
+            "ArchLeft_0_3_1"
+        ],
+        "0_1_0": [
+            "Edge_1_0_3",
+            "Corner_0_3_3",
+            "Edge_0_3_0",
+            "Wall_0_0_3",
+            "Edge_0_3_3",
             "Wall_0_0_0"
         ],
-        "nz": [
-            "Empty"
+        "1_0_0": [
+            "Empty",
+            "ArchRight_0_3_2"
+        ]
+    },
+    "Edge_1_0_0": {
+        "-1_0_0": [
+            "Wall_0_0_1",
+            "Connector_0_0_0",
+            "Edge_1_0_1"
         ],
-        "py": [
-            "Edge_1_0_0",
-            "Corner_0_3_0"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Corner_0_0_0",
-            "Edge_1_0_0"
+            "Edge_1_0_0",
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty",
+            "ArchRight_0_3_3"
+        ],
+        "0_0_1": [
+            "Wall_0_0_0",
+            "Connector_0_0_0",
+            "Edge_1_0_3"
+        ],
+        "0_1_0": [
+            "Edge_1_0_0",
+            "Corner_0_3_0",
+            "Edge_0_3_1",
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "Wall_0_0_1"
+        ],
+        "1_0_0": [
+            "Empty",
+            "ArchLeft_0_3_2"
         ]
     },
     "Edge_1_0_1": {
-        "pz": [
+        "-1_0_0": [
+            "Empty",
+            "ArchRight_0_3_0"
+        ],
+        "0_-1_0": [
+            "Corner_0_0_1",
+            "Edge_1_0_1",
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty",
+            "ArchLeft_0_3_3"
+        ],
+        "0_0_1": [
+            "Wall_0_0_2",
+            "Connector_0_0_0",
+            "Edge_1_0_2"
+        ],
+        "0_1_0": [
+            "Edge_1_0_1",
+            "Corner_0_3_1",
+            "Edge_0_3_2",
+            "Wall_0_0_1",
+            "Edge_0_3_1",
             "Wall_0_0_2"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Wall_0_0_1"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "Edge_1_0_1",
-            "Corner_0_3_1"
-        ],
-        "ny": [
-            "Corner_0_0_1",
-            "Edge_1_0_1"
+        "1_0_0": [
+            "Wall_0_0_1",
+            "Connector_0_0_0",
+            "Edge_1_0_0"
         ]
     },
     "Corner_0_3_2": {
-        "px": [
-            "Edge_0_3_3",
-            "StairWithWallLeft_0_0_2",
-            "Wall_0_0_3",
-            "Corner_0_3_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
-            "Edge_0_3_2",
-            "Wall_0_0_2",
-            "StairWithWallRight_0_0_1",
-            "Corner_0_3_1"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Edge_1_0_2",
             "Corner_0_0_2",
             "Wall_0_0_2",
             "Wall_0_0_3"
+        ],
+        "0_0_-1": [
+            "Edge_0_3_2",
+            "Wall_0_0_2",
+            "StairWithWallRight_0_0_1",
+            "FlatStairWithWallRightUper_0_0_1"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Edge_0_3_3",
+            "StairWithWallLeft_0_0_2",
+            "Wall_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_2"
         ]
     },
     "Corner_0_3_3": {
-        "nz": [
-            "Edge_0_3_0",
-            "StairWithWallLeft_0_0_3",
-            "Wall_0_0_0",
-            "Corner_0_3_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_3_3",
             "Wall_0_0_3",
             "StairWithWallRight_0_0_2",
-            "Corner_0_3_2"
+            "FlatStairWithWallRightUper_0_0_2"
         ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Edge_1_0_3",
             "Corner_0_0_3",
             "Wall_0_0_3",
             "Wall_0_0_0"
+        ],
+        "0_0_-1": [
+            "Edge_0_3_0",
+            "StairWithWallLeft_0_0_3",
+            "Wall_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_3"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "Corner_0_3_0": {
-        "nx": [
+        "-1_0_0": [
             "Edge_0_3_1",
             "StairWithWallLeft_0_0_0",
             "Wall_0_0_1",
-            "Corner_0_3_1"
+            "FlatStairWithWallLeftLowerUper_0_0_0"
         ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
-            "Edge_0_3_0",
-            "Wall_0_0_0",
-            "StairWithWallRight_0_0_3",
-            "Corner_0_3_3"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Edge_1_0_0",
             "Corner_0_0_0",
             "Wall_0_0_0",
             "Wall_0_0_1"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_0_3_0",
+            "Wall_0_0_0",
+            "StairWithWallRight_0_0_3",
+            "FlatStairWithWallRightUper_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "Corner_0_3_1": {
-        "pz": [
-            "Edge_0_3_2",
-            "StairWithWallLeft_0_0_1",
-            "Wall_0_0_2",
-            "Corner_0_3_2"
-        ],
-        "nz": [
+        "-1_0_0": [
             "Empty"
         ],
-        "px": [
-            "Edge_0_3_1",
-            "Wall_0_0_1",
-            "StairWithWallRight_0_0_0",
-            "Corner_0_3_0"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Edge_1_0_1",
             "Corner_0_0_1",
             "Wall_0_0_1",
             "Wall_0_0_2"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_0_3_2",
+            "StairWithWallLeft_0_0_1",
+            "Wall_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Edge_0_3_1",
+            "Wall_0_0_1",
+            "StairWithWallRight_0_0_0",
+            "FlatStairWithWallRightUper_0_0_0"
         ]
     },
     "Edge_0_0_2": {
-        "px": [
-            "Wall_0_1_0",
-            "Wall_0_1_3",
-            "Wall_0_1_1",
-            "Wall_0_1_2"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
             "Edge_0_0_2",
             "Corner_0_0_1",
-            "BendWallOuterTop_3_0_0",
-            "BendWallTop_3_0_0"
+            "Wall_0_1_2",
+            "BendWallOuterTop_3_0_0"
         ],
-        "pz": [
+        "0_0_1": [
             "Corner_0_0_2",
             "Edge_0_0_2",
-            "BendWallOuterTop_3_0_1",
-            "BendWallTop_3_0_1"
+            "Wall_0_1_0",
+            "BendWallOuterTop_3_0_1"
         ],
-        "py": [
+        "0_1_0": [
             "Wall_0_0_2",
             "Edge_0_3_2"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Wall_0_1_0",
+            "Wall_0_1_3",
+            "Wall_0_1_1",
+            "Wall_0_1_2",
+            "Edge_0_0_0"
         ]
     },
     "Edge_0_0_3": {
-        "nz": [
+        "-1_0_0": [
+            "Edge_0_0_3",
+            "Corner_0_0_2",
+            "Wall_0_1_3",
+            "BendWallOuterTop_3_0_1"
+        ],
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
             "Wall_0_1_1",
             "Wall_0_1_0",
             "Wall_0_1_2",
-            "Wall_0_1_3"
+            "Wall_0_1_3",
+            "Edge_0_0_1"
         ],
-        "pz": [
+        "0_0_1": [
             "Empty"
         ],
-        "nx": [
-            "Edge_0_0_3",
-            "Corner_0_0_2",
-            "BendWallOuterTop_3_0_1",
-            "BendWallTop_3_0_1"
-        ],
-        "px": [
-            "Corner_0_0_3",
-            "Edge_0_0_3",
-            "BendWallOuterTop_3_0_2",
-            "BendWallTop_3_0_2"
-        ],
-        "py": [
+        "0_1_0": [
             "Wall_0_0_3",
             "Edge_0_3_3"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Corner_0_0_3",
+            "Edge_0_0_3",
+            "Wall_0_1_1",
+            "BendWallOuterTop_3_0_2"
         ]
     },
     "Edge_0_0_0": {
-        "nx": [
+        "-1_0_0": [
             "Wall_0_1_2",
             "Wall_0_1_1",
             "Wall_0_1_3",
-            "Wall_0_1_0"
+            "Wall_0_1_0",
+            "Edge_0_0_2"
         ],
-        "px": [
-            "Empty"
+        "0_-1_0": [
+            "Floor"
         ],
-        "pz": [
-            "Edge_0_0_0",
-            "Corner_0_0_3",
-            "BendWallOuterTop_3_0_2",
-            "BendWallTop_3_0_2"
-        ],
-        "nz": [
+        "0_0_-1": [
             "Corner_0_0_0",
             "Edge_0_0_0",
-            "BendWallOuterTop_3_0_3",
-            "BendWallTop_3_0_3"
+            "Wall_0_1_2",
+            "BendWallOuterTop_3_0_3"
         ],
-        "py": [
+        "0_0_1": [
+            "Edge_0_0_0",
+            "Corner_0_0_3",
+            "Wall_0_1_0",
+            "BendWallOuterTop_3_0_2"
+        ],
+        "0_1_0": [
             "Wall_0_0_0",
             "Edge_0_3_0"
         ],
-        "ny": [
+        "1_0_0": [
             "Empty"
         ]
     },
     "Edge_0_0_1": {
-        "pz": [
+        "-1_0_0": [
+            "Corner_0_0_1",
+            "Edge_0_0_1",
+            "Wall_0_1_3",
+            "BendWallOuterTop_3_0_0"
+        ],
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
             "Wall_0_1_3",
             "Wall_0_1_2",
             "Wall_0_1_0",
-            "Wall_0_1_1"
+            "Wall_0_1_1",
+            "Edge_0_0_3"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Edge_0_0_1",
-            "Corner_0_0_0",
-            "BendWallOuterTop_3_0_3",
-            "BendWallTop_3_0_3"
-        ],
-        "nx": [
-            "Corner_0_0_1",
-            "Edge_0_0_1",
-            "BendWallOuterTop_3_0_0",
-            "BendWallTop_3_0_0"
-        ],
-        "py": [
+        "0_1_0": [
             "Wall_0_0_1",
             "Edge_0_3_1"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_1",
+            "Corner_0_0_0",
+            "Wall_0_1_1",
+            "BendWallOuterTop_3_0_3"
         ]
     },
     "Wall_0_0_2": {
-        "px": [
-            "Connector_0_0_0"
+        "-1_0_0": [
+            "Empty",
+            "Arch_0_3_0"
         ],
-        "nx": [
-            "Empty"
+        "0_-1_0": [
+            "Edge_0_0_2",
+            "Wall_0_0_2",
+            "Connector_0_0_0",
+            "Edge_1_0_2",
+            "Edge_1_0_1"
         ],
-        "nz": [
+        "0_0_-1": [
             "Wall_0_0_2",
             "Edge_1_0_1",
+            "Connector_0_0_0",
             "BendWallOuter_1_0_3",
-            "BendWall_1_0_3",
-            "Corner_0_3_1"
+            "StairsRight_0_0_0",
+            "Edge_0_3_2",
+            "Corner_0_3_1",
+            "ArchLeft_0_3_3"
         ],
-        "pz": [
+        "0_0_1": [
             "Edge_1_0_2",
             "Wall_0_0_2",
+            "Connector_0_0_0",
             "BendWallOuter_1_0_0",
-            "BendWall_1_0_0",
-            "Corner_0_3_2"
-        ],
-        "py": [
-            "Wall_0_0_2",
+            "StairsLeft_0_0_2",
             "Edge_0_3_2",
             "Corner_0_3_2",
-            "Corner_0_3_1"
+            "ArchRight_0_3_1"
         ],
-        "ny": [
-            "Edge_0_0_2",
-            "Wall_0_0_2"
-        ]
-    },
-    "Wall_0_0_3": {
-        "nz": [
+        "0_1_0": [
+            "Wall_0_0_2",
+            "Edge_0_3_2",
+            "StairsRight_0_0_0",
+            "StairsLeft_0_0_2",
+            "Corner_0_3_2",
+            "Corner_0_3_1",
+            "Wall_0_3_1",
             "Connector_0_0_0"
         ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
-            "Wall_0_0_3",
-            "Edge_1_0_2",
-            "BendWallOuter_1_0_0",
-            "BendWall_1_0_0",
-            "Corner_0_3_2"
-        ],
-        "px": [
-            "Edge_1_0_3",
-            "Wall_0_0_3",
-            "BendWallOuter_1_0_1",
-            "BendWall_1_0_1",
-            "Corner_0_3_3"
-        ],
-        "py": [
-            "Wall_0_0_3",
-            "Edge_0_3_3",
-            "Corner_0_3_3",
-            "Corner_0_3_2"
-        ],
-        "ny": [
-            "Edge_0_0_3",
-            "Wall_0_0_3"
-        ]
-    },
-    "Wall_0_0_0": {
-        "nx": [
-            "Connector_0_0_0"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
-            "Wall_0_0_0",
-            "Edge_1_0_3",
-            "BendWallOuter_1_0_1",
-            "BendWall_1_0_1",
-            "Corner_0_3_3"
-        ],
-        "nz": [
-            "Edge_1_0_0",
-            "Wall_0_0_0",
-            "BendWallOuter_1_0_2",
-            "BendWall_1_0_2",
-            "Corner_0_3_0"
-        ],
-        "py": [
-            "Wall_0_0_0",
-            "Edge_0_3_0",
-            "Corner_0_3_0",
-            "Corner_0_3_3"
-        ],
-        "ny": [
-            "Edge_0_0_0",
+        "1_0_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_0",
+            "Wall_0_3_3",
+            "Wall_0_3_1",
+            "Wall_0_3_2",
             "Wall_0_0_0"
         ]
     },
-    "Wall_0_0_1": {
-        "pz": [
+    "Wall_0_0_3": {
+        "-1_0_0": [
+            "Wall_0_0_3",
+            "Edge_1_0_2",
+            "Connector_0_0_0",
+            "BendWallOuter_1_0_0",
+            "StairsRight_0_0_1",
+            "Edge_0_3_3",
+            "Corner_0_3_2",
+            "ArchLeft_0_3_0"
+        ],
+        "0_-1_0": [
+            "Edge_0_0_3",
+            "Wall_0_0_3",
+            "Connector_0_0_0",
+            "Edge_1_0_3",
+            "Edge_1_0_2"
+        ],
+        "0_0_-1": [
+            "Connector_0_0_0",
+            "Wall_0_3_1",
+            "Wall_0_3_0",
+            "Wall_0_3_2",
+            "Wall_0_3_3",
+            "Wall_0_0_1"
+        ],
+        "0_0_1": [
+            "Empty",
+            "Arch_0_3_1"
+        ],
+        "0_1_0": [
+            "Wall_0_0_3",
+            "Edge_0_3_3",
+            "StairsRight_0_0_1",
+            "StairsLeft_0_0_3",
+            "Corner_0_3_3",
+            "Corner_0_3_2",
+            "Wall_0_3_2",
             "Connector_0_0_0"
         ],
-        "nz": [
-            "Empty"
+        "1_0_0": [
+            "Edge_1_0_3",
+            "Wall_0_0_3",
+            "Connector_0_0_0",
+            "BendWallOuter_1_0_1",
+            "StairsLeft_0_0_3",
+            "Edge_0_3_3",
+            "Corner_0_3_3",
+            "ArchRight_0_3_2"
+        ]
+    },
+    "Wall_0_0_0": {
+        "-1_0_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_2",
+            "Wall_0_3_1",
+            "Wall_0_3_3",
+            "Wall_0_3_0",
+            "Wall_0_0_2"
         ],
-        "px": [
-            "Wall_0_0_1",
+        "0_-1_0": [
+            "Edge_0_0_0",
+            "Wall_0_0_0",
+            "Connector_0_0_0",
             "Edge_1_0_0",
-            "BendWallOuter_1_0_2",
-            "BendWall_1_0_2",
-            "Corner_0_3_0"
+            "Edge_1_0_3"
         ],
-        "nx": [
+        "0_0_-1": [
+            "Edge_1_0_0",
+            "Wall_0_0_0",
+            "Connector_0_0_0",
+            "BendWallOuter_1_0_2",
+            "StairsLeft_0_0_0",
+            "Edge_0_3_0",
+            "Corner_0_3_0",
+            "ArchRight_0_3_3"
+        ],
+        "0_0_1": [
+            "Wall_0_0_0",
+            "Edge_1_0_3",
+            "Connector_0_0_0",
+            "BendWallOuter_1_0_1",
+            "StairsRight_0_0_2",
+            "Edge_0_3_0",
+            "Corner_0_3_3",
+            "ArchLeft_0_3_1"
+        ],
+        "0_1_0": [
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "StairsRight_0_0_2",
+            "StairsLeft_0_0_0",
+            "Corner_0_3_0",
+            "Corner_0_3_3",
+            "Wall_0_3_3",
+            "Connector_0_0_0"
+        ],
+        "1_0_0": [
+            "Empty",
+            "Arch_0_3_2"
+        ]
+    },
+    "Wall_0_0_1": {
+        "-1_0_0": [
             "Edge_1_0_1",
             "Wall_0_0_1",
+            "Connector_0_0_0",
             "BendWallOuter_1_0_3",
-            "BendWall_1_0_3",
-            "Corner_0_3_1"
-        ],
-        "py": [
-            "Wall_0_0_1",
+            "StairsLeft_0_0_1",
             "Edge_0_3_1",
             "Corner_0_3_1",
-            "Corner_0_3_0"
+            "ArchRight_0_3_0"
         ],
-        "ny": [
+        "0_-1_0": [
             "Edge_0_0_1",
-            "Wall_0_0_1"
+            "Wall_0_0_1",
+            "Connector_0_0_0",
+            "Edge_1_0_1",
+            "Edge_1_0_0"
+        ],
+        "0_0_-1": [
+            "Empty",
+            "Arch_0_3_3"
+        ],
+        "0_0_1": [
+            "Connector_0_0_0",
+            "Wall_0_3_3",
+            "Wall_0_3_2",
+            "Wall_0_3_0",
+            "Wall_0_3_1",
+            "Wall_0_0_3"
+        ],
+        "0_1_0": [
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "StairsRight_0_0_3",
+            "StairsLeft_0_0_1",
+            "Corner_0_3_1",
+            "Corner_0_3_0",
+            "Wall_0_3_0",
+            "Connector_0_0_0"
+        ],
+        "1_0_0": [
+            "Wall_0_0_1",
+            "Edge_1_0_0",
+            "Connector_0_0_0",
+            "BendWallOuter_1_0_2",
+            "StairsRight_0_0_3",
+            "Edge_0_3_1",
+            "Corner_0_3_0",
+            "ArchLeft_0_3_2"
         ]
     },
     "Edge_0_3_2": {
-        "px": [
-            "Wall_0_3_0",
-            "Wall_0_3_3",
-            "Wall_0_3_1",
-            "Wall_0_3_2",
-            "Connector_0_0_0",
-            "StairWithWallLeft_0_0_3",
-            "StairWithWallRight_0_0_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
+        "0_-1_0": [
+            "Wall_0_0_2",
+            "Connector_0_0_0",
+            "Edge_0_3_2",
+            "Edge_0_0_2",
+            "Edge_1_0_1",
+            "ArchLeft_0_3_3",
+            "ArchRight_0_3_1",
+            "Edge_1_0_2"
+        ],
+        "0_0_-1": [
             "Edge_0_3_2",
             "Corner_0_3_1",
+            "Connector_0_0_0",
             "BendWallOuterTop_1_0_3",
-            "BendWallTop_1_0_3"
+            "BendWallOuterLower_3_0_0",
+            "BendWallOuter_1_0_3",
+            "Wall_0_3_2",
+            "Wall_0_0_2"
         ],
-        "pz": [
+        "0_0_1": [
             "Corner_0_3_2",
             "Edge_0_3_2",
+            "Connector_0_0_0",
             "BendWallOuterTop_1_0_0",
-            "BendWallTop_1_0_0"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+            "BendWallOuterLower_3_0_1",
+            "BendWallOuter_1_0_0",
             "Wall_0_0_2",
-            "Edge_0_0_2"
+            "Wall_0_3_0"
+        ],
+        "0_1_0": [
+            "Empty",
+            "Edge_0_3_2"
+        ],
+        "1_0_0": [
+            "Wall_0_3_0",
+            "Connector_0_0_0",
+            "Wall_0_3_3",
+            "Wall_0_3_1",
+            "Wall_0_3_2"
         ]
     },
     "Edge_0_3_3": {
-        "nz": [
-            "Wall_0_3_1",
-            "Wall_0_3_0",
-            "Wall_0_3_2",
-            "Wall_0_3_3",
-            "Connector_0_0_0",
-            "StairWithWallLeft_0_0_0",
-            "StairWithWallRight_0_0_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_3_3",
             "Corner_0_3_2",
+            "Connector_0_0_0",
             "BendWallOuterTop_1_0_0",
-            "BendWallTop_1_0_0"
+            "BendWallOuterLower_3_0_1",
+            "BendWallOuter_1_0_0",
+            "Wall_0_3_3",
+            "Wall_0_0_3"
         ],
-        "px": [
-            "Corner_0_3_3",
+        "0_-1_0": [
+            "Wall_0_0_3",
+            "Connector_0_0_0",
             "Edge_0_3_3",
-            "BendWallOuterTop_1_0_1",
-            "BendWallTop_1_0_1"
+            "Edge_0_0_3",
+            "Edge_1_0_2",
+            "ArchLeft_0_3_0",
+            "ArchRight_0_3_2",
+            "Edge_1_0_3"
         ],
-        "py": [
+        "0_0_-1": [
+            "Wall_0_3_1",
+            "Connector_0_0_0",
+            "Wall_0_3_0",
+            "Wall_0_3_2",
+            "Wall_0_3_3"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "ny": [
+        "0_1_0": [
+            "Empty",
+            "Edge_0_3_3"
+        ],
+        "1_0_0": [
+            "Corner_0_3_3",
+            "Edge_0_3_3",
+            "Connector_0_0_0",
+            "BendWallOuterTop_1_0_1",
+            "BendWallOuterLower_3_0_2",
+            "BendWallOuter_1_0_1",
             "Wall_0_0_3",
-            "Edge_0_0_3"
+            "Wall_0_3_1"
         ]
     },
     "Edge_0_3_0": {
-        "nx": [
+        "-1_0_0": [
             "Wall_0_3_2",
+            "Connector_0_0_0",
             "Wall_0_3_1",
             "Wall_0_3_3",
-            "Wall_0_3_0",
+            "Wall_0_3_0"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_0",
             "Connector_0_0_0",
-            "StairWithWallLeft_0_0_1",
-            "StairWithWallRight_0_0_1"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
             "Edge_0_3_0",
-            "Corner_0_3_3",
-            "BendWallOuterTop_1_0_1",
-            "BendWallTop_1_0_1"
+            "Edge_0_0_0",
+            "Edge_1_0_3",
+            "ArchLeft_0_3_1",
+            "ArchRight_0_3_3",
+            "Edge_1_0_0"
         ],
-        "nz": [
+        "0_0_-1": [
             "Corner_0_3_0",
             "Edge_0_3_0",
+            "Connector_0_0_0",
             "BendWallOuterTop_1_0_2",
-            "BendWallTop_1_0_2"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+            "BendWallOuterLower_3_0_3",
+            "BendWallOuter_1_0_2",
             "Wall_0_0_0",
-            "Edge_0_0_0"
+            "Wall_0_3_2"
+        ],
+        "0_0_1": [
+            "Edge_0_3_0",
+            "Corner_0_3_3",
+            "Connector_0_0_0",
+            "BendWallOuterTop_1_0_1",
+            "BendWallOuterLower_3_0_2",
+            "BendWallOuter_1_0_1",
+            "Wall_0_3_0",
+            "Wall_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty",
+            "Edge_0_3_0"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "Edge_0_3_1": {
-        "pz": [
-            "Wall_0_3_3",
-            "Wall_0_3_2",
-            "Wall_0_3_0",
-            "Wall_0_3_1",
-            "Connector_0_0_0",
-            "StairWithWallLeft_0_0_2",
-            "StairWithWallRight_0_0_2"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Edge_0_3_1",
-            "Corner_0_3_0",
-            "BendWallOuterTop_1_0_2",
-            "BendWallTop_1_0_2"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Corner_0_3_1",
             "Edge_0_3_1",
+            "Connector_0_0_0",
             "BendWallOuterTop_1_0_3",
-            "BendWallTop_1_0_3"
+            "BendWallOuterLower_3_0_0",
+            "BendWallOuter_1_0_3",
+            "Wall_0_0_1",
+            "Wall_0_3_3"
         ],
-        "py": [
+        "0_-1_0": [
+            "Wall_0_0_1",
+            "Connector_0_0_0",
+            "Edge_0_3_1",
+            "Edge_0_0_1",
+            "Edge_1_0_0",
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_0",
+            "Edge_1_0_1"
+        ],
+        "0_0_-1": [
             "Empty"
         ],
-        "ny": [
-            "Wall_0_0_1",
-            "Edge_0_0_1"
+        "0_0_1": [
+            "Wall_0_3_3",
+            "Connector_0_0_0",
+            "Wall_0_3_2",
+            "Wall_0_3_0",
+            "Wall_0_3_1"
+        ],
+        "0_1_0": [
+            "Empty",
+            "Edge_0_3_1"
+        ],
+        "1_0_0": [
+            "Edge_0_3_1",
+            "Corner_0_3_0",
+            "Connector_0_0_0",
+            "BendWallOuterTop_1_0_2",
+            "BendWallOuterLower_3_0_3",
+            "BendWallOuter_1_0_2",
+            "Wall_0_3_1",
+            "Wall_0_0_1"
         ]
     },
     "Wall_0_1_0": {
-        "px": [
-            "Wall_0_1_0",
-            "Edge_0_0_0"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_0_2",
+            "Corner_0_0_1",
             "Wall_0_1_0"
         ],
-        "nz": [
-            "Wall_0_1_0",
-            "Edge_0_0_1"
+        "0_-1_0": [
+            "Floor"
         ],
-        "pz": [
+        "0_0_-1": [
+            "Wall_0_1_0",
+            "Edge_0_0_1",
+            "Edge_0_0_2",
+            "Edge_0_0_0"
+        ],
+        "0_0_1": [
             "Edge_0_0_3",
             "Wall_0_1_0"
         ],
-        "py": [
+        "0_1_0": [
             "Connector_0_0_0"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Wall_0_1_0",
+            "Edge_0_0_0",
+            "Corner_0_0_0"
         ]
     },
     "Wall_0_1_1": {
-        "nz": [
+        "-1_0_0": [
             "Wall_0_1_1",
+            "Edge_0_0_2",
+            "Edge_0_0_3",
             "Edge_0_0_1"
         ],
-        "pz": [
-            "Edge_0_0_3",
-            "Wall_0_1_1"
+        "0_-1_0": [
+            "Floor"
         ],
-        "nx": [
+        "0_0_-1": [
             "Wall_0_1_1",
-            "Edge_0_0_2"
+            "Edge_0_0_1",
+            "Corner_0_0_1"
         ],
-        "px": [
-            "Edge_0_0_0",
+        "0_0_1": [
+            "Edge_0_0_3",
+            "Corner_0_0_2",
             "Wall_0_1_1"
         ],
-        "py": [
+        "0_1_0": [
             "Connector_0_0_0"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_0",
+            "Wall_0_1_1"
         ]
     },
     "Wall_0_1_2": {
-        "nx": [
+        "-1_0_0": [
             "Wall_0_1_2",
-            "Edge_0_0_2"
+            "Edge_0_0_2",
+            "Corner_0_0_2"
         ],
-        "px": [
-            "Edge_0_0_0",
-            "Wall_0_1_2"
+        "0_-1_0": [
+            "Floor"
         ],
-        "pz": [
-            "Wall_0_1_2",
-            "Edge_0_0_3"
-        ],
-        "nz": [
+        "0_0_-1": [
             "Edge_0_0_1",
             "Wall_0_1_2"
         ],
-        "py": [
+        "0_0_1": [
+            "Wall_0_1_2",
+            "Edge_0_0_3",
+            "Edge_0_0_0",
+            "Edge_0_0_2"
+        ],
+        "0_1_0": [
             "Connector_0_0_0"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_0",
+            "Corner_0_0_3",
+            "Wall_0_1_2"
         ]
     },
     "Wall_0_1_3": {
-        "pz": [
-            "Wall_0_1_3",
-            "Edge_0_0_3"
-        ],
-        "nz": [
-            "Edge_0_0_1",
-            "Wall_0_1_3"
-        ],
-        "px": [
-            "Wall_0_1_3",
-            "Edge_0_0_0"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_0_2",
             "Wall_0_1_3"
         ],
-        "py": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
+            "Edge_0_0_1",
+            "Corner_0_0_0",
+            "Wall_0_1_3"
+        ],
+        "0_0_1": [
+            "Wall_0_1_3",
+            "Edge_0_0_3",
+            "Corner_0_0_3"
+        ],
+        "0_1_0": [
             "Connector_0_0_0"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Wall_0_1_3",
+            "Edge_0_0_0",
+            "Edge_0_0_1",
+            "Edge_0_0_3"
         ]
     },
     "Connector_0_0_0": {
-        "px": [
-            "Connector_0_0_0",
-            "Wall_0_0_0",
-            "Edge_0_3_0",
-            "StairWithWallLeft_0_0_3",
-            "StairWithWallRight_0_0_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Wall_0_0_2",
             "Connector_0_0_0",
             "Edge_0_3_2",
-            "StairWithWallLeft_0_0_1",
-            "StairWithWallRight_0_0_1"
-        ],
-        "nz": [
-            "Connector_0_0_0",
-            "Wall_0_0_1",
-            "Edge_0_3_1",
-            "StairWithWallLeft_0_0_0",
-            "StairWithWallRight_0_0_0"
-        ],
-        "pz": [
+            "Edge_1_0_1",
             "Wall_0_0_3",
-            "Connector_0_0_0",
             "Edge_0_3_3",
-            "StairWithWallLeft_0_0_2",
-            "StairWithWallRight_0_0_2"
-        ],
-        "py": [
-            "Connector_0_0_0",
-            "Wall_0_3_0",
             "Wall_0_3_1",
-            "Wall_0_3_2",
-            "Wall_0_3_3",
-            "StairWithWallLeft_0_0_2",
-            "StairWithWallLeft_0_0_3",
-            "StairWithWallLeft_0_0_0",
+            "Wall_0_0_1",
+            "Edge_1_0_2",
+            "Edge_0_3_1",
+            "StairsRight_0_0_0",
+            "StairsLeft_0_0_2",
             "StairWithWallLeft_0_0_1",
-            "StairWithWallRight_0_0_2",
-            "StairWithWallRight_0_0_3",
-            "StairWithWallRight_0_0_0",
-            "StairWithWallRight_0_0_1"
+            "StairWithWallRight_0_0_1",
+            "Arch_0_3_0",
+            "ArchLeft_0_3_0",
+            "BendWallOuter_1_0_0",
+            "ArchRight_0_3_0",
+            "BendWallOuter_1_0_3"
         ],
-        "ny": [
+        "0_-1_0": [
             "Wall_0_1_0",
             "Wall_0_1_1",
             "Wall_0_1_2",
             "Wall_0_1_3",
-            "Connector_0_0_0"
+            "Connector_0_0_0",
+            "Wall_0_0_3",
+            "Wall_0_0_0",
+            "Wall_0_0_1",
+            "Wall_0_0_2"
+        ],
+        "0_0_-1": [
+            "Connector_0_0_0",
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "Wall_0_0_2",
+            "Edge_1_0_0",
+            "Edge_0_3_2",
+            "Wall_0_3_0",
+            "Wall_0_0_0",
+            "Edge_1_0_1",
+            "Edge_0_3_0",
+            "StairsRight_0_0_3",
+            "StairsLeft_0_0_1",
+            "StairWithWallLeft_0_0_0",
+            "StairWithWallRight_0_0_0",
+            "Arch_0_3_3",
+            "ArchLeft_0_3_3",
+            "ArchRight_0_3_3",
+            "BendWallOuter_1_0_3",
+            "BendWallOuter_1_0_2"
+        ],
+        "0_0_1": [
+            "Wall_0_0_3",
+            "Connector_0_0_0",
+            "Edge_0_3_3",
+            "Edge_1_0_2",
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "Wall_0_3_2",
+            "Wall_0_0_2",
+            "Edge_1_0_3",
+            "Edge_0_3_2",
+            "StairsRight_0_0_1",
+            "StairsLeft_0_0_3",
+            "StairWithWallLeft_0_0_2",
+            "StairWithWallRight_0_0_2",
+            "Arch_0_3_1",
+            "ArchLeft_0_3_1",
+            "ArchRight_0_3_1",
+            "BendWallOuter_1_0_1",
+            "BendWallOuter_1_0_0"
+        ],
+        "0_1_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_0",
+            "Wall_0_3_1",
+            "Wall_0_3_2",
+            "Wall_0_3_3",
+            "Edge_1_0_2",
+            "Edge_1_0_3",
+            "Edge_1_0_0",
+            "Edge_1_0_1",
+            "Wall_0_0_2",
+            "Wall_0_0_3",
+            "Wall_0_0_0",
+            "Wall_0_0_1",
+            "BendWallOuterLower_3_0_1",
+            "BendWallOuterLower_3_0_2",
+            "BendWallOuterLower_3_0_3",
+            "BendWallOuterLower_3_0_0",
+            "Edge_0_3_2",
+            "Edge_0_3_3",
+            "Edge_0_3_0",
+            "Edge_0_3_1",
+            "StairWithWallLeft_0_0_2",
+            "StairWithWallLeft_0_0_3",
+            "StairWithWallLeft_0_0_0",
+            "StairWithWallLeft_0_0_1",
+            "StairWithWallRight_0_0_0",
+            "StairWithWallRight_0_0_1",
+            "StairWithWallRight_0_0_2",
+            "StairWithWallRight_0_0_3",
+            "FlatStairWithWallRightUper_0_0_0",
+            "FlatStairWithWallRightUper_0_0_1",
+            "FlatStairWithWallRightUper_0_0_2",
+            "FlatStairWithWallRightUper_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "1_0_0": [
+            "Connector_0_0_0",
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "Edge_1_0_3",
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "Wall_0_3_3",
+            "Edge_1_0_0",
+            "Wall_0_0_3",
+            "Edge_0_3_3",
+            "StairsRight_0_0_2",
+            "StairsLeft_0_0_0",
+            "StairWithWallLeft_0_0_3",
+            "StairWithWallRight_0_0_3",
+            "Arch_0_3_2",
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_2",
+            "BendWallOuter_1_0_2",
+            "BendWallOuter_1_0_1"
         ]
     },
     "Wall_0_3_0": {
-        "px": [
-            "Wall_0_3_0",
-            "Edge_0_3_0"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_3_2",
-            "Wall_0_3_0"
-        ],
-        "nz": [
             "Wall_0_3_0",
-            "Edge_0_3_1"
+            "Wall_0_0_2",
+            "StairsRight_0_0_0"
         ],
-        "pz": [
+        "0_-1_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_0",
+            "Wall_0_0_1",
+            "Arch_0_3_3",
+            "Arch_0_3_1"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_0",
+            "Edge_0_3_1",
+            "Wall_0_0_1",
+            "Edge_0_3_2",
+            "Edge_0_3_0",
+            "StairWithWallRight_0_0_0",
+            "StairWithWallLeft_0_0_0",
+            "FlatStairWithWallRightUper_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_0"
+        ],
+        "0_0_1": [
             "Edge_0_3_3",
             "Wall_0_3_0",
+            "Wall_0_0_3",
+            "Connector_0_0_0",
             "StairWithWallLeft_0_0_2",
-            "StairWithWallRight_0_0_2"
+            "StairWithWallRight_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_2",
+            "FlatStairWithWallRightUper_0_0_2"
         ],
-        "py": [
-            "Empty"
+        "0_1_0": [
+            "Empty",
+            "Wall_0_3_0"
         ],
-        "ny": [
-            "Connector_0_0_0"
+        "1_0_0": [
+            "Wall_0_3_0",
+            "Edge_0_3_0",
+            "Wall_0_0_0",
+            "StairsLeft_0_0_0"
         ]
     },
     "Wall_0_3_1": {
-        "nz": [
+        "-1_0_0": [
             "Wall_0_3_1",
-            "Edge_0_3_1"
-        ],
-        "pz": [
+            "Edge_0_3_2",
+            "Wall_0_0_2",
             "Edge_0_3_3",
+            "Edge_0_3_1",
+            "StairWithWallRight_0_0_1",
+            "StairWithWallLeft_0_0_1",
+            "FlatStairWithWallRightUper_0_0_1",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_1",
+            "Wall_0_0_2",
+            "Arch_0_3_0",
+            "Arch_0_3_2"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_1",
+            "Edge_0_3_1",
+            "Wall_0_0_1",
+            "StairsLeft_0_0_1"
+        ],
+        "0_0_1": [
+            "Edge_0_3_3",
+            "Wall_0_3_1",
+            "Wall_0_0_3",
+            "StairsRight_0_0_1"
+        ],
+        "0_1_0": [
+            "Empty",
             "Wall_0_3_1"
         ],
-        "nx": [
-            "Wall_0_3_1",
-            "Edge_0_3_2"
-        ],
-        "px": [
+        "1_0_0": [
             "Edge_0_3_0",
             "Wall_0_3_1",
+            "Wall_0_0_0",
+            "Connector_0_0_0",
             "StairWithWallLeft_0_0_3",
-            "StairWithWallRight_0_0_3"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
-            "Connector_0_0_0"
+            "StairWithWallRight_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_3",
+            "FlatStairWithWallRightUper_0_0_3"
         ]
     },
     "Wall_0_3_2": {
-        "nx": [
+        "-1_0_0": [
             "Wall_0_3_2",
-            "Edge_0_3_2"
+            "Edge_0_3_2",
+            "Wall_0_0_2",
+            "StairsLeft_0_0_2"
         ],
-        "px": [
-            "Edge_0_3_0",
-            "Wall_0_3_2"
-        ],
-        "pz": [
+        "0_-1_0": [
+            "Connector_0_0_0",
             "Wall_0_3_2",
-            "Edge_0_3_3"
+            "Wall_0_0_3",
+            "Arch_0_3_1",
+            "Arch_0_3_3"
         ],
-        "nz": [
+        "0_0_-1": [
             "Edge_0_3_1",
             "Wall_0_3_2",
+            "Wall_0_0_1",
+            "Connector_0_0_0",
             "StairWithWallLeft_0_0_0",
-            "StairWithWallRight_0_0_0"
+            "StairWithWallRight_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_0",
+            "FlatStairWithWallRightUper_0_0_0"
         ],
-        "py": [
-            "Empty"
+        "0_0_1": [
+            "Wall_0_3_2",
+            "Edge_0_3_3",
+            "Wall_0_0_3",
+            "Edge_0_3_0",
+            "Edge_0_3_2",
+            "StairWithWallRight_0_0_2",
+            "StairWithWallLeft_0_0_2",
+            "FlatStairWithWallRightUper_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_2"
         ],
-        "ny": [
-            "Connector_0_0_0"
+        "0_1_0": [
+            "Empty",
+            "Wall_0_3_2"
+        ],
+        "1_0_0": [
+            "Edge_0_3_0",
+            "Wall_0_3_2",
+            "Wall_0_0_0",
+            "StairsRight_0_0_2"
         ]
     },
     "Wall_0_3_3": {
-        "pz": [
-            "Wall_0_3_3",
-            "Edge_0_3_3"
-        ],
-        "nz": [
-            "Edge_0_3_1",
-            "Wall_0_3_3"
-        ],
-        "px": [
-            "Wall_0_3_3",
-            "Edge_0_3_0"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_3_2",
             "Wall_0_3_3",
+            "Wall_0_0_2",
+            "Connector_0_0_0",
             "StairWithWallLeft_0_0_1",
-            "StairWithWallRight_0_0_1"
+            "StairWithWallRight_0_0_1",
+            "FlatStairWithWallLeftLowerUper_0_0_1",
+            "FlatStairWithWallRightUper_0_0_1"
         ],
-        "py": [
-            "Empty"
+        "0_-1_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_3",
+            "Wall_0_0_0",
+            "Arch_0_3_2",
+            "Arch_0_3_0"
         ],
-        "ny": [
-            "Connector_0_0_0"
+        "0_0_-1": [
+            "Edge_0_3_1",
+            "Wall_0_3_3",
+            "Wall_0_0_1",
+            "StairsRight_0_0_3"
+        ],
+        "0_0_1": [
+            "Wall_0_3_3",
+            "Edge_0_3_3",
+            "Wall_0_0_3",
+            "StairsLeft_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty",
+            "Wall_0_3_3"
+        ],
+        "1_0_0": [
+            "Wall_0_3_3",
+            "Edge_0_3_0",
+            "Wall_0_0_0",
+            "Edge_0_3_1",
+            "Edge_0_3_3",
+            "StairWithWallRight_0_0_3",
+            "StairWithWallLeft_0_0_3",
+            "FlatStairWithWallRightUper_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_3"
         ]
     },
     "BendWallOuterTop_3_0_1": {
-        "px": [
-            "Edge_0_0_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
             "Edge_0_0_2"
         ],
-        "pz": [
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_0"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_3"
         ]
     },
     "BendWallOuterTop_3_0_2": {
-        "nz": [
-            "Edge_0_0_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Edge_0_0_3"
         ],
-        "px": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
+            "Edge_0_0_0"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_1"
         ],
-        "ny": [
+        "1_0_0": [
             "Empty"
         ]
     },
     "BendWallOuterTop_3_0_3": {
-        "nx": [
+        "-1_0_0": [
             "Edge_0_0_1"
         ],
-        "px": [
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
             "Empty"
         ],
-        "pz": [
+        "0_0_1": [
             "Edge_0_0_0"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_2"
         ],
-        "ny": [
+        "1_0_0": [
             "Empty"
         ]
     },
     "BendWallOuterTop_3_0_0": {
-        "pz": [
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Floor"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
             "Edge_0_0_2"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Edge_0_0_1"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_3"
         ],
-        "ny": [
-            "Empty"
+        "1_0_0": [
+            "Edge_0_0_1"
         ]
     },
     "BendWallOuter_1_0_0": {
-        "px": [
-            "Wall_0_0_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
-            "Wall_0_0_2"
+        "0_-1_0": [
+            "BendWallOuterTop_3_0_1",
+            "BendWallOuter_1_0_0",
+            "BendWallOuterLower_3_0_1"
         ],
-        "pz": [
+        "0_0_-1": [
+            "Wall_0_0_2",
+            "Edge_0_3_2",
+            "Connector_0_0_0"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_0",
             "BendWallOuterTop_1_0_0"
         ],
-        "ny": [
-            "BendWallOuterTop_3_0_1",
-            "BendWallOuter_1_0_0"
+        "1_0_0": [
+            "Wall_0_0_3",
+            "Edge_0_3_3",
+            "Connector_0_0_0"
         ]
     },
     "BendWallOuter_1_0_1": {
-        "nz": [
-            "Wall_0_0_0"
+        "-1_0_0": [
+            "Wall_0_0_3",
+            "Edge_0_3_3",
+            "Connector_0_0_0"
         ],
-        "pz": [
+        "0_-1_0": [
+            "BendWallOuterTop_3_0_2",
+            "BendWallOuter_1_0_1",
+            "BendWallOuterLower_3_0_2"
+        ],
+        "0_0_-1": [
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "Connector_0_0_0"
+        ],
+        "0_0_1": [
             "Empty"
         ],
-        "nx": [
-            "Wall_0_0_3"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_1",
             "BendWallOuterTop_1_0_1"
         ],
-        "ny": [
-            "BendWallOuterTop_3_0_2",
-            "BendWallOuter_1_0_1"
+        "1_0_0": [
+            "Empty"
         ]
     },
     "BendWallOuter_1_0_2": {
-        "nx": [
-            "Wall_0_0_1"
+        "-1_0_0": [
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "Connector_0_0_0"
         ],
-        "px": [
+        "0_-1_0": [
+            "BendWallOuterTop_3_0_3",
+            "BendWallOuter_1_0_2",
+            "BendWallOuterLower_3_0_3"
+        ],
+        "0_0_-1": [
             "Empty"
         ],
-        "pz": [
-            "Wall_0_0_0"
+        "0_0_1": [
+            "Wall_0_0_0",
+            "Edge_0_3_0",
+            "Connector_0_0_0"
         ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
+        "0_1_0": [
             "BendWallOuter_1_0_2",
             "BendWallOuterTop_1_0_2"
         ],
-        "ny": [
-            "BendWallOuterTop_3_0_3",
-            "BendWallOuter_1_0_2"
+        "1_0_0": [
+            "Empty"
         ]
     },
     "BendWallOuter_1_0_3": {
-        "pz": [
-            "Wall_0_0_2"
-        ],
-        "nz": [
+        "-1_0_0": [
             "Empty"
         ],
-        "px": [
-            "Wall_0_0_1"
+        "0_-1_0": [
+            "BendWallOuterTop_3_0_0",
+            "BendWallOuter_1_0_3",
+            "BendWallOuterLower_3_0_0"
         ],
-        "nx": [
+        "0_0_-1": [
             "Empty"
         ],
-        "py": [
+        "0_0_1": [
+            "Wall_0_0_2",
+            "Edge_0_3_2",
+            "Connector_0_0_0"
+        ],
+        "0_1_0": [
             "BendWallOuter_1_0_3",
             "BendWallOuterTop_1_0_3"
         ],
-        "ny": [
-            "BendWallOuterTop_3_0_0",
-            "BendWallOuter_1_0_3"
+        "1_0_0": [
+            "Wall_0_0_1",
+            "Edge_0_3_1",
+            "Connector_0_0_0"
         ]
     },
     "BendWallOuterTop_1_0_0": {
-        "px": [
-            "Edge_0_3_3"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
-            "Edge_0_3_2"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "BendWallOuter_1_0_0"
+        ],
+        "0_0_-1": [
+            "Edge_0_3_2",
+            "StairsRight_0_0_0",
+            "FlatStairWithWallRightUper_0_0_1"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Edge_0_3_3",
+            "StairsLeft_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_2"
         ]
     },
     "BendWallOuterTop_1_0_1": {
-        "nz": [
-            "Edge_0_3_0"
+        "-1_0_0": [
+            "Edge_0_3_3",
+            "StairsRight_0_0_1",
+            "FlatStairWithWallRightUper_0_0_2"
         ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
-            "Edge_0_3_3"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "BendWallOuter_1_0_1"
+        ],
+        "0_0_-1": [
+            "Edge_0_3_0",
+            "StairsLeft_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_3"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "BendWallOuterTop_1_0_2": {
-        "nx": [
-            "Edge_0_3_1"
+        "-1_0_0": [
+            "Edge_0_3_1",
+            "StairsLeft_0_0_1",
+            "FlatStairWithWallLeftLowerUper_0_0_0"
         ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
-            "Edge_0_3_0"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "BendWallOuter_1_0_2"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_0_3_0",
+            "StairsRight_0_0_2",
+            "FlatStairWithWallRightUper_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "BendWallOuterTop_1_0_3": {
-        "pz": [
-            "Edge_0_3_2"
-        ],
-        "nz": [
+        "-1_0_0": [
             "Empty"
         ],
-        "px": [
-            "Edge_0_3_1"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "BendWallOuter_1_0_3"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_0_3_2",
+            "StairsLeft_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Edge_0_3_1",
+            "StairsRight_0_0_3",
+            "FlatStairWithWallRightUper_0_0_0"
         ]
     },
-    "BendWallTop_3_0_1": {
-        "px": [
-            "Edge_0_0_3"
-        ],
-        "nx": [
+    "BendWallOuterLower_3_0_1": {
+        "-1_0_0": [
             "Empty"
         ],
-        "nz": [
-            "Edge_0_0_2"
+        "0_-1_0": [
+            "Connector_0_0_0"
         ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_0"
-        ],
-        "ny": [
-            "Empty"
-        ]
-    },
-    "BendWallTop_3_0_2": {
-        "nz": [
-            "Edge_0_0_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
-            "Edge_0_0_3"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_1"
-        ],
-        "ny": [
-            "Empty"
-        ]
-    },
-    "BendWallTop_3_0_3": {
-        "nx": [
-            "Edge_0_0_1"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
-            "Edge_0_0_0"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_2"
-        ],
-        "ny": [
-            "Empty"
-        ]
-    },
-    "BendWallTop_3_0_0": {
-        "pz": [
-            "Edge_0_0_2"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Edge_0_0_1"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_3"
-        ],
-        "ny": [
-            "Empty"
-        ]
-    },
-    "BendWall_1_0_0": {
-        "px": [
-            "Wall_0_0_3"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "nz": [
-            "Wall_0_0_2"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_0",
-            "BendWallTop_1_0_0"
-        ],
-        "ny": [
-            "BendWallTop_3_0_1",
-            "BendWall_1_0_0"
-        ]
-    },
-    "BendWall_1_0_1": {
-        "nz": [
-            "Wall_0_0_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
-            "Wall_0_0_3"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_1",
-            "BendWallTop_1_0_1"
-        ],
-        "ny": [
-            "BendWallTop_3_0_2",
-            "BendWall_1_0_1"
-        ]
-    },
-    "BendWall_1_0_2": {
-        "nx": [
-            "Wall_0_0_1"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
-            "Wall_0_0_0"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_2",
-            "BendWallTop_1_0_2"
-        ],
-        "ny": [
-            "BendWallTop_3_0_3",
-            "BendWall_1_0_2"
-        ]
-    },
-    "BendWall_1_0_3": {
-        "pz": [
-            "Wall_0_0_2"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
-            "Wall_0_0_1"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "BendWall_1_0_3",
-            "BendWallTop_1_0_3"
-        ],
-        "ny": [
-            "BendWallTop_3_0_0",
-            "BendWall_1_0_3"
-        ]
-    },
-    "BendWallTop_1_0_0": {
-        "px": [
-            "Edge_0_3_3"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "nz": [
+        "0_0_-1": [
             "Edge_0_3_2"
         ],
-        "pz": [
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
-            "Empty"
+        "0_1_0": [
+            "BendWallOuter_1_0_0"
         ],
-        "ny": [
-            "BendWall_1_0_0"
+        "1_0_0": [
+            "Edge_0_3_3"
         ]
     },
-    "BendWallTop_1_0_1": {
-        "nz": [
-            "Edge_0_3_0"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "nx": [
+    "BendWallOuterLower_3_0_2": {
+        "-1_0_0": [
             "Edge_0_3_3"
         ],
-        "px": [
-            "Empty"
+        "0_-1_0": [
+            "Connector_0_0_0"
         ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
-            "BendWall_1_0_1"
-        ]
-    },
-    "BendWallTop_1_0_2": {
-        "nx": [
-            "Edge_0_3_1"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "pz": [
+        "0_0_-1": [
             "Edge_0_3_0"
         ],
-        "nz": [
+        "0_0_1": [
             "Empty"
         ],
-        "py": [
-            "Empty"
+        "0_1_0": [
+            "BendWallOuter_1_0_1"
         ],
-        "ny": [
-            "BendWall_1_0_2"
+        "1_0_0": [
+            "Empty"
         ]
     },
-    "BendWallTop_1_0_3": {
-        "pz": [
-            "Edge_0_3_2"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "px": [
+    "BendWallOuterLower_3_0_3": {
+        "-1_0_0": [
             "Edge_0_3_1"
         ],
-        "nx": [
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
             "Empty"
         ],
-        "py": [
+        "0_0_1": [
+            "Edge_0_3_0"
+        ],
+        "0_1_0": [
+            "BendWallOuter_1_0_2"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "BendWallOuterLower_3_0_0": {
+        "-1_0_0": [
             "Empty"
         ],
-        "ny": [
-            "BendWall_1_0_3"
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_0_3_2"
+        ],
+        "0_1_0": [
+            "BendWallOuter_1_0_3"
+        ],
+        "1_0_0": [
+            "Edge_0_3_1"
+        ]
+    },
+    "StairsRight_0_0_0": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_2"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "BendWallOuterTop_1_0_0",
+            "Wall_0_0_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Wall_0_3_0",
+            "Connector_0_0_0"
+        ]
+    },
+    "StairsRight_0_0_1": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_3"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_1",
+            "Connector_0_0_0"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "BendWallOuterTop_1_0_1",
+            "Wall_0_0_3"
+        ]
+    },
+    "StairsRight_0_0_2": {
+        "-1_0_0": [
+            "Wall_0_3_2",
+            "Connector_0_0_0"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_0"
+        ],
+        "0_0_-1": [
+            "BendWallOuterTop_1_0_2",
+            "Wall_0_0_0"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "StairsRight_0_0_3": {
+        "-1_0_0": [
+            "BendWallOuterTop_1_0_3",
+            "Wall_0_0_1"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_1"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Wall_0_3_3",
+            "Connector_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "StairsLeft_0_0_0": {
+        "-1_0_0": [
+            "Wall_0_3_0",
+            "Connector_0_0_0"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "BendWallOuterTop_1_0_1",
+            "Wall_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "StairsLeft_0_0_1": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_1"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Wall_0_3_1",
+            "Connector_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "BendWallOuterTop_1_0_2",
+            "Wall_0_0_1"
+        ]
+    },
+    "StairsLeft_0_0_2": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_2"
+        ],
+        "0_0_-1": [
+            "BendWallOuterTop_1_0_3",
+            "Wall_0_0_2"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Wall_0_3_2",
+            "Connector_0_0_0"
+        ]
+    },
+    "StairsLeft_0_0_3": {
+        "-1_0_0": [
+            "BendWallOuterTop_1_0_0",
+            "Wall_0_0_3"
+        ],
+        "0_-1_0": [
+            "Wall_0_0_3"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_3",
+            "Connector_0_0_0"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
         ]
     },
     "StairWithWallLeft_0_0_2": {
-        "px": [
-            "StairWithWallRight_0_0_2"
-        ],
-        "nx": [
+        "-1_0_0": [
             "Corner_0_3_2"
         ],
-        "nz": [
-            "Wall_0_3_0",
-            "Connector_0_0_0",
-            "Edge_0_3_1"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Connector_0_0_0",
+            "Wall_0_3_0",
+            "Wall_0_3_2"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "StairWithWallRight_0_0_2"
         ]
     },
     "StairWithWallLeft_0_0_3": {
-        "nz": [
+        "-1_0_0": [
+            "Connector_0_0_0",
+            "Wall_0_3_1",
+            "Wall_0_3_3"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
             "StairWithWallRight_0_0_3"
         ],
-        "pz": [
+        "0_0_1": [
             "Corner_0_3_3"
         ],
-        "nx": [
-            "Wall_0_3_1",
-            "Connector_0_0_0",
-            "Edge_0_3_2"
-        ],
-        "px": [
+        "0_1_0": [
             "Empty"
         ],
-        "py": [
+        "1_0_0": [
             "Empty"
-        ],
-        "ny": [
-            "Connector_0_0_0"
         ]
     },
     "StairWithWallLeft_0_0_0": {
-        "nx": [
+        "-1_0_0": [
             "StairWithWallRight_0_0_0"
         ],
-        "px": [
-            "Corner_0_3_0"
-        ],
-        "pz": [
-            "Wall_0_3_2",
-            "Connector_0_0_0",
-            "Edge_0_3_3"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Connector_0_0_0",
+            "Wall_0_3_2",
+            "Wall_0_3_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Corner_0_3_0"
         ]
     },
     "StairWithWallLeft_0_0_1": {
-        "pz": [
-            "StairWithWallRight_0_0_1"
+        "-1_0_0": [
+            "Empty"
         ],
-        "nz": [
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
             "Corner_0_3_1"
         ],
-        "px": [
+        "0_0_1": [
+            "StairWithWallRight_0_0_1"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Connector_0_0_0",
             "Wall_0_3_3",
-            "Connector_0_0_0",
-            "Edge_0_3_0"
-        ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
-            "Connector_0_0_0"
-        ]
-    },
-    "StairWithWallRight_0_0_2": {
-        "px": [
-            "Corner_0_3_3"
-        ],
-        "nx": [
-            "StairWithWallLeft_0_0_2"
-        ],
-        "nz": [
-            "Wall_0_3_0",
-            "Connector_0_0_0",
-            "Edge_0_3_1"
-        ],
-        "pz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
-            "Connector_0_0_0"
-        ]
-    },
-    "StairWithWallRight_0_0_3": {
-        "nz": [
-            "Corner_0_3_0"
-        ],
-        "pz": [
-            "StairWithWallLeft_0_0_3"
-        ],
-        "nx": [
-            "Wall_0_3_1",
-            "Connector_0_0_0",
-            "Edge_0_3_2"
-        ],
-        "px": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
-            "Connector_0_0_0"
+            "Wall_0_3_1"
         ]
     },
     "StairWithWallRight_0_0_0": {
-        "nx": [
+        "-1_0_0": [
             "Corner_0_3_1"
         ],
-        "px": [
-            "StairWithWallLeft_0_0_0"
-        ],
-        "pz": [
-            "Wall_0_3_2",
-            "Connector_0_0_0",
-            "Edge_0_3_3"
-        ],
-        "nz": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Wall_0_3_0",
+            "Connector_0_0_0",
+            "Wall_0_3_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "StairWithWallLeft_0_0_0"
         ]
     },
     "StairWithWallRight_0_0_1": {
-        "pz": [
-            "Corner_0_3_2"
+        "-1_0_0": [
+            "Empty"
         ],
-        "nz": [
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
             "StairWithWallLeft_0_0_1"
         ],
-        "px": [
+        "0_0_1": [
+            "Corner_0_3_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Wall_0_3_1",
+            "Connector_0_0_0",
+            "Wall_0_3_3"
+        ]
+    },
+    "StairWithWallRight_0_0_2": {
+        "-1_0_0": [
+            "StairWithWallLeft_0_0_2"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_2",
+            "Connector_0_0_0",
+            "Wall_0_3_0"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Corner_0_3_3"
+        ]
+    },
+    "StairWithWallRight_0_0_3": {
+        "-1_0_0": [
             "Wall_0_3_3",
             "Connector_0_0_0",
-            "Edge_0_3_0"
+            "Wall_0_3_1"
         ],
-        "nx": [
-            "Empty"
-        ],
-        "py": [
-            "Empty"
-        ],
-        "ny": [
+        "0_-1_0": [
             "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Corner_0_3_0"
+        ],
+        "0_0_1": [
+            "StairWithWallLeft_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "ArchLeft_0_3_3": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "ArchRight_0_3_1",
+            "Empty"
+        ],
+        "0_0_1": [
+            "Edge_1_0_1",
+            "Connector_0_0_0",
+            "Wall_0_0_2"
+        ],
+        "0_1_0": [
+            "Edge_0_3_2",
+            "EdgeHalfLower_0_0_2"
+        ],
+        "1_0_0": [
+            "Arch_0_3_3",
+            "ArchRight_0_3_3"
+        ]
+    },
+    "ArchLeft_0_3_0": {
+        "-1_0_0": [
+            "ArchRight_0_3_2",
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Arch_0_3_0",
+            "ArchRight_0_3_0"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Edge_0_3_3",
+            "EdgeHalfLower_0_0_3"
+        ],
+        "1_0_0": [
+            "Edge_1_0_2",
+            "Connector_0_0_0",
+            "Wall_0_0_3"
+        ]
+    },
+    "ArchLeft_0_3_1": {
+        "-1_0_0": [
+            "Arch_0_3_1",
+            "ArchRight_0_3_1"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Edge_1_0_3",
+            "Connector_0_0_0",
+            "Wall_0_0_0"
+        ],
+        "0_0_1": [
+            "ArchRight_0_3_3",
+            "Empty"
+        ],
+        "0_1_0": [
+            "Edge_0_3_0",
+            "EdgeHalfLower_0_0_0"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "ArchLeft_0_3_2": {
+        "-1_0_0": [
+            "Edge_1_0_0",
+            "Connector_0_0_0",
+            "Wall_0_0_1"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Arch_0_3_2",
+            "ArchRight_0_3_2"
+        ],
+        "0_1_0": [
+            "Edge_0_3_1",
+            "EdgeHalfLower_0_0_1"
+        ],
+        "1_0_0": [
+            "ArchRight_0_3_0",
+            "Empty"
+        ]
+    },
+    "ArchRight_0_3_1": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Wall_0_0_2",
+            "Connector_0_0_0",
+            "Edge_1_0_2"
+        ],
+        "0_0_1": [
+            "ArchLeft_0_3_3",
+            "Empty"
+        ],
+        "0_1_0": [
+            "Edge_0_3_2",
+            "EdgeHalfLower_0_0_2"
+        ],
+        "1_0_0": [
+            "Arch_0_3_1",
+            "ArchLeft_0_3_1"
+        ]
+    },
+    "ArchRight_0_3_2": {
+        "-1_0_0": [
+            "Wall_0_0_3",
+            "Connector_0_0_0",
+            "Edge_1_0_3"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Arch_0_3_2",
+            "ArchLeft_0_3_2"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Edge_0_3_3",
+            "EdgeHalfLower_0_0_3"
+        ],
+        "1_0_0": [
+            "ArchLeft_0_3_0",
+            "Empty"
+        ]
+    },
+    "ArchRight_0_3_3": {
+        "-1_0_0": [
+            "Arch_0_3_3",
+            "ArchLeft_0_3_3"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "ArchLeft_0_3_1",
+            "Empty"
+        ],
+        "0_0_1": [
+            "Wall_0_0_0",
+            "Connector_0_0_0",
+            "Edge_1_0_0"
+        ],
+        "0_1_0": [
+            "Edge_0_3_0",
+            "EdgeHalfLower_0_0_0"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "ArchRight_0_3_0": {
+        "-1_0_0": [
+            "ArchLeft_0_3_2",
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "Arch_0_3_0",
+            "ArchLeft_0_3_0"
+        ],
+        "0_1_0": [
+            "Edge_0_3_1",
+            "EdgeHalfLower_0_0_1"
+        ],
+        "1_0_0": [
+            "Wall_0_0_1",
+            "Connector_0_0_0",
+            "Edge_1_0_1"
+        ]
+    },
+    "Arch_0_3_3": {
+        "-1_0_0": [
+            "ArchLeft_0_3_3",
+            "Arch_0_3_3"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Arch_0_3_1"
+        ],
+        "0_0_1": [
+            "Wall_0_0_1",
+            "Connector_0_0_0"
+        ],
+        "0_1_0": [
+            "Wall_0_3_0",
+            "Wall_0_3_2"
+        ],
+        "1_0_0": [
+            "Arch_0_3_3",
+            "ArchRight_0_3_3"
+        ]
+    },
+    "Arch_0_3_0": {
+        "-1_0_0": [
+            "Arch_0_3_2"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Arch_0_3_0",
+            "ArchRight_0_3_0"
+        ],
+        "0_0_1": [
+            "ArchLeft_0_3_0",
+            "Arch_0_3_0"
+        ],
+        "0_1_0": [
+            "Wall_0_3_1",
+            "Wall_0_3_3"
+        ],
+        "1_0_0": [
+            "Wall_0_0_2",
+            "Connector_0_0_0"
+        ]
+    },
+    "Arch_0_3_1": {
+        "-1_0_0": [
+            "Arch_0_3_1",
+            "ArchRight_0_3_1"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Wall_0_0_3",
+            "Connector_0_0_0"
+        ],
+        "0_0_1": [
+            "Arch_0_3_3"
+        ],
+        "0_1_0": [
+            "Wall_0_3_2",
+            "Wall_0_3_0"
+        ],
+        "1_0_0": [
+            "ArchLeft_0_3_1",
+            "Arch_0_3_1"
+        ]
+    },
+    "Arch_0_3_2": {
+        "-1_0_0": [
+            "Wall_0_0_0",
+            "Connector_0_0_0"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "ArchLeft_0_3_2",
+            "Arch_0_3_2"
+        ],
+        "0_0_1": [
+            "Arch_0_3_2",
+            "ArchRight_0_3_2"
+        ],
+        "0_1_0": [
+            "Wall_0_3_3",
+            "Wall_0_3_1"
+        ],
+        "1_0_0": [
+            "Arch_0_3_0"
+        ]
+    },
+    "FlatStairWithWallRightUper_0_0_0": {
+        "-1_0_0": [
+            "Corner_0_3_1",
+            "BendWallOuterTop_1_0_3"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "EdgeHalfLower_0_0_2"
+        ],
+        "0_0_1": [
+            "Wall_0_3_0",
+            "Wall_0_3_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "FlatStairWithWallLeftLowerUper_0_0_0"
+        ]
+    },
+    "FlatStairWithWallRightUper_0_0_1": {
+        "-1_0_0": [
+            "EdgeHalfLower_0_0_3"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ],
+        "0_0_1": [
+            "Corner_0_3_2",
+            "BendWallOuterTop_1_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Wall_0_3_1",
+            "Wall_0_3_3"
+        ]
+    },
+    "FlatStairWithWallRightUper_0_0_2": {
+        "-1_0_0": [
+            "FlatStairWithWallLeftLowerUper_0_0_2"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_2",
+            "Wall_0_3_0"
+        ],
+        "0_0_1": [
+            "EdgeHalfLower_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Corner_0_3_3",
+            "BendWallOuterTop_1_0_1"
+        ]
+    },
+    "FlatStairWithWallRightUper_0_0_3": {
+        "-1_0_0": [
+            "Wall_0_3_3",
+            "Wall_0_3_1"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Corner_0_3_0",
+            "BendWallOuterTop_1_0_2"
+        ],
+        "0_0_1": [
+            "FlatStairWithWallLeftLowerUper_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "EdgeHalfLower_0_0_1"
+        ]
+    },
+    "EdgeHalfLower_0_0_2": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "ArchLeft_0_3_3",
+            "ArchRight_0_3_1"
+        ],
+        "0_0_-1": [
+            "LoopHalfLower_0_0_2",
+            "FlatStairWithWallLeftLowerUper_0_0_2"
+        ],
+        "0_0_1": [
+            "FlatStairWithWallRightUper_0_0_0",
+            "LoopHalfLower_0_0_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "EdgeHalfLower_0_0_0"
+        ]
+    },
+    "EdgeHalfLower_0_0_3": {
+        "-1_0_0": [
+            "LoopHalfLower_0_0_3",
+            "FlatStairWithWallLeftLowerUper_0_0_3"
+        ],
+        "0_-1_0": [
+            "ArchLeft_0_3_0",
+            "ArchRight_0_3_2"
+        ],
+        "0_0_-1": [
+            "EdgeHalfLower_0_0_1"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "FlatStairWithWallRightUper_0_0_1",
+            "LoopHalfLower_0_0_3"
+        ]
+    },
+    "EdgeHalfLower_0_0_0": {
+        "-1_0_0": [
+            "EdgeHalfLower_0_0_2"
+        ],
+        "0_-1_0": [
+            "ArchLeft_0_3_1",
+            "ArchRight_0_3_3"
+        ],
+        "0_0_-1": [
+            "FlatStairWithWallRightUper_0_0_2",
+            "LoopHalfLower_0_0_0"
+        ],
+        "0_0_1": [
+            "LoopHalfLower_0_0_0",
+            "FlatStairWithWallLeftLowerUper_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "EdgeHalfLower_0_0_1": {
+        "-1_0_0": [
+            "FlatStairWithWallRightUper_0_0_3",
+            "LoopHalfLower_0_0_1"
+        ],
+        "0_-1_0": [
+            "ArchLeft_0_3_2",
+            "ArchRight_0_3_0"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "EdgeHalfLower_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "LoopHalfLower_0_0_1",
+            "FlatStairWithWallLeftLowerUper_0_0_1"
+        ]
+    },
+    "LoopHalfLower_0_0_2": {
+        "-1_0_0": [
+            "Empty"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "LoopHalfLower_0_0_2",
+            "EdgeHalfLower_0_0_2"
+        ],
+        "0_0_1": [
+            "EdgeHalfLower_0_0_2",
+            "LoopHalfLower_0_0_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "LoopHalfLower_0_0_0"
+        ]
+    },
+    "LoopHalfLower_0_0_3": {
+        "-1_0_0": [
+            "LoopHalfLower_0_0_3",
+            "EdgeHalfLower_0_0_3"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "LoopHalfLower_0_0_1"
+        ],
+        "0_0_1": [
+            "Empty"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "EdgeHalfLower_0_0_3",
+            "LoopHalfLower_0_0_3"
+        ]
+    },
+    "LoopHalfLower_0_0_0": {
+        "-1_0_0": [
+            "LoopHalfLower_0_0_2"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "EdgeHalfLower_0_0_0",
+            "LoopHalfLower_0_0_0"
+        ],
+        "0_0_1": [
+            "LoopHalfLower_0_0_0",
+            "EdgeHalfLower_0_0_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Empty"
+        ]
+    },
+    "LoopHalfLower_0_0_1": {
+        "-1_0_0": [
+            "EdgeHalfLower_0_0_1",
+            "LoopHalfLower_0_0_1"
+        ],
+        "0_-1_0": [
+            "Empty"
+        ],
+        "0_0_-1": [
+            "Empty"
+        ],
+        "0_0_1": [
+            "LoopHalfLower_0_0_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "LoopHalfLower_0_0_1",
+            "EdgeHalfLower_0_0_1"
+        ]
+    },
+    "FlatStairWithWallLeftLowerUper_0_0_2": {
+        "-1_0_0": [
+            "BendWallOuterTop_1_0_0",
+            "Corner_0_3_2"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "Wall_0_3_0",
+            "Wall_0_3_2"
+        ],
+        "0_0_1": [
+            "EdgeHalfLower_0_0_2"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "FlatStairWithWallRightUper_0_0_2"
+        ]
+    },
+    "FlatStairWithWallLeftLowerUper_0_0_3": {
+        "-1_0_0": [
+            "Wall_0_3_1",
+            "Wall_0_3_3"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "FlatStairWithWallRightUper_0_0_3"
+        ],
+        "0_0_1": [
+            "BendWallOuterTop_1_0_1",
+            "Corner_0_3_3"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "EdgeHalfLower_0_0_3"
+        ]
+    },
+    "FlatStairWithWallLeftLowerUper_0_0_0": {
+        "-1_0_0": [
+            "FlatStairWithWallRightUper_0_0_0"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "EdgeHalfLower_0_0_0"
+        ],
+        "0_0_1": [
+            "Wall_0_3_2",
+            "Wall_0_3_0"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "BendWallOuterTop_1_0_2",
+            "Corner_0_3_0"
+        ]
+    },
+    "FlatStairWithWallLeftLowerUper_0_0_1": {
+        "-1_0_0": [
+            "EdgeHalfLower_0_0_1"
+        ],
+        "0_-1_0": [
+            "Connector_0_0_0"
+        ],
+        "0_0_-1": [
+            "BendWallOuterTop_1_0_3",
+            "Corner_0_3_1"
+        ],
+        "0_0_1": [
+            "FlatStairWithWallRightUper_0_0_1"
+        ],
+        "0_1_0": [
+            "Empty"
+        ],
+        "1_0_0": [
+            "Wall_0_3_3",
+            "Wall_0_3_1"
         ]
     }
 }

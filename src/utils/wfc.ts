@@ -1,25 +1,8 @@
 import { MathUtils } from "three"
-export interface NeighbourPrototype {
-	px: number[]
-	nx: number[]
-	py: number[]
-	ny: number[]
-	pz: number[]
-	nz: number[]
-}
-
-export interface NeighbourPrototypeString {
-	px?: string[]
-	nx?: string[]
-	py?: string[]
-	ny?: string[]
-	pz?: string[]
-	nz?: string[]
-}
 
 export interface Prototype {
 	id: string
-	neighbourCells: NeighbourPrototype
+	neighbourCells: Record<string, number[]>
 }
 
 export interface Vector3 {

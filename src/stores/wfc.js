@@ -764,7 +764,7 @@ var $MODULE_NAME = (() => {
 				TOTAL_STACK === Module["TOTAL_STACK"],
 				"the stack size can no longer be determined at runtime"
 			)
-		var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 16777216
+		var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 536870912
 		if (!Object.getOwnPropertyDescriptor(Module, "INITIAL_MEMORY")) {
 			Object.defineProperty(Module, "INITIAL_MEMORY", {
 				configurable: true,
@@ -795,7 +795,7 @@ var $MODULE_NAME = (() => {
 			"Use of `wasmMemory` detected.  Use -s IMPORTED_MEMORY to define wasmMemory externally"
 		)
 		assert(
-			INITIAL_MEMORY == 16777216,
+			INITIAL_MEMORY == 536870912,
 			"Detected runtime INITIAL_MEMORY setting.  Use -s IMPORTED_MEMORY to define wasmMemory dynamically"
 		)
 		var wasmTable
@@ -1215,6 +1215,10 @@ var $MODULE_NAME = (() => {
 		function ___cxa_allocate_exception(size) {
 			return _malloc(size + 16) + 16
 		}
+		function _atexit(func, arg) {}
+		function ___cxa_atexit(a0, a1) {
+			return _atexit(a0, a1)
+		}
 		function ExceptionInfo(excPtr) {
 			this.excPtr = excPtr
 			this.ptr = excPtr - 16
@@ -1413,12 +1417,62 @@ var $MODULE_NAME = (() => {
 			setTempRet0(thrownType)
 			return catchInfo.ptr | 0
 		}
+		function ___cxa_find_matching_catch_4() {
+			var thrown = exceptionLast
+			if (!thrown) {
+				setTempRet0(0)
+				return 0 | 0
+			}
+			var info = new ExceptionInfo(thrown)
+			var thrownType = info.get_type()
+			var catchInfo = new CatchInfo()
+			catchInfo.set_base_ptr(thrown)
+			catchInfo.set_adjusted_ptr(thrown)
+			if (!thrownType) {
+				setTempRet0(0)
+				return catchInfo.ptr | 0
+			}
+			var typeArray = Array.prototype.slice.call(arguments)
+			for (var i = 0; i < typeArray.length; i++) {
+				var caughtType = typeArray[i]
+				if (caughtType === 0 || caughtType === thrownType) {
+					break
+				}
+				if (___cxa_can_catch(caughtType, thrownType, catchInfo.get_adjusted_ptr_addr())) {
+					setTempRet0(caughtType)
+					return catchInfo.ptr | 0
+				}
+			}
+			setTempRet0(thrownType)
+			return catchInfo.ptr | 0
+		}
+		function ___cxa_rethrow() {
+			var catchInfo = exceptionCaught.pop()
+			if (!catchInfo) {
+				abort("no exception to throw")
+			}
+			var info = catchInfo.get_exception_info()
+			var ptr = catchInfo.get_base_ptr()
+			if (!info.get_rethrown()) {
+				exceptionCaught.push(catchInfo)
+				info.set_rethrown(true)
+				info.set_caught(false)
+				uncaughtExceptionCount++
+			} else {
+				catchInfo.free()
+			}
+			exceptionLast = ptr
+			throw ptr
+		}
 		function ___cxa_throw(ptr, type, destructor) {
 			var info = new ExceptionInfo(ptr)
 			info.init(type, destructor)
 			exceptionLast = ptr
 			uncaughtExceptionCount++
 			throw ptr
+		}
+		function ___cxa_uncaught_exceptions() {
+			return uncaughtExceptionCount
 		}
 		function __embind_register_bigint(primitiveType, name, size, minRange, maxRange) {}
 		function getShiftFromSize(size) {
@@ -3018,6 +3072,38 @@ var $MODULE_NAME = (() => {
 			)
 			return false
 		}
+		var ENV = {}
+		function getExecutableName() {
+			return thisProgram || "./this.program"
+		}
+		function getEnvStrings() {
+			if (!getEnvStrings.strings) {
+				var lang =
+					(
+						(typeof navigator === "object" && navigator.languages && navigator.languages[0]) ||
+						"C"
+					).replace("-", "_") + ".UTF-8"
+				var env = {
+					USER: "web_user",
+					LOGNAME: "web_user",
+					PATH: "/",
+					PWD: "/",
+					HOME: "/home/web_user",
+					LANG: lang,
+					_: getExecutableName(),
+				}
+				for (var x in ENV) {
+					if (ENV[x] === undefined) delete env[x]
+					else env[x] = ENV[x]
+				}
+				var strings = []
+				for (var x in env) {
+					strings.push(x + "=" + env[x])
+				}
+				getEnvStrings.strings = strings
+			}
+			return getEnvStrings.strings
+		}
 		var SYSCALLS = {
 			mappings: {},
 			buffers: [null, [], []],
@@ -3047,6 +3133,26 @@ var $MODULE_NAME = (() => {
 				else assert(high === -1)
 				return low
 			},
+		}
+		function _environ_get(__environ, environ_buf) {
+			var bufSize = 0
+			getEnvStrings().forEach(function (string, i) {
+				var ptr = environ_buf + bufSize
+				HEAP32[(__environ + i * 4) >> 2] = ptr
+				writeAsciiToMemory(string, ptr)
+				bufSize += string.length + 1
+			})
+			return 0
+		}
+		function _environ_sizes_get(penviron_count, penviron_buf_size) {
+			var strings = getEnvStrings()
+			HEAP32[penviron_count >> 2] = strings.length
+			var bufSize = 0
+			strings.forEach(function (string) {
+				bufSize += string.length + 1
+			})
+			HEAP32[penviron_buf_size >> 2] = bufSize
+			return 0
 		}
 		function _fd_close(fd) {
 			abort("it should not be possible to operate on streams when !SYSCALLS_REQUIRE_FILESYSTEM")
@@ -3107,6 +3213,325 @@ var $MODULE_NAME = (() => {
 		function _setTempRet0(val) {
 			setTempRet0(val)
 		}
+		function __isLeapYear(year) {
+			return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)
+		}
+		function __arraySum(array, index) {
+			var sum = 0
+			for (var i = 0; i <= index; sum += array[i++]) {}
+			return sum
+		}
+		var __MONTH_DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+		var __MONTH_DAYS_REGULAR = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+		function __addDays(date, days) {
+			var newDate = new Date(date.getTime())
+			while (days > 0) {
+				var leap = __isLeapYear(newDate.getFullYear())
+				var currentMonth = newDate.getMonth()
+				var daysInCurrentMonth = (leap ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR)[currentMonth]
+				if (days > daysInCurrentMonth - newDate.getDate()) {
+					days -= daysInCurrentMonth - newDate.getDate() + 1
+					newDate.setDate(1)
+					if (currentMonth < 11) {
+						newDate.setMonth(currentMonth + 1)
+					} else {
+						newDate.setMonth(0)
+						newDate.setFullYear(newDate.getFullYear() + 1)
+					}
+				} else {
+					newDate.setDate(newDate.getDate() + days)
+					return newDate
+				}
+			}
+			return newDate
+		}
+		function _strftime(s, maxsize, format, tm) {
+			var tm_zone = HEAP32[(tm + 40) >> 2]
+			var date = {
+				tm_sec: HEAP32[tm >> 2],
+				tm_min: HEAP32[(tm + 4) >> 2],
+				tm_hour: HEAP32[(tm + 8) >> 2],
+				tm_mday: HEAP32[(tm + 12) >> 2],
+				tm_mon: HEAP32[(tm + 16) >> 2],
+				tm_year: HEAP32[(tm + 20) >> 2],
+				tm_wday: HEAP32[(tm + 24) >> 2],
+				tm_yday: HEAP32[(tm + 28) >> 2],
+				tm_isdst: HEAP32[(tm + 32) >> 2],
+				tm_gmtoff: HEAP32[(tm + 36) >> 2],
+				tm_zone: tm_zone ? UTF8ToString(tm_zone) : "",
+			}
+			var pattern = UTF8ToString(format)
+			var EXPANSION_RULES_1 = {
+				"%c": "%a %b %d %H:%M:%S %Y",
+				"%D": "%m/%d/%y",
+				"%F": "%Y-%m-%d",
+				"%h": "%b",
+				"%r": "%I:%M:%S %p",
+				"%R": "%H:%M",
+				"%T": "%H:%M:%S",
+				"%x": "%m/%d/%y",
+				"%X": "%H:%M:%S",
+				"%Ec": "%c",
+				"%EC": "%C",
+				"%Ex": "%m/%d/%y",
+				"%EX": "%H:%M:%S",
+				"%Ey": "%y",
+				"%EY": "%Y",
+				"%Od": "%d",
+				"%Oe": "%e",
+				"%OH": "%H",
+				"%OI": "%I",
+				"%Om": "%m",
+				"%OM": "%M",
+				"%OS": "%S",
+				"%Ou": "%u",
+				"%OU": "%U",
+				"%OV": "%V",
+				"%Ow": "%w",
+				"%OW": "%W",
+				"%Oy": "%y",
+			}
+			for (var rule in EXPANSION_RULES_1) {
+				pattern = pattern.replace(new RegExp(rule, "g"), EXPANSION_RULES_1[rule])
+			}
+			var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+			var MONTHS = [
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+				"August",
+				"September",
+				"October",
+				"November",
+				"December",
+			]
+			function leadingSomething(value, digits, character) {
+				var str = typeof value === "number" ? value.toString() : value || ""
+				while (str.length < digits) {
+					str = character[0] + str
+				}
+				return str
+			}
+			function leadingNulls(value, digits) {
+				return leadingSomething(value, digits, "0")
+			}
+			function compareByDay(date1, date2) {
+				function sgn(value) {
+					return value < 0 ? -1 : value > 0 ? 1 : 0
+				}
+				var compare
+				if ((compare = sgn(date1.getFullYear() - date2.getFullYear())) === 0) {
+					if ((compare = sgn(date1.getMonth() - date2.getMonth())) === 0) {
+						compare = sgn(date1.getDate() - date2.getDate())
+					}
+				}
+				return compare
+			}
+			function getFirstWeekStartDate(janFourth) {
+				switch (janFourth.getDay()) {
+					case 0:
+						return new Date(janFourth.getFullYear() - 1, 11, 29)
+					case 1:
+						return janFourth
+					case 2:
+						return new Date(janFourth.getFullYear(), 0, 3)
+					case 3:
+						return new Date(janFourth.getFullYear(), 0, 2)
+					case 4:
+						return new Date(janFourth.getFullYear(), 0, 1)
+					case 5:
+						return new Date(janFourth.getFullYear() - 1, 11, 31)
+					case 6:
+						return new Date(janFourth.getFullYear() - 1, 11, 30)
+				}
+			}
+			function getWeekBasedYear(date) {
+				var thisDate = __addDays(new Date(date.tm_year + 1900, 0, 1), date.tm_yday)
+				var janFourthThisYear = new Date(thisDate.getFullYear(), 0, 4)
+				var janFourthNextYear = new Date(thisDate.getFullYear() + 1, 0, 4)
+				var firstWeekStartThisYear = getFirstWeekStartDate(janFourthThisYear)
+				var firstWeekStartNextYear = getFirstWeekStartDate(janFourthNextYear)
+				if (compareByDay(firstWeekStartThisYear, thisDate) <= 0) {
+					if (compareByDay(firstWeekStartNextYear, thisDate) <= 0) {
+						return thisDate.getFullYear() + 1
+					} else {
+						return thisDate.getFullYear()
+					}
+				} else {
+					return thisDate.getFullYear() - 1
+				}
+			}
+			var EXPANSION_RULES_2 = {
+				"%a": function (date) {
+					return WEEKDAYS[date.tm_wday].substring(0, 3)
+				},
+				"%A": function (date) {
+					return WEEKDAYS[date.tm_wday]
+				},
+				"%b": function (date) {
+					return MONTHS[date.tm_mon].substring(0, 3)
+				},
+				"%B": function (date) {
+					return MONTHS[date.tm_mon]
+				},
+				"%C": function (date) {
+					var year = date.tm_year + 1900
+					return leadingNulls((year / 100) | 0, 2)
+				},
+				"%d": function (date) {
+					return leadingNulls(date.tm_mday, 2)
+				},
+				"%e": function (date) {
+					return leadingSomething(date.tm_mday, 2, " ")
+				},
+				"%g": function (date) {
+					return getWeekBasedYear(date).toString().substring(2)
+				},
+				"%G": function (date) {
+					return getWeekBasedYear(date)
+				},
+				"%H": function (date) {
+					return leadingNulls(date.tm_hour, 2)
+				},
+				"%I": function (date) {
+					var twelveHour = date.tm_hour
+					if (twelveHour == 0) twelveHour = 12
+					else if (twelveHour > 12) twelveHour -= 12
+					return leadingNulls(twelveHour, 2)
+				},
+				"%j": function (date) {
+					return leadingNulls(
+						date.tm_mday +
+							__arraySum(
+								__isLeapYear(date.tm_year + 1900) ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR,
+								date.tm_mon - 1
+							),
+						3
+					)
+				},
+				"%m": function (date) {
+					return leadingNulls(date.tm_mon + 1, 2)
+				},
+				"%M": function (date) {
+					return leadingNulls(date.tm_min, 2)
+				},
+				"%n": function () {
+					return "\n"
+				},
+				"%p": function (date) {
+					if (date.tm_hour >= 0 && date.tm_hour < 12) {
+						return "AM"
+					} else {
+						return "PM"
+					}
+				},
+				"%S": function (date) {
+					return leadingNulls(date.tm_sec, 2)
+				},
+				"%t": function () {
+					return "\t"
+				},
+				"%u": function (date) {
+					return date.tm_wday || 7
+				},
+				"%U": function (date) {
+					var janFirst = new Date(date.tm_year + 1900, 0, 1)
+					var firstSunday =
+						janFirst.getDay() === 0 ? janFirst : __addDays(janFirst, 7 - janFirst.getDay())
+					var endDate = new Date(date.tm_year + 1900, date.tm_mon, date.tm_mday)
+					if (compareByDay(firstSunday, endDate) < 0) {
+						var februaryFirstUntilEndMonth =
+							__arraySum(
+								__isLeapYear(endDate.getFullYear()) ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR,
+								endDate.getMonth() - 1
+							) - 31
+						var firstSundayUntilEndJanuary = 31 - firstSunday.getDate()
+						var days = firstSundayUntilEndJanuary + februaryFirstUntilEndMonth + endDate.getDate()
+						return leadingNulls(Math.ceil(days / 7), 2)
+					}
+					return compareByDay(firstSunday, janFirst) === 0 ? "01" : "00"
+				},
+				"%V": function (date) {
+					var janFourthThisYear = new Date(date.tm_year + 1900, 0, 4)
+					var janFourthNextYear = new Date(date.tm_year + 1901, 0, 4)
+					var firstWeekStartThisYear = getFirstWeekStartDate(janFourthThisYear)
+					var firstWeekStartNextYear = getFirstWeekStartDate(janFourthNextYear)
+					var endDate = __addDays(new Date(date.tm_year + 1900, 0, 1), date.tm_yday)
+					if (compareByDay(endDate, firstWeekStartThisYear) < 0) {
+						return "53"
+					}
+					if (compareByDay(firstWeekStartNextYear, endDate) <= 0) {
+						return "01"
+					}
+					var daysDifference
+					if (firstWeekStartThisYear.getFullYear() < date.tm_year + 1900) {
+						daysDifference = date.tm_yday + 32 - firstWeekStartThisYear.getDate()
+					} else {
+						daysDifference = date.tm_yday + 1 - firstWeekStartThisYear.getDate()
+					}
+					return leadingNulls(Math.ceil(daysDifference / 7), 2)
+				},
+				"%w": function (date) {
+					return date.tm_wday
+				},
+				"%W": function (date) {
+					var janFirst = new Date(date.tm_year, 0, 1)
+					var firstMonday =
+						janFirst.getDay() === 1
+							? janFirst
+							: __addDays(janFirst, janFirst.getDay() === 0 ? 1 : 7 - janFirst.getDay() + 1)
+					var endDate = new Date(date.tm_year + 1900, date.tm_mon, date.tm_mday)
+					if (compareByDay(firstMonday, endDate) < 0) {
+						var februaryFirstUntilEndMonth =
+							__arraySum(
+								__isLeapYear(endDate.getFullYear()) ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR,
+								endDate.getMonth() - 1
+							) - 31
+						var firstMondayUntilEndJanuary = 31 - firstMonday.getDate()
+						var days = firstMondayUntilEndJanuary + februaryFirstUntilEndMonth + endDate.getDate()
+						return leadingNulls(Math.ceil(days / 7), 2)
+					}
+					return compareByDay(firstMonday, janFirst) === 0 ? "01" : "00"
+				},
+				"%y": function (date) {
+					return (date.tm_year + 1900).toString().substring(2)
+				},
+				"%Y": function (date) {
+					return date.tm_year + 1900
+				},
+				"%z": function (date) {
+					var off = date.tm_gmtoff
+					var ahead = off >= 0
+					off = Math.abs(off) / 60
+					off = (off / 60) * 100 + (off % 60)
+					return (ahead ? "+" : "-") + String("0000" + off).slice(-4)
+				},
+				"%Z": function (date) {
+					return date.tm_zone
+				},
+				"%%": function () {
+					return "%"
+				},
+			}
+			for (var rule in EXPANSION_RULES_2) {
+				if (pattern.includes(rule)) {
+					pattern = pattern.replace(new RegExp(rule, "g"), EXPANSION_RULES_2[rule](date))
+				}
+			}
+			var bytes = intArrayFromString(pattern, false)
+			if (bytes.length > maxsize) {
+				return 0
+			}
+			writeArrayToMemory(bytes, s)
+			return bytes.length - 1
+		}
+		function _strftime_l(s, maxsize, format, tm) {
+			return _strftime(s, maxsize, format, tm)
+		}
 		embind_init_charCodes()
 		BindingError = Module["BindingError"] = extendError(Error, "BindingError")
 		InternalError = Module["InternalError"] = extendError(Error, "InternalError")
@@ -3116,14 +3541,25 @@ var $MODULE_NAME = (() => {
 		UnboundTypeError = Module["UnboundTypeError"] = extendError(Error, "UnboundTypeError")
 		init_emval()
 		var ASSERTIONS = true
+		function intArrayFromString(stringy, dontAddNull, length) {
+			var len = length > 0 ? length : lengthBytesUTF8(stringy) + 1
+			var u8array = new Array(len)
+			var numBytesWritten = stringToUTF8Array(stringy, u8array, 0, u8array.length)
+			if (dontAddNull) u8array.length = numBytesWritten
+			return u8array
+		}
 		var asmLibraryArg = {
 			__cxa_allocate_exception: ___cxa_allocate_exception,
+			__cxa_atexit: ___cxa_atexit,
 			__cxa_begin_catch: ___cxa_begin_catch,
 			__cxa_end_catch: ___cxa_end_catch,
 			__cxa_find_matching_catch_2: ___cxa_find_matching_catch_2,
 			__cxa_find_matching_catch_3: ___cxa_find_matching_catch_3,
+			__cxa_find_matching_catch_4: ___cxa_find_matching_catch_4,
 			__cxa_free_exception: ___cxa_free_exception,
+			__cxa_rethrow: ___cxa_rethrow,
 			__cxa_throw: ___cxa_throw,
+			__cxa_uncaught_exceptions: ___cxa_uncaught_exceptions,
 			__resumeException: ___resumeException,
 			_embind_register_bigint: __embind_register_bigint,
 			_embind_register_bool: __embind_register_bool,
@@ -3140,6 +3576,8 @@ var $MODULE_NAME = (() => {
 			abort: _abort,
 			emscripten_memcpy_big: _emscripten_memcpy_big,
 			emscripten_resize_heap: _emscripten_resize_heap,
+			environ_get: _environ_get,
+			environ_sizes_get: _environ_sizes_get,
 			fd_close: _fd_close,
 			fd_seek: _fd_seek,
 			fd_write: _fd_write,
@@ -3150,13 +3588,21 @@ var $MODULE_NAME = (() => {
 			invoke_iii: invoke_iii,
 			invoke_iiii: invoke_iiii,
 			invoke_iiiii: invoke_iiiii,
+			invoke_iiiiii: invoke_iiiiii,
+			invoke_iiiiiii: invoke_iiiiiii,
+			invoke_iiiiiiii: invoke_iiiiiiii,
+			invoke_iiiiiiiiiiii: invoke_iiiiiiiiiiii,
 			invoke_v: invoke_v,
 			invoke_vi: invoke_vi,
 			invoke_vii: invoke_vii,
 			invoke_viii: invoke_viii,
 			invoke_viiii: invoke_viiii,
+			invoke_viiiiiii: invoke_viiiiiii,
+			invoke_viiiiiiiiii: invoke_viiiiiiiiii,
+			invoke_viiiiiiiiiiiiiii: invoke_viiiiiiiiiiiiiii,
 			llvm_eh_typeid_for: _llvm_eh_typeid_for,
 			setTempRet0: _setTempRet0,
+			strftime_l: _strftime_l,
 		}
 		var asm = createWasm()
 		var ___wasm_call_ctors = (Module["___wasm_call_ctors"] =
@@ -3190,10 +3636,14 @@ var $MODULE_NAME = (() => {
 		var ___cxa_is_pointer_type = (Module["___cxa_is_pointer_type"] =
 			createExportWrapper("__cxa_is_pointer_type"))
 		var dynCall_jiji = (Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji"))
-		function invoke_vii(index, a1, a2) {
+		var dynCall_viijii = (Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii"))
+		var dynCall_iiiiij = (Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij"))
+		var dynCall_iiiiijj = (Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj"))
+		var dynCall_iiiiiijj = (Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj"))
+		function invoke_iiii(index, a1, a2, a3) {
 			var sp = stackSave()
 			try {
-				getWasmTableEntry(index)(a1, a2)
+				return getWasmTableEntry(index)(a1, a2, a3)
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
@@ -3204,6 +3654,16 @@ var $MODULE_NAME = (() => {
 			var sp = stackSave()
 			try {
 				return getWasmTableEntry(index)(a1)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_v(index) {
+			var sp = stackSave()
+			try {
+				getWasmTableEntry(index)()
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
@@ -3230,16 +3690,6 @@ var $MODULE_NAME = (() => {
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_v(index) {
-			var sp = stackSave()
-			try {
-				getWasmTableEntry(index)()
-			} catch (e) {
-				stackRestore(sp)
-				if (e !== e + 0 && e !== "longjmp") throw e
-				_setThrew(1, 0)
-			}
-		}
 		function invoke_vi(index, a1) {
 			var sp = stackSave()
 			try {
@@ -3250,20 +3700,20 @@ var $MODULE_NAME = (() => {
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_iiiii(index, a1, a2, a3, a4) {
+		function invoke_vii(index, a1, a2) {
 			var sp = stackSave()
 			try {
-				return getWasmTableEntry(index)(a1, a2, a3, a4)
+				getWasmTableEntry(index)(a1, a2)
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_iiii(index, a1, a2, a3) {
+		function invoke_viiii(index, a1, a2, a3, a4) {
 			var sp = stackSave()
 			try {
-				return getWasmTableEntry(index)(a1, a2, a3)
+				getWasmTableEntry(index)(a1, a2, a3, a4)
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
@@ -3280,10 +3730,97 @@ var $MODULE_NAME = (() => {
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_viiii(index, a1, a2, a3, a4) {
+		function invoke_iiiiiii(index, a1, a2, a3, a4, a5, a6) {
 			var sp = stackSave()
 			try {
-				getWasmTableEntry(index)(a1, a2, a3, a4)
+				return getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_iiiiii(index, a1, a2, a3, a4, a5) {
+			var sp = stackSave()
+			try {
+				return getWasmTableEntry(index)(a1, a2, a3, a4, a5)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_iiiiiiii(index, a1, a2, a3, a4, a5, a6, a7) {
+			var sp = stackSave()
+			try {
+				return getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_viiiiiii(index, a1, a2, a3, a4, a5, a6, a7) {
+			var sp = stackSave()
+			try {
+				getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_iiiiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11) {
+			var sp = stackSave()
+			try {
+				return getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_viiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10) {
+			var sp = stackSave()
+			try {
+				getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_viiiiiiiiiiiiiii(
+			index,
+			a1,
+			a2,
+			a3,
+			a4,
+			a5,
+			a6,
+			a7,
+			a8,
+			a9,
+			a10,
+			a11,
+			a12,
+			a13,
+			a14,
+			a15
+		) {
+			var sp = stackSave()
+			try {
+				getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15)
+			} catch (e) {
+				stackRestore(sp)
+				if (e !== e + 0 && e !== "longjmp") throw e
+				_setThrew(1, 0)
+			}
+		}
+		function invoke_iiiii(index, a1, a2, a3, a4) {
+			var sp = stackSave()
+			try {
+				return getWasmTableEntry(index)(a1, a2, a3, a4)
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e

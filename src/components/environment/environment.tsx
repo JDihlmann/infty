@@ -7,7 +7,7 @@ import { useGenerationStore } from "@/stores/generationStore"
 const Environment = () => {
 	return (
 		<Suspense fallback={null}>
-			<EnvironmentLight preset="city" />
+			<EnvironmentLight />
 			{/* <pointLight position={[5, 0, 0]} /> */}
 			<ambientLight intensity={0.4} />
 
