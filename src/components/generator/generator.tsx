@@ -177,20 +177,26 @@ const Generator = () => {
 	}, [initWFCModule])
 
 	return (
-		<div style={{ position: "absolute", bottom: 20 }}>
+		<>
 			<button
-				className="bg-black text-white hover:bg-gray-800 font-bold py-2 px-2 rounded"
+				style={{
+					marginRight: "10px",
+					pointerEvents: "all",
+				}}
+				//className="bg-black text-white hover:bg-gray-800 font-bold py-2 px-2 rounded"
 				onClick={() => run()}
 			>
 				<p> Generate </p>
 			</button>
 			<button
-				className="bg-black text-white hover:bg-gray-800 font-bold py-2 px-2 rounded"
+				style={{
+					pointerEvents: "all",
+				}}
 				onClick={() => step()}
 			>
 				<p> Step </p>
 			</button>
-		</div>
+		</>
 	)
 }
 

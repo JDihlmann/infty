@@ -8,10 +8,38 @@ interface BodyProps {
 const Body: FunctionComponent<BodyProps> = ({ children, className = undefined }) => {
 	return (
 		<div
-			className={`bg-white z-20  dark:bg-black text-black dark:text-white flex flex-col box-border h-screen ${className}`}
+			style={{
+				top: 0,
+				left: 0,
+				position: "absolute",
+				width: "100%",
+				height: "100%",
+				overflow: "hidden",
+				zIndex: -1,
+				display: "flex",
+				flexDirection: "column",
+				boxSizing: "border-box",
+				background: "none",
+				justifyContent: "space-between",
+				pointerEvents: "none",
+			}}
 		>
 			<Header />
-			<div className={"flex-1 flex flex-col items-stretch self-center"}>{children}</div>
+			<div
+				style={{
+					flex: 1,
+					display: "flex",
+					flexDirection: "row",
+					alignItems: "flex-end",
+					alignSelf: "center",
+					justifyContent: "center",
+					width: "100%",
+					maxWidth: "1024px",
+					paddingBottom: "20px",
+				}}
+			>
+				{children}
+			</div>
 		</div>
 	)
 }

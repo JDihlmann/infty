@@ -1,19 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-	font-family: "Redaction";
-	font-style: bold;
-	font-name-instance: "Bold";
-	font-weight: 700;
-	src: url("/fonts/Redaction_50-Bold.woff2") format("woff2");
+* {
+	box-sizing: border-box;
+	font-family: "Lato", sans-serif;
 }
 
-@font-face {
-	font-family: "Redaction";
-	font-style: normal;
-	font-name-instance: "Regular";
-	font-weight: 500;
-	src: url("/fonts/Redaction_50-Regular.woff2") format("woff2");
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #222;
+	background: #222;
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	padding: 4px 16px;
+	height: 45px;
+	border: none;
+}
+
+button:hover {
+	background-color: #333;
+	background: #333;
 }

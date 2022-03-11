@@ -1,6 +1,5 @@
 import Head from "next/head"
 import { AppProps } from "next/app"
-import "tailwindcss/tailwind.css"
 import "../styles/globals.css"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -14,8 +13,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<title> Infty </title>
 				<meta name="theme-color" content="#ffffff" />
 
-				<link rel="preload" href="/fonts/Redaction_35-Bold.woff2" as="font" crossOrigin="" />
-				<link rel="preload" href="/fonts/Redaction_35-Regular.woff2" as="font" crossOrigin="" />
+				<link
+					href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+					rel="stylesheet"
+				/>
 			</Head>
 			<Component {...pageProps} />
 		</>

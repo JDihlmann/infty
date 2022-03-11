@@ -27,7 +27,6 @@ const Header = ({}) => {
 						display: "flex",
 						flexDirection: "row",
 						alignItems: "center",
-						zIndex: 30,
 					}}
 				>
 					<Link href="/">
@@ -39,7 +38,8 @@ const Header = ({}) => {
 								fontWeight: "bold",
 								fontSize: "1.875rem",
 								lineHeight: "2.25rem",
-								zIndex: 30,
+								textDecoration: "none",
+								pointerEvents: "all",
 							}}
 						>
 							Infty
@@ -55,17 +55,12 @@ const Header = ({}) => {
 						zIndex: 30,
 					}}
 				>
-					<button
-						style={{
-							background: "none",
-							fontWeight: "bold",
-							paddingTop: "0.5rem",
-							paddingBottom: "0.5rem",
-							borderRadius: "0.25rem",
-						}}
+					<a
+						href="https://twitter.com/JDihlmann"
+						style={{ textDecoration: "none", fontWeight: "bold", pointerEvents: "all" }}
 					>
-						<Link href="https://twitter.com/JDihlmann">@JDihlmann</Link>
-					</button>
+						@JDihlmann
+					</a>
 				</div>
 			</div>
 		</div>
