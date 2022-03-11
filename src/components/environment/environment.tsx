@@ -1,17 +1,14 @@
-import { Environment as EnvironmentLight, Html } from "@react-three/drei"
-import { Suspense, useEffect } from "react"
-import { MathUtils, Object3D, Vector3 } from "three"
+import { Environment as EnvironmentLight } from "@react-three/drei"
+import { Suspense } from "react"
 import Displayer from "../displayer/displayer"
-import { useGenerationStore } from "@/stores/generationStore"
 
 const Environment = () => {
 	return (
 		<Suspense fallback={null}>
-			<EnvironmentLight />
-			{/* <pointLight position={[5, 0, 0]} /> */}
-			<ambientLight intensity={0.4} />
+			<EnvironmentLight files="environmentMap.hdr" />
+			<ambientLight intensity={0.2} />
+			<gridHelper args={[200, 200]} position={[0, 0, 0]} />
 
-			<gridHelper args={[100, 100]} />
 			<Displayer />
 		</Suspense>
 	)

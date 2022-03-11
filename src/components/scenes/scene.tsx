@@ -18,9 +18,6 @@ const Scene: FunctionComponent<SceneProps> = ({}) => {
 				gl.toneMapping = NoToneMapping
 				gl.outputEncoding = sRGBEncoding
 			}}
-			mode="concurrent"
-			//onCreated={(state) => state.events.connect(scrollRef.current)}
-			//raycaster={{ computeOffsets: ({ clientX, clientY }) => ({ offsetX: clientX, offsetY: clientY }) }}>
 		>
 			<Camera />
 			<Environment />

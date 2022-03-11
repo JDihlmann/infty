@@ -106,7 +106,7 @@ const Displayer = () => {
 	}
 
 	return (
-		<group position={[-Math.floor(size.x / 2), -1, -Math.floor(size.z / 2)]}>
+		<group position={[-Math.floor(size.x / 2), 0, -Math.floor(size.z / 2)]}>
 			{prototypeObjects &&
 				prototypeObjects.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
 			{entropyObjects &&
