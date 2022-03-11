@@ -7,6 +7,8 @@ const Camera = () => {
 	return (
 		<>
 			<MapControls
+				autoRotate
+				autoRotateSpeed={0.7}
 				target={[0, 0, 0]}
 				maxPolarAngle={angle}
 				minPolarAngle={angle}
