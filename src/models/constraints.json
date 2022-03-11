@@ -243,7 +243,6 @@
         ],
         "0_0_-1": [
             "Edge_0_0_2",
-            "Wall_0_1_1",
             "Corner_0_0_1"
         ],
         "0_0_1": [
@@ -255,14 +254,12 @@
         ],
         "1_0_0": [
             "Edge_0_0_3",
-            "Wall_0_1_2",
             "Corner_0_0_3"
         ]
     },
     "Corner_0_0_3": {
         "-1_0_0": [
             "Edge_0_0_3",
-            "Wall_0_1_2",
             "Corner_0_0_2"
         ],
         "0_-1_0": [
@@ -270,7 +267,6 @@
         ],
         "0_0_-1": [
             "Edge_0_0_0",
-            "Wall_0_1_3",
             "Corner_0_0_0"
         ],
         "0_0_1": [
@@ -287,7 +283,6 @@
     "Corner_0_0_0": {
         "-1_0_0": [
             "Edge_0_0_1",
-            "Wall_0_1_0",
             "Corner_0_0_1"
         ],
         "0_-1_0": [
@@ -298,7 +293,6 @@
         ],
         "0_0_1": [
             "Edge_0_0_0",
-            "Wall_0_1_3",
             "Corner_0_0_3"
         ],
         "0_1_0": [
@@ -321,7 +315,6 @@
         ],
         "0_0_1": [
             "Edge_0_0_2",
-            "Wall_0_1_1",
             "Corner_0_0_2"
         ],
         "0_1_0": [
@@ -330,7 +323,6 @@
         ],
         "1_0_0": [
             "Edge_0_0_1",
-            "Wall_0_1_0",
             "Corner_0_0_0"
         ]
     },
@@ -592,13 +584,11 @@
         "0_0_-1": [
             "Edge_0_0_2",
             "Corner_0_0_1",
-            "Wall_0_1_2",
             "BendWallOuterTop_3_0_0"
         ],
         "0_0_1": [
             "Corner_0_0_2",
             "Edge_0_0_2",
-            "Wall_0_1_0",
             "BendWallOuterTop_3_0_1"
         ],
         "0_1_0": [
@@ -617,7 +607,6 @@
         "-1_0_0": [
             "Edge_0_0_3",
             "Corner_0_0_2",
-            "Wall_0_1_3",
             "BendWallOuterTop_3_0_1"
         ],
         "0_-1_0": [
@@ -640,7 +629,6 @@
         "1_0_0": [
             "Corner_0_0_3",
             "Edge_0_0_3",
-            "Wall_0_1_1",
             "BendWallOuterTop_3_0_2"
         ]
     },
@@ -658,13 +646,11 @@
         "0_0_-1": [
             "Corner_0_0_0",
             "Edge_0_0_0",
-            "Wall_0_1_2",
             "BendWallOuterTop_3_0_3"
         ],
         "0_0_1": [
             "Edge_0_0_0",
             "Corner_0_0_3",
-            "Wall_0_1_0",
             "BendWallOuterTop_3_0_2"
         ],
         "0_1_0": [
@@ -679,7 +665,6 @@
         "-1_0_0": [
             "Corner_0_0_1",
             "Edge_0_0_1",
-            "Wall_0_1_3",
             "BendWallOuterTop_3_0_0"
         ],
         "0_-1_0": [
@@ -702,7 +687,6 @@
         "1_0_0": [
             "Edge_0_0_1",
             "Corner_0_0_0",
-            "Wall_0_1_1",
             "BendWallOuterTop_3_0_3"
         ]
     },
@@ -721,8 +705,8 @@
         "0_0_-1": [
             "Wall_0_0_2",
             "Edge_1_0_1",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_3",
+            "BendWallOuterLower_3_0_0",
             "StairsRight_0_0_0",
             "Edge_0_3_2",
             "Corner_0_3_1",
@@ -731,8 +715,8 @@
         "0_0_1": [
             "Edge_1_0_2",
             "Wall_0_0_2",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_0",
+            "BendWallOuterLower_3_0_1",
             "StairsLeft_0_0_2",
             "Edge_0_3_2",
             "Corner_0_3_2",
@@ -750,10 +734,6 @@
         ],
         "1_0_0": [
             "Connector_0_0_0",
-            "Wall_0_3_0",
-            "Wall_0_3_3",
-            "Wall_0_3_1",
-            "Wall_0_3_2",
             "Wall_0_0_0"
         ]
     },
@@ -761,8 +741,8 @@
         "-1_0_0": [
             "Wall_0_0_3",
             "Edge_1_0_2",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_0",
+            "BendWallOuterLower_3_0_1",
             "StairsRight_0_0_1",
             "Edge_0_3_3",
             "Corner_0_3_2",
@@ -777,10 +757,6 @@
         ],
         "0_0_-1": [
             "Connector_0_0_0",
-            "Wall_0_3_1",
-            "Wall_0_3_0",
-            "Wall_0_3_2",
-            "Wall_0_3_3",
             "Wall_0_0_1"
         ],
         "0_0_1": [
@@ -800,8 +776,8 @@
         "1_0_0": [
             "Edge_1_0_3",
             "Wall_0_0_3",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_1",
+            "BendWallOuterLower_3_0_2",
             "StairsLeft_0_0_3",
             "Edge_0_3_3",
             "Corner_0_3_3",
@@ -811,10 +787,6 @@
     "Wall_0_0_0": {
         "-1_0_0": [
             "Connector_0_0_0",
-            "Wall_0_3_2",
-            "Wall_0_3_1",
-            "Wall_0_3_3",
-            "Wall_0_3_0",
             "Wall_0_0_2"
         ],
         "0_-1_0": [
@@ -827,8 +799,8 @@
         "0_0_-1": [
             "Edge_1_0_0",
             "Wall_0_0_0",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_2",
+            "BendWallOuterLower_3_0_3",
             "StairsLeft_0_0_0",
             "Edge_0_3_0",
             "Corner_0_3_0",
@@ -837,8 +809,8 @@
         "0_0_1": [
             "Wall_0_0_0",
             "Edge_1_0_3",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_1",
+            "BendWallOuterLower_3_0_2",
             "StairsRight_0_0_2",
             "Edge_0_3_0",
             "Corner_0_3_3",
@@ -863,8 +835,8 @@
         "-1_0_0": [
             "Edge_1_0_1",
             "Wall_0_0_1",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_3",
+            "BendWallOuterLower_3_0_0",
             "StairsLeft_0_0_1",
             "Edge_0_3_1",
             "Corner_0_3_1",
@@ -883,10 +855,6 @@
         ],
         "0_0_1": [
             "Connector_0_0_0",
-            "Wall_0_3_3",
-            "Wall_0_3_2",
-            "Wall_0_3_0",
-            "Wall_0_3_1",
             "Wall_0_0_3"
         ],
         "0_1_0": [
@@ -902,8 +870,8 @@
         "1_0_0": [
             "Wall_0_0_1",
             "Edge_1_0_0",
-            "Connector_0_0_0",
             "BendWallOuter_1_0_2",
+            "BendWallOuterLower_3_0_3",
             "StairsRight_0_0_3",
             "Edge_0_3_1",
             "Corner_0_3_0",
@@ -917,7 +885,6 @@
         "0_-1_0": [
             "Wall_0_0_2",
             "Connector_0_0_0",
-            "Edge_0_3_2",
             "Edge_0_0_2",
             "Edge_1_0_1",
             "ArchLeft_0_3_3",
@@ -927,50 +894,39 @@
         "0_0_-1": [
             "Edge_0_3_2",
             "Corner_0_3_1",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_3",
-            "BendWallOuterLower_3_0_0",
-            "BendWallOuter_1_0_3",
             "Wall_0_3_2",
             "Wall_0_0_2"
         ],
         "0_0_1": [
             "Corner_0_3_2",
             "Edge_0_3_2",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_0",
-            "BendWallOuterLower_3_0_1",
-            "BendWallOuter_1_0_0",
             "Wall_0_0_2",
             "Wall_0_3_0"
         ],
         "0_1_0": [
-            "Empty",
-            "Edge_0_3_2"
+            "Empty"
         ],
         "1_0_0": [
             "Wall_0_3_0",
-            "Connector_0_0_0",
             "Wall_0_3_3",
             "Wall_0_3_1",
-            "Wall_0_3_2"
+            "Wall_0_3_2",
+            "Connector_0_0_0"
         ]
     },
     "Edge_0_3_3": {
         "-1_0_0": [
             "Edge_0_3_3",
             "Corner_0_3_2",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_0",
-            "BendWallOuterLower_3_0_1",
-            "BendWallOuter_1_0_0",
             "Wall_0_3_3",
             "Wall_0_0_3"
         ],
         "0_-1_0": [
             "Wall_0_0_3",
             "Connector_0_0_0",
-            "Edge_0_3_3",
             "Edge_0_0_3",
             "Edge_1_0_2",
             "ArchLeft_0_3_0",
@@ -979,25 +935,21 @@
         ],
         "0_0_-1": [
             "Wall_0_3_1",
-            "Connector_0_0_0",
             "Wall_0_3_0",
             "Wall_0_3_2",
-            "Wall_0_3_3"
+            "Wall_0_3_3",
+            "Connector_0_0_0"
         ],
         "0_0_1": [
             "Empty"
         ],
         "0_1_0": [
-            "Empty",
-            "Edge_0_3_3"
+            "Empty"
         ],
         "1_0_0": [
             "Corner_0_3_3",
             "Edge_0_3_3",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_1",
-            "BendWallOuterLower_3_0_2",
-            "BendWallOuter_1_0_1",
             "Wall_0_0_3",
             "Wall_0_3_1"
         ]
@@ -1005,15 +957,14 @@
     "Edge_0_3_0": {
         "-1_0_0": [
             "Wall_0_3_2",
-            "Connector_0_0_0",
             "Wall_0_3_1",
             "Wall_0_3_3",
-            "Wall_0_3_0"
+            "Wall_0_3_0",
+            "Connector_0_0_0"
         ],
         "0_-1_0": [
             "Wall_0_0_0",
             "Connector_0_0_0",
-            "Edge_0_3_0",
             "Edge_0_0_0",
             "Edge_1_0_3",
             "ArchLeft_0_3_1",
@@ -1023,26 +974,19 @@
         "0_0_-1": [
             "Corner_0_3_0",
             "Edge_0_3_0",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_2",
-            "BendWallOuterLower_3_0_3",
-            "BendWallOuter_1_0_2",
             "Wall_0_0_0",
             "Wall_0_3_2"
         ],
         "0_0_1": [
             "Edge_0_3_0",
             "Corner_0_3_3",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_1",
-            "BendWallOuterLower_3_0_2",
-            "BendWallOuter_1_0_1",
             "Wall_0_3_0",
             "Wall_0_0_0"
         ],
         "0_1_0": [
-            "Empty",
-            "Edge_0_3_0"
+            "Empty"
         ],
         "1_0_0": [
             "Empty"
@@ -1052,17 +996,13 @@
         "-1_0_0": [
             "Corner_0_3_1",
             "Edge_0_3_1",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_3",
-            "BendWallOuterLower_3_0_0",
-            "BendWallOuter_1_0_3",
             "Wall_0_0_1",
             "Wall_0_3_3"
         ],
         "0_-1_0": [
             "Wall_0_0_1",
             "Connector_0_0_0",
-            "Edge_0_3_1",
             "Edge_0_0_1",
             "Edge_1_0_0",
             "ArchLeft_0_3_2",
@@ -1074,22 +1014,18 @@
         ],
         "0_0_1": [
             "Wall_0_3_3",
-            "Connector_0_0_0",
             "Wall_0_3_2",
             "Wall_0_3_0",
-            "Wall_0_3_1"
+            "Wall_0_3_1",
+            "Connector_0_0_0"
         ],
         "0_1_0": [
-            "Empty",
-            "Edge_0_3_1"
+            "Empty"
         ],
         "1_0_0": [
             "Edge_0_3_1",
             "Corner_0_3_0",
-            "Connector_0_0_0",
             "BendWallOuterTop_1_0_2",
-            "BendWallOuterLower_3_0_3",
-            "BendWallOuter_1_0_2",
             "Wall_0_3_1",
             "Wall_0_0_1"
         ]
@@ -1097,7 +1033,6 @@
     "Wall_0_1_0": {
         "-1_0_0": [
             "Edge_0_0_2",
-            "Corner_0_0_1",
             "Wall_0_1_0"
         ],
         "0_-1_0": [
@@ -1105,9 +1040,7 @@
         ],
         "0_0_-1": [
             "Wall_0_1_0",
-            "Edge_0_0_1",
-            "Edge_0_0_2",
-            "Edge_0_0_0"
+            "Edge_0_0_1"
         ],
         "0_0_1": [
             "Edge_0_0_3",
@@ -1118,28 +1051,23 @@
         ],
         "1_0_0": [
             "Wall_0_1_0",
-            "Edge_0_0_0",
-            "Corner_0_0_0"
+            "Edge_0_0_0"
         ]
     },
     "Wall_0_1_1": {
         "-1_0_0": [
             "Wall_0_1_1",
-            "Edge_0_0_2",
-            "Edge_0_0_3",
-            "Edge_0_0_1"
+            "Edge_0_0_2"
         ],
         "0_-1_0": [
             "Floor"
         ],
         "0_0_-1": [
             "Wall_0_1_1",
-            "Edge_0_0_1",
-            "Corner_0_0_1"
+            "Edge_0_0_1"
         ],
         "0_0_1": [
             "Edge_0_0_3",
-            "Corner_0_0_2",
             "Wall_0_1_1"
         ],
         "0_1_0": [
@@ -1153,8 +1081,7 @@
     "Wall_0_1_2": {
         "-1_0_0": [
             "Wall_0_1_2",
-            "Edge_0_0_2",
-            "Corner_0_0_2"
+            "Edge_0_0_2"
         ],
         "0_-1_0": [
             "Floor"
@@ -1165,16 +1092,13 @@
         ],
         "0_0_1": [
             "Wall_0_1_2",
-            "Edge_0_0_3",
-            "Edge_0_0_0",
-            "Edge_0_0_2"
+            "Edge_0_0_3"
         ],
         "0_1_0": [
             "Connector_0_0_0"
         ],
         "1_0_0": [
             "Edge_0_0_0",
-            "Corner_0_0_3",
             "Wall_0_1_2"
         ]
     },
@@ -1188,22 +1112,18 @@
         ],
         "0_0_-1": [
             "Edge_0_0_1",
-            "Corner_0_0_0",
             "Wall_0_1_3"
         ],
         "0_0_1": [
             "Wall_0_1_3",
-            "Edge_0_0_3",
-            "Corner_0_0_3"
+            "Edge_0_0_3"
         ],
         "0_1_0": [
             "Connector_0_0_0"
         ],
         "1_0_0": [
             "Wall_0_1_3",
-            "Edge_0_0_0",
-            "Edge_0_0_1",
-            "Edge_0_0_3"
+            "Edge_0_0_0"
         ]
     },
     "Connector_0_0_0": {
@@ -1211,16 +1131,12 @@
             "Wall_0_0_2",
             "Connector_0_0_0",
             "Edge_0_3_2",
-            "Edge_1_0_1",
-            "Wall_0_0_3",
-            "Edge_0_3_3",
-            "Wall_0_3_1",
-            "Wall_0_0_1",
-            "Edge_1_0_2",
-            "Edge_0_3_1",
             "StairsRight_0_0_0",
+            "Edge_1_0_2",
+            "Edge_1_0_1",
             "StairsLeft_0_0_2",
             "StairWithWallLeft_0_0_1",
+            "Wall_0_3_1",
             "StairWithWallRight_0_0_1",
             "Arch_0_3_0",
             "ArchLeft_0_3_0",
@@ -1243,16 +1159,12 @@
             "Connector_0_0_0",
             "Wall_0_0_1",
             "Edge_0_3_1",
-            "Wall_0_0_2",
-            "Edge_1_0_0",
-            "Edge_0_3_2",
-            "Wall_0_3_0",
-            "Wall_0_0_0",
             "Edge_1_0_1",
-            "Edge_0_3_0",
             "StairsRight_0_0_3",
+            "Edge_1_0_0",
             "StairsLeft_0_0_1",
             "StairWithWallLeft_0_0_0",
+            "Wall_0_3_0",
             "StairWithWallRight_0_0_0",
             "Arch_0_3_3",
             "ArchLeft_0_3_3",
@@ -1264,16 +1176,12 @@
             "Wall_0_0_3",
             "Connector_0_0_0",
             "Edge_0_3_3",
-            "Edge_1_0_2",
-            "Wall_0_0_0",
-            "Edge_0_3_0",
-            "Wall_0_3_2",
-            "Wall_0_0_2",
-            "Edge_1_0_3",
-            "Edge_0_3_2",
             "StairsRight_0_0_1",
+            "Edge_1_0_3",
+            "Edge_1_0_2",
             "StairsLeft_0_0_3",
             "StairWithWallLeft_0_0_2",
+            "Wall_0_3_2",
             "StairWithWallRight_0_0_2",
             "Arch_0_3_1",
             "ArchLeft_0_3_1",
@@ -1287,22 +1195,22 @@
             "Wall_0_3_1",
             "Wall_0_3_2",
             "Wall_0_3_3",
-            "Edge_1_0_2",
-            "Edge_1_0_3",
-            "Edge_1_0_0",
-            "Edge_1_0_1",
-            "Wall_0_0_2",
-            "Wall_0_0_3",
-            "Wall_0_0_0",
-            "Wall_0_0_1",
             "BendWallOuterLower_3_0_1",
             "BendWallOuterLower_3_0_2",
             "BendWallOuterLower_3_0_3",
             "BendWallOuterLower_3_0_0",
+            "Wall_0_0_2",
+            "Wall_0_0_3",
+            "Wall_0_0_0",
+            "Wall_0_0_1",
             "Edge_0_3_2",
             "Edge_0_3_3",
             "Edge_0_3_0",
             "Edge_0_3_1",
+            "Edge_1_0_1",
+            "Edge_1_0_2",
+            "Edge_1_0_3",
+            "Edge_1_0_0",
             "StairWithWallLeft_0_0_2",
             "StairWithWallLeft_0_0_3",
             "StairWithWallLeft_0_0_0",
@@ -1324,16 +1232,12 @@
             "Connector_0_0_0",
             "Wall_0_0_0",
             "Edge_0_3_0",
-            "Edge_1_0_3",
-            "Wall_0_0_1",
-            "Edge_0_3_1",
-            "Wall_0_3_3",
-            "Edge_1_0_0",
-            "Wall_0_0_3",
-            "Edge_0_3_3",
             "StairsRight_0_0_2",
+            "Edge_1_0_0",
             "StairsLeft_0_0_0",
+            "Edge_1_0_3",
             "StairWithWallLeft_0_0_3",
+            "Wall_0_3_3",
             "StairWithWallRight_0_0_3",
             "Arch_0_3_2",
             "ArchLeft_0_3_2",
@@ -1346,12 +1250,10 @@
         "-1_0_0": [
             "Edge_0_3_2",
             "Wall_0_3_0",
-            "Wall_0_0_2",
             "StairsRight_0_0_0"
         ],
         "0_-1_0": [
             "Connector_0_0_0",
-            "Wall_0_3_0",
             "Wall_0_0_1",
             "Arch_0_3_3",
             "Arch_0_3_1"
@@ -1359,7 +1261,6 @@
         "0_0_-1": [
             "Wall_0_3_0",
             "Edge_0_3_1",
-            "Wall_0_0_1",
             "Edge_0_3_2",
             "Edge_0_3_0",
             "StairWithWallRight_0_0_0",
@@ -1370,21 +1271,18 @@
         "0_0_1": [
             "Edge_0_3_3",
             "Wall_0_3_0",
-            "Wall_0_0_3",
-            "Connector_0_0_0",
             "StairWithWallLeft_0_0_2",
+            "Connector_0_0_0",
             "StairWithWallRight_0_0_2",
             "FlatStairWithWallLeftLowerUper_0_0_2",
             "FlatStairWithWallRightUper_0_0_2"
         ],
         "0_1_0": [
-            "Empty",
-            "Wall_0_3_0"
+            "Empty"
         ],
         "1_0_0": [
             "Wall_0_3_0",
             "Edge_0_3_0",
-            "Wall_0_0_0",
             "StairsLeft_0_0_0"
         ]
     },
@@ -1392,7 +1290,6 @@
         "-1_0_0": [
             "Wall_0_3_1",
             "Edge_0_3_2",
-            "Wall_0_0_2",
             "Edge_0_3_3",
             "Edge_0_3_1",
             "StairWithWallRight_0_0_1",
@@ -1402,7 +1299,6 @@
         ],
         "0_-1_0": [
             "Connector_0_0_0",
-            "Wall_0_3_1",
             "Wall_0_0_2",
             "Arch_0_3_0",
             "Arch_0_3_2"
@@ -1410,25 +1306,21 @@
         "0_0_-1": [
             "Wall_0_3_1",
             "Edge_0_3_1",
-            "Wall_0_0_1",
             "StairsLeft_0_0_1"
         ],
         "0_0_1": [
             "Edge_0_3_3",
             "Wall_0_3_1",
-            "Wall_0_0_3",
             "StairsRight_0_0_1"
         ],
         "0_1_0": [
-            "Empty",
-            "Wall_0_3_1"
+            "Empty"
         ],
         "1_0_0": [
             "Edge_0_3_0",
             "Wall_0_3_1",
-            "Wall_0_0_0",
-            "Connector_0_0_0",
             "StairWithWallLeft_0_0_3",
+            "Connector_0_0_0",
             "StairWithWallRight_0_0_3",
             "FlatStairWithWallLeftLowerUper_0_0_3",
             "FlatStairWithWallRightUper_0_0_3"
@@ -1438,12 +1330,10 @@
         "-1_0_0": [
             "Wall_0_3_2",
             "Edge_0_3_2",
-            "Wall_0_0_2",
             "StairsLeft_0_0_2"
         ],
         "0_-1_0": [
             "Connector_0_0_0",
-            "Wall_0_3_2",
             "Wall_0_0_3",
             "Arch_0_3_1",
             "Arch_0_3_3"
@@ -1451,9 +1341,8 @@
         "0_0_-1": [
             "Edge_0_3_1",
             "Wall_0_3_2",
-            "Wall_0_0_1",
-            "Connector_0_0_0",
             "StairWithWallLeft_0_0_0",
+            "Connector_0_0_0",
             "StairWithWallRight_0_0_0",
             "FlatStairWithWallLeftLowerUper_0_0_0",
             "FlatStairWithWallRightUper_0_0_0"
@@ -1461,7 +1350,6 @@
         "0_0_1": [
             "Wall_0_3_2",
             "Edge_0_3_3",
-            "Wall_0_0_3",
             "Edge_0_3_0",
             "Edge_0_3_2",
             "StairWithWallRight_0_0_2",
@@ -1470,13 +1358,11 @@
             "FlatStairWithWallLeftLowerUper_0_0_2"
         ],
         "0_1_0": [
-            "Empty",
-            "Wall_0_3_2"
+            "Empty"
         ],
         "1_0_0": [
             "Edge_0_3_0",
             "Wall_0_3_2",
-            "Wall_0_0_0",
             "StairsRight_0_0_2"
         ]
     },
@@ -1484,16 +1370,14 @@
         "-1_0_0": [
             "Edge_0_3_2",
             "Wall_0_3_3",
-            "Wall_0_0_2",
-            "Connector_0_0_0",
             "StairWithWallLeft_0_0_1",
+            "Connector_0_0_0",
             "StairWithWallRight_0_0_1",
             "FlatStairWithWallLeftLowerUper_0_0_1",
             "FlatStairWithWallRightUper_0_0_1"
         ],
         "0_-1_0": [
             "Connector_0_0_0",
-            "Wall_0_3_3",
             "Wall_0_0_0",
             "Arch_0_3_2",
             "Arch_0_3_0"
@@ -1501,23 +1385,19 @@
         "0_0_-1": [
             "Edge_0_3_1",
             "Wall_0_3_3",
-            "Wall_0_0_1",
             "StairsRight_0_0_3"
         ],
         "0_0_1": [
             "Wall_0_3_3",
             "Edge_0_3_3",
-            "Wall_0_0_3",
             "StairsLeft_0_0_3"
         ],
         "0_1_0": [
-            "Empty",
-            "Wall_0_3_3"
+            "Empty"
         ],
         "1_0_0": [
             "Wall_0_3_3",
             "Edge_0_3_0",
-            "Wall_0_0_0",
             "Edge_0_3_1",
             "Edge_0_3_3",
             "StairWithWallRight_0_0_3",
@@ -1617,7 +1497,6 @@
         ],
         "0_0_-1": [
             "Wall_0_0_2",
-            "Edge_0_3_2",
             "Connector_0_0_0"
         ],
         "0_0_1": [
@@ -1629,14 +1508,12 @@
         ],
         "1_0_0": [
             "Wall_0_0_3",
-            "Edge_0_3_3",
             "Connector_0_0_0"
         ]
     },
     "BendWallOuter_1_0_1": {
         "-1_0_0": [
             "Wall_0_0_3",
-            "Edge_0_3_3",
             "Connector_0_0_0"
         ],
         "0_-1_0": [
@@ -1646,7 +1523,6 @@
         ],
         "0_0_-1": [
             "Wall_0_0_0",
-            "Edge_0_3_0",
             "Connector_0_0_0"
         ],
         "0_0_1": [
@@ -1663,7 +1539,6 @@
     "BendWallOuter_1_0_2": {
         "-1_0_0": [
             "Wall_0_0_1",
-            "Edge_0_3_1",
             "Connector_0_0_0"
         ],
         "0_-1_0": [
@@ -1676,7 +1551,6 @@
         ],
         "0_0_1": [
             "Wall_0_0_0",
-            "Edge_0_3_0",
             "Connector_0_0_0"
         ],
         "0_1_0": [
@@ -1701,7 +1575,6 @@
         ],
         "0_0_1": [
             "Wall_0_0_2",
-            "Edge_0_3_2",
             "Connector_0_0_0"
         ],
         "0_1_0": [
@@ -1710,7 +1583,6 @@
         ],
         "1_0_0": [
             "Wall_0_0_1",
-            "Edge_0_3_1",
             "Connector_0_0_0"
         ]
     },
@@ -1818,7 +1690,7 @@
             "Connector_0_0_0"
         ],
         "0_0_-1": [
-            "Edge_0_3_2"
+            "Wall_0_0_2"
         ],
         "0_0_1": [
             "Empty"
@@ -1827,18 +1699,18 @@
             "BendWallOuter_1_0_0"
         ],
         "1_0_0": [
-            "Edge_0_3_3"
+            "Wall_0_0_3"
         ]
     },
     "BendWallOuterLower_3_0_2": {
         "-1_0_0": [
-            "Edge_0_3_3"
+            "Wall_0_0_3"
         ],
         "0_-1_0": [
             "Connector_0_0_0"
         ],
         "0_0_-1": [
-            "Edge_0_3_0"
+            "Wall_0_0_0"
         ],
         "0_0_1": [
             "Empty"
@@ -1852,7 +1724,7 @@
     },
     "BendWallOuterLower_3_0_3": {
         "-1_0_0": [
-            "Edge_0_3_1"
+            "Wall_0_0_1"
         ],
         "0_-1_0": [
             "Connector_0_0_0"
@@ -1861,7 +1733,7 @@
             "Empty"
         ],
         "0_0_1": [
-            "Edge_0_3_0"
+            "Wall_0_0_0"
         ],
         "0_1_0": [
             "BendWallOuter_1_0_2"
@@ -1881,13 +1753,13 @@
             "Empty"
         ],
         "0_0_1": [
-            "Edge_0_3_2"
+            "Wall_0_0_2"
         ],
         "0_1_0": [
             "BendWallOuter_1_0_3"
         ],
         "1_0_0": [
-            "Edge_0_3_1"
+            "Wall_0_0_1"
         ]
     },
     "StairsRight_0_0_0": {
