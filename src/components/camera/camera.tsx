@@ -15,7 +15,7 @@ const Camera = () => {
 				minDistance={10}
 				maxDistance={50}
 			/>
-			<PerspectiveCamera makeDefault position={[-2, 30, -2]} />
+			<PerspectiveCamera makeDefault position={[-2, 50, -2]} />
 		</>
 	)
 }
