@@ -8,7 +8,9 @@ import { FullGeneratorLoader, StepGeneratorLoader } from "./loader"
 
 const Generator = () => {
 	const [generateFull, setGenerateFull] = useState(false)
+	const [generateFullDone, setGenerateFullDone] = useState(false)
 	const [generateStep, setGenerateStep] = useState(false)
+	const [generateStepDone, setGenerateStepDone] = useState(false)
 
 	return (
 		<>
@@ -16,31 +18,94 @@ const Generator = () => {
 				style={{
 					marginRight: "10px",
 					pointerEvents: "all",
-					backgroundColor: generateFull ? "#444444" : "#222222",
+					backgroundColor: generateFull && generateFullDone ? "#E14942" : "#222222",
 				}}
 				onClick={() => {
 					setGenerateFull(!generateFull)
 					setGenerateStep(false)
+					setGenerateFullDone(false)
+					setGenerateStepDone(false)
 					useGenerationStore.getState().setGeneration([])
 				}}
 			>
-				<p> {generateFull ? "Delete" : "Full Generation"} </p>
+				{!generateFullDone && generateFull ? (
+					<div
+						className="lds-default"
+						style={{
+							pointerEvents: "all",
+							transform: "scale(0.5)",
+						}}
+					>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				) : (
+					<p> {generateFull ? "Delete" : "Full Generation"} </p>
+				)}
 			</button>
-			{generateFull && <FullGeneratorLoader />}
+			{generateFull && (
+				<FullGeneratorLoader
+					doneCallback={() => {
+						setGenerateFullDone(true)
+					}}
+				/>
+			)}
 			<button
 				style={{
 					pointerEvents: "all",
-					backgroundColor: generateStep ? "#444444" : "#222222",
+					backgroundColor: generateStep && generateStepDone ? "#E14942" : "#222222",
 				}}
 				onClick={() => {
 					setGenerateStep(!generateStep)
 					setGenerateFull(false)
+					setGenerateFullDone(false)
+					setGenerateStepDone(false)
 					useGenerationStore.getState().setGeneration([])
 				}}
 			>
-				<p> {generateStep ? "Delete" : "Step Generation"} </p>
+				{!generateStepDone && generateStep ? (
+					<div
+						className="lds-default"
+						style={{
+							pointerEvents: "all",
+							transform: "scale(0.5)",
+						}}
+					>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				) : (
+					<p> {generateStep ? "Delete" : "Step Generation"} </p>
+				)}
 			</button>
-			{generateStep && <StepGeneratorLoader />}
+
+			{generateStep && (
+				<StepGeneratorLoader
+					doneCallback={() => {
+						setGenerateStepDone(true)
+					}}
+				/>
+			)}
 		</>
 	)
 }

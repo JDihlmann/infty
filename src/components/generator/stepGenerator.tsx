@@ -1,9 +1,13 @@
 import { useGenerationStore } from "@/stores/generationStore"
 import WFC from "@/wfc/wfc"
 import useInterval from "@/utils/useInterval"
-import { useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 
-const StepGenerator = () => {
+interface StepGeneratorProps {
+	doneCallback: () => void
+}
+
+const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) => {
 	const size = useGenerationStore((state) => state.size)
 	const prototypes = useGenerationStore((state) => state.prototypes)
 	const setGeneration = useGenerationStore((state) => state.setGeneration)
@@ -67,6 +71,7 @@ const StepGenerator = () => {
 				}
 			}
 
+			doneCallback()
 			setProcessHelper(processHelper)
 		}
 	}, [module, prototypes, size])

@@ -1,8 +1,12 @@
 import { useGenerationStore } from "@/stores/generationStore"
-import { useEffect, useState } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import WFC from "../../wfc/wfc"
 
-const FullGenerator = () => {
+interface FullGeneratorProps {
+	doneCallback: () => void
+}
+
+const FullGenerator: FunctionComponent<FullGeneratorProps> = ({ doneCallback }) => {
 	const size = useGenerationStore((state) => state.size)
 	const prototypes = useGenerationStore((state) => state.prototypes)
 	const setGeneration = useGenerationStore((state) => state.setGeneration)
@@ -84,6 +88,7 @@ const FullGenerator = () => {
 
 				// Set Generation
 				setGeneration(waves)
+				doneCallback()
 			} catch (error) {
 				console.log("Rerunning")
 				if (processHelper.had_error()) {
