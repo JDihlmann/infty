@@ -66,26 +66,35 @@ const FullGenerator = () => {
 			}
 
 			// Run
-			processHelper.run()
+			try {
+				processHelper.run()
 
-			// Log Error
-			if (processHelper.had_error()) {
-				console.log(processHelper.get_last_error())
-			}
-
-			// Get Result
-			const waves = new Array(size.x).fill(0).map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
-			for (let x = 0; x < size.x; x++) {
-				for (let y = 0; y < size.y; y++) {
-					for (let z = 0; z < size.z; z++) {
-						//@ts-ignore
-						waves[x][y][z] = [processHelper.query(x, y, z) - 1]
+				// Get Result
+				const waves = new Array(size.x)
+					.fill(0)
+					.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
+				for (let x = 0; x < size.x; x++) {
+					for (let y = 0; y < size.y; y++) {
+						for (let z = 0; z < size.z; z++) {
+							//@ts-ignore
+							waves[x][y][z] = [processHelper.query(x, y, z) - 1]
+						}
 					}
 				}
-			}
 
-			// Set Generation
-			setGeneration(waves)
+				// Set Generation
+				setGeneration(waves)
+			} catch (error) {
+				console.log("Rerunning")
+				if (processHelper.had_error()) {
+					console.log(processHelper.get_last_error())
+				}
+
+				//@ts-ignore
+				WFC().then((module) => {
+					setModule(module)
+				})
+			}
 		}
 	})
 
