@@ -23,6 +23,7 @@ button {
 	height: 45px;
 	border: none;
 	pointer-events: all;
+	z-index: 100;
 }
 
 button:hover {

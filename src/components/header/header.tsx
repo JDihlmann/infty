@@ -40,6 +40,7 @@ const Header = ({}) => {
 								lineHeight: "2.25rem",
 								textDecoration: "none",
 								pointerEvents: "all",
+								zIndex: 100,
 							}}
 						>
 							Infty
@@ -52,7 +53,7 @@ const Header = ({}) => {
 						display: "flex",
 						flexDirection: "row",
 						alignItems: "center",
-						zIndex: 30,
+						zIndex: 100,
 					}}
 				>
 					<a
