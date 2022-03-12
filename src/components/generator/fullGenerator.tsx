@@ -1,29 +1,34 @@
 import { useGenerationStore } from "@/stores/generationStore"
-import { FunctionComponent, useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import WFC from "../../wfc/wfc"
 
 interface FullGeneratorProps {
 	doneCallback: () => void
 }
 
-const FullGenerator: FunctionComponent<FullGeneratorProps> = ({ doneCallback }) => {
+const FullGenerator = memo<FullGeneratorProps>(({ doneCallback }) => {
 	const size = useGenerationStore((state) => state.size)
 	const prototypes = useGenerationStore((state) => state.prototypes)
 	const setGeneration = useGenerationStore((state) => state.setGeneration)
 
-	const [module, setModule] = useState(undefined)
+	const [wfcModule, setWFCModule] = useState(undefined)
+	const [done, setDone] = useState(false)
 
 	useEffect(() => {
 		//@ts-ignore
 		WFC().then((module) => {
-			setModule(module)
+			setWFCModule(module)
 		})
 	}, [])
 
 	useEffect(() => {
-		if (module) {
+		if (wfcModule && !done) {
 			// @ts-ignore
-			const processHelper = new module.ForwardPropagationSolverProcessHelper3D_32_16_32(prototypes.length, false, false)
+			const processHelper = new wfcModule.ForwardPropagationSolverProcessHelper3D_32_16_32(
+				prototypes.length,
+				false,
+				false
+			)
 
 			// Enable Heuristic
 			processHelper.set_element_type_heuristic(1)
@@ -88,6 +93,7 @@ const FullGenerator: FunctionComponent<FullGeneratorProps> = ({ doneCallback }) 
 
 				// Set Generation
 				setGeneration(waves)
+				setDone(true)
 				doneCallback()
 			} catch (error) {
 				console.log("Rerunning")
@@ -97,13 +103,13 @@ const FullGenerator: FunctionComponent<FullGeneratorProps> = ({ doneCallback }) 
 
 				//@ts-ignore
 				WFC().then((module) => {
-					setModule(module)
+					setWFCModule(module)
 				})
 			}
 		}
-	})
+	}, [wfcModule, size, prototypes, setGeneration, doneCallback, setDone, done])
 
 	return <></>
-}
+})
 
 export default FullGenerator

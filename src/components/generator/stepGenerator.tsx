@@ -12,20 +12,30 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 	const prototypes = useGenerationStore((state) => state.prototypes)
 	const setGeneration = useGenerationStore((state) => state.setGeneration)
 
-	const [module, setModule] = useState(undefined)
+	const [wfcModule, setWFCModule] = useState(undefined)
+	const [done, setDone] = useState(false)
+
 	const [processHelper, setProcessHelper] = useState<any>(undefined)
 
 	useEffect(() => {
 		//@ts-ignore
 		WFC().then((module) => {
-			setModule(module)
+			setWFCModule(module)
 		})
-	}, [])
+
+		return () => {
+			setGeneration([])
+		}
+	}, [setGeneration])
 
 	useEffect(() => {
-		if (module) {
+		if (wfcModule && !done) {
 			// @ts-ignore
-			const processHelper = new module.ForwardPropagationSolverProcessHelper3D_32_16_32(prototypes.length, false, false)
+			const processHelper = new wfcModule.ForwardPropagationSolverProcessHelper3D_32_16_32(
+				prototypes.length,
+				false,
+				false
+			)
 
 			// Enable Heuristic
 			processHelper.set_element_type_heuristic(1)
@@ -71,10 +81,11 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 				}
 			}
 
+			setDone(true)
 			doneCallback()
 			setProcessHelper(processHelper)
 		}
-	}, [module, prototypes, size])
+	}, [wfcModule, prototypes, size, doneCallback, done])
 
 	useInterval(() => {
 		if (processHelper) {
