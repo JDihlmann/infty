@@ -1,5 +1,4 @@
-import { EffectComposer, Pixelation, SSAO } from "@react-three/postprocessing"
-import { folder, useControls } from "leva"
+import { EffectComposer, SSAO } from "@react-three/postprocessing"
 
 const Postprocessing = () => {
 	return (
