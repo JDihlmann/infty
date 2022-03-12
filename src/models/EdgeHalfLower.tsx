@@ -21,11 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/EdgeHalfLower.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh
-				geometry={nodes.EdgeHalfLower.geometry}
-				material={materials["Material.191"]}
-				scale={0.5}
-			/>
+			<mesh geometry={nodes.EdgeHalfLower.geometry} material={materials["Material.191"]} scale={0.5} />
 		</group>
 	)
 }

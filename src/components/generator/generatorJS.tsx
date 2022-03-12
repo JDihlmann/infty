@@ -70,10 +70,7 @@ const GeneratorJS = () => {
 
 	return (
 		<div style={{ position: "absolute", bottom: 20 }}>
-			<button
-				className="bg-black text-white hover:bg-gray-800 font-bold py-2 px-2 rounded"
-				onClick={() => generate()}
-			>
+			<button className="bg-black text-white hover:bg-gray-800 font-bold py-2 px-2 rounded" onClick={() => generate()}>
 				<p> Generate </p>
 			</button>
 			<button

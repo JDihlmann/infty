@@ -21,11 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/CornerFullHalfLower.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh
-				geometry={nodes.CornerFullHalfLower.geometry}
-				material={materials["Material.176"]}
-				scale={0.5}
-			/>
+			<mesh geometry={nodes.CornerFullHalfLower.geometry} material={materials["Material.176"]} scale={0.5} />
 		</group>
 	)
 }

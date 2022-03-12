@@ -21,11 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/StairWithWallRight.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh
-				geometry={nodes.StairWithWallRight.geometry}
-				material={materials["Material.116"]}
-				scale={[-1, 1, 0.13]}
-			/>
+			<mesh geometry={nodes.StairWithWallRight.geometry} material={materials["Material.116"]} scale={[-1, 1, 0.13]} />
 		</group>
 	)
 }

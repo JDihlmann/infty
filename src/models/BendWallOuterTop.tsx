@@ -21,11 +21,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF("/BendWallOuterTop.glb") as GLTFResult
 	return (
 		<group ref={group} {...props} dispose={null}>
-			<mesh
-				geometry={nodes.BendWallOuterTop.geometry}
-				material={materials["Material.441"]}
-				scale={[-0.5, -0.5, 0.5]}
-			/>
+			<mesh geometry={nodes.BendWallOuterTop.geometry} material={materials["Material.441"]} scale={[-0.5, -0.5, 0.5]} />
 		</group>
 	)
 }

@@ -39,10 +39,7 @@ const Displayer = () => {
 
 		const obj = new Object3D()
 		obj.rotateOnWorldAxis(new Vector3(1, 0, 0), MathUtils.degToRad(parseInt(id.split("_")[1]) * 90))
-		obj.rotateOnWorldAxis(
-			new Vector3(0, 0, 1),
-			MathUtils.degToRad(-parseInt(id.split("_")[2]) * 90)
-		)
+		obj.rotateOnWorldAxis(new Vector3(0, 0, 1), MathUtils.degToRad(-parseInt(id.split("_")[2]) * 90))
 		obj.rotateOnWorldAxis(new Vector3(0, 1, 0), MathUtils.degToRad(parseInt(id.split("_")[3]) * 90))
 
 		const pos = position?.clone().add(new Vector3(0.5, 0.5, 0.5))
@@ -107,8 +104,7 @@ const Displayer = () => {
 
 	return (
 		<group position={[-Math.floor(size.x / 2), 0, -Math.floor(size.z / 2)]}>
-			{prototypeObjects &&
-				prototypeObjects.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
+			{prototypeObjects && prototypeObjects.map((protype) => getMeshForId(protype.id, protype.key, protype.position))}
 			{entropyObjects &&
 				entropyObjects.map((entropy) => {
 					const pos = entropy.position.clone().add(new Vector3(0.5, 0.5, 0.5))

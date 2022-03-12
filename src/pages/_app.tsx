@@ -13,10 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<title> Infty </title>
 				<meta name="theme-color" content="#ffffff" />
 
-				<link
-					href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
-					rel="stylesheet"
-				/>
+				<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet" />
 			</Head>
 			<Component {...pageProps} />
 		</>
