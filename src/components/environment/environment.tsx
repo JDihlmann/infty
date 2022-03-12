@@ -7,7 +7,7 @@ const Environment = () => {
 		<Suspense fallback={null}>
 			<EnvironmentLight files="environmentMap.hdr" />
 			<ambientLight intensity={0.2} />
-			<gridHelper args={[200, 200]} position={[0, 0, 0]} />
+			<gridHelper args={[1000, 1000]} position={[0, 0, 0]} />
 
 			<Displayer />
 		</Suspense>

@@ -1,9 +1,7 @@
-import produce, { Draft } from "immer"
-import create, { State, StateCreator } from "zustand"
 import constraints from "@/models/constraints.json"
-import WFC from "@/stores/wfc"
+import produce, { Draft } from "immer"
 import { Vector3 } from "three"
-import { DigitalGlitch } from "three-stdlib"
+import create, { State, StateCreator } from "zustand"
 
 export interface Pos3 {
 	x: number
@@ -24,13 +22,10 @@ interface PrototypeObject {
 type GenerationStore = {
 	prototypes: Prototype[]
 	size: Pos3
-	wfcModule: any
-	initWFCModule: () => void
 	waves: number[][][][]
-	prototypeObjects: PrototypeObject[]
 	entropyObjects: PrototypeObject[]
+	prototypeObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
-	debugEntropy: (waves: number[][][][], wavesEntropy: number[][][]) => void
 }
 
 const constraintIdArray = Object.keys(constraints)
@@ -63,9 +58,7 @@ Object.entries(constraints).forEach(([key, value]) => {
 })
 
 const immer =
-	<T extends State>(
-		config: StateCreator<T, (fn: (draft: Draft<T>) => void) => void>
-	): StateCreator<T> =>
+	<T extends State>(config: StateCreator<T, (fn: (draft: Draft<T>) => void) => void>): StateCreator<T> =>
 	(set, get, api) =>
 		config((fn) => set(produce<T>(fn)), get, api)
 
@@ -76,16 +69,6 @@ export const useGenerationStore = create<GenerationStore>(
 		prototypeObjects: [],
 		entropyObjects: [],
 		waves: [[[]]],
-		//wasmExports: WASM.wasmExports,
-		wfcModule: undefined,
-		initWFCModule: (): void => {
-			//@ts-ignore
-			WFC().then((mod) => {
-				set((state) => {
-					state.wfcModule = mod
-				})
-			})
-		},
 		setGeneration: (waves: number[][][][]): void => {
 			set((state) => {
 				const prototypeObjects: PrototypeObject[] = []
@@ -115,69 +98,5 @@ export const useGenerationStore = create<GenerationStore>(
 				state.prototypeObjects = prototypeObjects
 			})
 		},
-		debugEntropy: (waves: number[][][][], wavesEntropy: number[][][]): void => {
-			set((state) => {
-				const prototypeObjects: PrototypeObject[] = []
-
-				for (let x = 0; x < wavesEntropy.length; x++) {
-					for (let y = 0; y < wavesEntropy[0].length; y++) {
-						for (let z = 0; z < wavesEntropy[0][0].length; z++) {
-							if (waves[x][y][z][0] != -1) {
-								console.log("Empty")
-								const diag = [-1, 0, 1]
-								diag.forEach((dx) => {
-									diag.forEach((dy) => {
-										diag.forEach((dz) => {
-											if (Math.abs(dx) + Math.abs(dy) + Math.abs(dz) == 1) {
-												if (
-													x + dx >= 0 &&
-													x + dx < wavesEntropy.length &&
-													y + dy >= 0 &&
-													y + dy < wavesEntropy[0].length &&
-													z + dz >= 0 &&
-													z + dz < wavesEntropy[0][0].length
-												) {
-													if (waves[x + dx][y + dy][z + dz][0] == -1) {
-														let found = false
-														prototypeObjects.forEach((p) => {
-															if (p.key == x + dx + "" + (y + dy) + "" + (z + dz)) {
-																found = true
-															}
-														})
-
-														if (!found) {
-															prototypeObjects.push({
-																key: "" + x + dx + "" + y + dy + "" + z + dz,
-																id: "" + wavesEntropy[x + dx][y + dy][z + dz],
-																position: new Vector3(x + dx, y + dy, z + dz),
-															})
-														}
-													}
-												}
-											}
-										})
-									})
-								})
-							}
-						}
-					}
-				}
-				state.entropyObjects = prototypeObjects
-			})
-		},
 	}))
 )
-
-/* const convertConstraintsToPrototypes = (
-	constraints: Record<string, Record<string, NeighbourPrototypeString>>
-) => {
-	const prototypes: Prototype[] = []
-	constraints.forEach((element) => {
-		const id = Object.keys(element)[0]
-		const neighbours = element[id]
-		const prototype: Prototype = { id: id, neighbourCells: neighbours }
-		prototypes.push(prototype)
-	})
-
-	return prototypes
-}*/

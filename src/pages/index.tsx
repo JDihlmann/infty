@@ -1,6 +1,8 @@
 import Body from "@/components/body/body"
 import Generator from "@/components/generator/generator"
+import TestGenerator from "@/components/generator/fullGenerator"
 import Scene from "@/components/scenes/scene"
+import StepGenerator from "@/components/generator/stepGenerator"
 
 const Home = () => {
 	return (
@@ -20,7 +22,6 @@ const Home = () => {
 			</div>
 			<Body>
 				<Generator />
-				{/* <GeneratorJS /> */}
 			</Body>
 		</>
 	)

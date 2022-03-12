@@ -1,14 +1,11 @@
 /* eslint-disable */
-var $MODULE_NAME = (() => {
-	var _scriptDir =
-		typeof document !== "undefined" && document.currentScript
-			? document.currentScript.src
-			: undefined
+var WFC = (() => {
+	var _scriptDir = typeof document !== "undefined" && document.currentScript ? document.currentScript.src : undefined
 
-	return function ($MODULE_NAME) {
-		$MODULE_NAME = $MODULE_NAME || {}
+	return function (WFC) {
+		WFC = WFC || {}
 
-		var Module = typeof $MODULE_NAME !== "undefined" ? $MODULE_NAME : {}
+		var Module = typeof WFC !== "undefined" ? WFC : {}
 		var objAssign = Object.assign
 		var readyPromiseResolve, readyPromiseReject
 		Module["ready"] = new Promise(function (resolve, reject) {
@@ -51,12 +48,7 @@ var $MODULE_NAME = (() => {
 				},
 			})
 		}
-		if (
-			!Object.getOwnPropertyDescriptor(
-				Module["ready"],
-				"___embind_register_native_and_builtin_types"
-			)
-		) {
+		if (!Object.getOwnPropertyDescriptor(Module["ready"], "___embind_register_native_and_builtin_types")) {
 			Object.defineProperty(Module["ready"], "___embind_register_native_and_builtin_types", {
 				configurable: true,
 				get: function () {
@@ -193,17 +185,15 @@ var $MODULE_NAME = (() => {
 				scriptDirectory = _scriptDir
 			}
 			if (scriptDirectory.indexOf("blob:") !== 0) {
-				scriptDirectory = scriptDirectory.substr(
-					0,
-					scriptDirectory.replace(/[?#].*/, "").lastIndexOf("/") + 1
-				)
+				scriptDirectory = scriptDirectory.substr(0, scriptDirectory.replace(/[?#].*/, "").lastIndexOf("/") + 1)
 			} else {
 				scriptDirectory = ""
 			}
-			if (!(typeof window === "object" || typeof importScripts === "function"))
+			if (!(typeof window === "object" || typeof importScripts === "function")) {
 				throw new Error(
 					"not compiled for this environment (did you build to HTML and try to run it not on the web, or set ENVIRONMENT to something - like node - and run it someplace else - like on the web?)"
 				)
+			}
 			{
 				read_ = function (url) {
 					var xhr = new XMLHttpRequest()
@@ -292,14 +282,8 @@ var $MODULE_NAME = (() => {
 			typeof Module["filePackagePrefixURL"] === "undefined",
 			"Module.filePackagePrefixURL option was removed, use Module.locateFile instead"
 		)
-		assert(
-			typeof Module["read"] === "undefined",
-			"Module.read option was removed (modify read_ in JS)"
-		)
-		assert(
-			typeof Module["readAsync"] === "undefined",
-			"Module.readAsync option was removed (modify readAsync in JS)"
-		)
+		assert(typeof Module["read"] === "undefined", "Module.read option was removed (modify read_ in JS)")
+		assert(typeof Module["readAsync"] === "undefined", "Module.readAsync option was removed (modify readAsync in JS)")
 		assert(
 			typeof Module["readBinary"] === "undefined",
 			"Module.readBinary option was removed (modify readBinary in JS)"
@@ -308,10 +292,7 @@ var $MODULE_NAME = (() => {
 			typeof Module["setWindowTitle"] === "undefined",
 			"Module.setWindowTitle option was removed (modify setWindowTitle in JS)"
 		)
-		assert(
-			typeof Module["TOTAL_MEMORY"] === "undefined",
-			"Module.TOTAL_MEMORY has been renamed Module.INITIAL_MEMORY"
-		)
+		assert(typeof Module["TOTAL_MEMORY"] === "undefined", "Module.TOTAL_MEMORY has been renamed Module.INITIAL_MEMORY")
 		if (!Object.getOwnPropertyDescriptor(Module, "read")) {
 			Object.defineProperty(Module, "read", {
 				configurable: true,
@@ -396,10 +377,7 @@ var $MODULE_NAME = (() => {
 			}
 			typeSection[1] = typeSection.length - 2
 			var bytes = new Uint8Array(
-				[0, 97, 115, 109, 1, 0, 0, 0].concat(
-					typeSection,
-					[2, 7, 1, 1, 101, 1, 102, 0, 0, 7, 5, 1, 1, 102, 0, 0]
-				)
+				[0, 97, 115, 109, 1, 0, 0, 0].concat(typeSection, [2, 7, 1, 1, 101, 1, 102, 0, 0, 7, 5, 1, 1, 102, 0, 0])
 			)
 			var module = new WebAssembly.Module(bytes)
 			var instance = new WebAssembly.Instance(module, { e: { f: func } })
@@ -622,8 +600,7 @@ var $MODULE_NAME = (() => {
 			var len = 0
 			for (var i = 0; i < str.length; ++i) {
 				var u = str.charCodeAt(i)
-				if (u >= 55296 && u <= 57343)
-					u = (65536 + ((u & 1023) << 10)) | (str.charCodeAt(++i) & 1023)
+				if (u >= 55296 && u <= 57343) u = (65536 + ((u & 1023) << 10)) | (str.charCodeAt(++i) & 1023)
 				if (u <= 127) ++len
 				else if (u <= 2047) len += 2
 				else if (u <= 65535) len += 3
@@ -727,10 +704,7 @@ var $MODULE_NAME = (() => {
 			return len
 		}
 		function writeArrayToMemory(array, buffer) {
-			assert(
-				array.length >= 0,
-				"writeArrayToMemory array must have a length (should be an array or typed array)"
-			)
+			assert(array.length >= 0, "writeArrayToMemory array must have a length (should be an array or typed array)")
 			HEAP8.set(array, buffer)
 		}
 		function writeAsciiToMemory(str, buffer, dontAddNull) {
@@ -760,10 +734,7 @@ var $MODULE_NAME = (() => {
 		}
 		var TOTAL_STACK = 5242880
 		if (Module["TOTAL_STACK"])
-			assert(
-				TOTAL_STACK === Module["TOTAL_STACK"],
-				"the stack size can no longer be determined at runtime"
-			)
+			assert(TOTAL_STACK === Module["TOTAL_STACK"], "the stack size can no longer be determined at runtime")
 		var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 536870912
 		if (!Object.getOwnPropertyDescriptor(Module, "INITIAL_MEMORY")) {
 			Object.defineProperty(Module, "INITIAL_MEMORY", {
@@ -777,11 +748,7 @@ var $MODULE_NAME = (() => {
 		}
 		assert(
 			INITIAL_MEMORY >= TOTAL_STACK,
-			"INITIAL_MEMORY should be larger than TOTAL_STACK, was " +
-				INITIAL_MEMORY +
-				"! (TOTAL_STACK=" +
-				TOTAL_STACK +
-				")"
+			"INITIAL_MEMORY should be larger than TOTAL_STACK, was " + INITIAL_MEMORY + "! (TOTAL_STACK=" + TOTAL_STACK + ")"
 		)
 		assert(
 			typeof Int32Array !== "undefined" &&
@@ -1020,10 +987,7 @@ var $MODULE_NAME = (() => {
 				if (!fixedasm) {
 					asm = Module["asm"]
 				}
-				assert(
-					runtimeInitialized,
-					"native function `" + displayName + "` called before runtime initialization"
-				)
+				assert(runtimeInitialized, "native function `" + displayName + "` called before runtime initialization")
 				assert(
 					!runtimeExited,
 					"native function `" +
@@ -1037,10 +1001,10 @@ var $MODULE_NAME = (() => {
 			}
 		}
 		var wasmBinaryFile
-		wasmBinaryFile = "wfc.wasm"
+		wasmBinaryFile = "/wfc.wasm"
 		if (!isDataURI(wasmBinaryFile)) {
-			wasmBinaryFile = locateFile(wasmBinaryFile)
-			wasmBinaryFile = "http://localhost:3000/wfc.wasm"
+			//wasmBinaryFile = locateFile(wasmBinaryFile)
+			// wasmBinaryFile = "http://localhost:3000/wfc.wasm"
 		}
 		function getBinary(file) {
 			try {
@@ -1188,10 +1152,7 @@ var $MODULE_NAME = (() => {
 				if (funcPtr >= wasmTableMirror.length) wasmTableMirror.length = funcPtr + 1
 				wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr)
 			}
-			assert(
-				wasmTable.get(funcPtr) == func,
-				"JavaScript-side Wasm function table mirror is out of date!"
-			)
+			assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!")
 			return func
 		}
 		function jsStackTrace() {
@@ -1825,17 +1786,14 @@ var $MODULE_NAME = (() => {
 			if (Module.hasOwnProperty(name)) {
 				if (
 					undefined === numArguments ||
-					(undefined !== Module[name].overloadTable &&
-						undefined !== Module[name].overloadTable[numArguments])
+					(undefined !== Module[name].overloadTable && undefined !== Module[name].overloadTable[numArguments])
 				) {
 					throwBindingError("Cannot register public name '" + name + "' twice")
 				}
 				ensureOverloadTable(Module, name, name)
 				if (Module.hasOwnProperty(numArguments)) {
 					throwBindingError(
-						"Cannot register multiple overloads of a function with the same number of arguments (" +
-							numArguments +
-							")!"
+						"Cannot register multiple overloads of a function with the same number of arguments (" + numArguments + ")!"
 					)
 				}
 				Module[name].overloadTable[numArguments] = value
@@ -1870,10 +1828,7 @@ var $MODULE_NAME = (() => {
 			while (ptrClass !== desiredClass) {
 				if (!ptrClass.upcast) {
 					throwBindingError(
-						"Expected null or instance of " +
-							desiredClass.name +
-							", got an instance of " +
-							ptrClass.name
+						"Expected null or instance of " + desiredClass.name + ", got an instance of " + ptrClass.name
 					)
 				}
 				ptr = ptrClass.upcast(ptr)
@@ -1987,10 +1942,7 @@ var $MODULE_NAME = (() => {
 			}
 			if (handle.$$.ptrType.isConst) {
 				throwBindingError(
-					"Cannot convert argument of type " +
-						handle.$$.ptrType.name +
-						" to parameter type " +
-						this.name
+					"Cannot convert argument of type " + handle.$$.ptrType.name + " to parameter type " + this.name
 				)
 			}
 			var handleClass = handle.$$.ptrType.registeredClass
@@ -2198,10 +2150,7 @@ var $MODULE_NAME = (() => {
 			}
 		}
 		function dynCallLegacy(sig, ptr, args) {
-			assert(
-				"dynCall_" + sig in Module,
-				"bad function pointer type - no table for sig '" + sig + "'"
-			)
+			assert("dynCall_" + sig in Module, "bad function pointer type - no table for sig '" + sig + "'")
 			if (args && args.length) {
 				assert(args.length === sig.substring(1).replace(/j/g, "--").length)
 			} else {
@@ -2238,9 +2187,7 @@ var $MODULE_NAME = (() => {
 			}
 			var fp = makeDynCaller()
 			if (typeof fp !== "function") {
-				throwBindingError(
-					"unknown function pointer with signature " + signature + ": " + rawFunction
-				)
+				throwBindingError("unknown function pointer with signature " + signature + ": " + rawFunction)
 			}
 			return fp
 		}
@@ -2297,9 +2244,7 @@ var $MODULE_NAME = (() => {
 			rawDestructor = embind__requireFunction(destructorSignature, rawDestructor)
 			var legalFunctionName = makeLegalFunctionName(name)
 			exposePublicSymbol(legalFunctionName, function () {
-				throwUnboundTypeError("Cannot construct " + name + " due to unbound types", [
-					baseClassRawType,
-				])
+				throwUnboundTypeError("Cannot construct " + name + " due to unbound types", [baseClassRawType])
 			})
 			whenDependentTypesAreResolved(
 				[rawType, rawPointerType, rawConstPointerType],
@@ -2350,20 +2295,8 @@ var $MODULE_NAME = (() => {
 						downcast
 					)
 					var referenceConverter = new RegisteredPointer(name, registeredClass, true, false, false)
-					var pointerConverter = new RegisteredPointer(
-						name + "*",
-						registeredClass,
-						false,
-						false,
-						false
-					)
-					var constPointerConverter = new RegisteredPointer(
-						name + " const*",
-						registeredClass,
-						false,
-						true,
-						false
-					)
+					var pointerConverter = new RegisteredPointer(name + "*", registeredClass, false, false, false)
+					var constPointerConverter = new RegisteredPointer(name + " const*", registeredClass, false, true, false)
 					registeredPointers[rawType] = {
 						pointerType: pointerConverter,
 						constPointerType: constPointerConverter,
@@ -2414,10 +2347,7 @@ var $MODULE_NAME = (() => {
 					)
 				}
 				classType.registeredClass.constructor_body[argCount - 1] = function unboundTypeHandler() {
-					throwUnboundTypeError(
-						"Cannot construct " + classType.name + " due to unbound types",
-						rawArgTypes
-					)
+					throwUnboundTypeError("Cannot construct " + classType.name + " due to unbound types", rawArgTypes)
 				}
 				whenDependentTypesAreResolved([], rawArgTypes, function (argTypes) {
 					argTypes.splice(1, 0, null)
@@ -2435,9 +2365,7 @@ var $MODULE_NAME = (() => {
 		}
 		function new_(constructor, argumentList) {
 			if (!(constructor instanceof Function)) {
-				throw new TypeError(
-					"new_ called with constructor type " + typeof constructor + " which is not a function"
-				)
+				throw new TypeError("new_ called with constructor type " + typeof constructor + " which is not a function")
 			}
 			var dummy = createNamedFunction(constructor.name || "unknownFunctionName", function () {})
 			dummy.prototype = constructor.prototype
@@ -2448,9 +2376,7 @@ var $MODULE_NAME = (() => {
 		function craftInvokerFunction(humanName, argTypes, classType, cppInvokerFunc, cppTargetFunc) {
 			var argCount = argTypes.length
 			if (argCount < 2) {
-				throwBindingError(
-					"argTypes array size mismatch! Must at least get return value and 'this' types!"
-				)
+				throwBindingError("argTypes array size mismatch! Must at least get return value and 'this' types!")
 			}
 			var isClassMethodFunc = argTypes[1] !== null && classType !== null
 			var needsDestructorStack = false
@@ -2487,14 +2413,7 @@ var $MODULE_NAME = (() => {
 			}
 			var dtorStack = needsDestructorStack ? "destructors" : "null"
 			var args1 = ["throwBindingError", "invoker", "fn", "runDestructors", "retType", "classParam"]
-			var args2 = [
-				throwBindingError,
-				cppInvokerFunc,
-				cppTargetFunc,
-				runDestructors,
-				argTypes[0],
-				argTypes[1],
-			]
+			var args2 = [throwBindingError, cppInvokerFunc, cppTargetFunc, runDestructors, argTypes[0], argTypes[1]]
 			if (isClassMethodFunc) {
 				invokerFnBody += "var thisWired = classParam.toWireType(" + dtorStack + ", this);\n"
 			}
@@ -2518,11 +2437,7 @@ var $MODULE_NAME = (() => {
 				argsListWired = "thisWired" + (argsListWired.length > 0 ? ", " : "") + argsListWired
 			}
 			invokerFnBody +=
-				(returns ? "var rv = " : "") +
-				"invoker(fn" +
-				(argsListWired.length > 0 ? ", " : "") +
-				argsListWired +
-				");\n"
+				(returns ? "var rv = " : "") + "invoker(fn" + (argsListWired.length > 0 ? ", " : "") + argsListWired + ");\n"
 			if (needsDestructorStack) {
 				invokerFnBody += "runDestructors(destructors);\n"
 			} else {
@@ -2585,13 +2500,7 @@ var $MODULE_NAME = (() => {
 					proto[methodName].overloadTable[argCount - 2] = unboundTypesHandler
 				}
 				whenDependentTypesAreResolved([], rawArgTypes, function (argTypes) {
-					var memberFunction = craftInvokerFunction(
-						humanName,
-						argTypes,
-						classType,
-						rawInvoker,
-						context
-					)
+					var memberFunction = craftInvokerFunction(humanName, argTypes, classType, rawInvoker, context)
 					if (undefined === proto[methodName].overloadTable) {
 						memberFunction.argCount = argCount - 2
 						proto[methodName] = memberFunction
@@ -2604,13 +2513,7 @@ var $MODULE_NAME = (() => {
 			})
 		}
 		var emval_free_list = []
-		var emval_handle_array = [
-			{},
-			{ value: undefined },
-			{ value: null },
-			{ value: true },
-			{ value: false },
-		]
+		var emval_handle_array = [{}, { value: undefined }, { value: null }, { value: true }, { value: false }]
 		function __emval_decref(handle) {
 			if (handle > 4 && 0 === --emval_handle_array[handle].refcount) {
 				emval_handle_array[handle] = undefined
@@ -3054,22 +2957,13 @@ var $MODULE_NAME = (() => {
 			for (var cutDown = 1; cutDown <= 4; cutDown *= 2) {
 				var overGrownHeapSize = oldSize * (1 + 0.2 / cutDown)
 				overGrownHeapSize = Math.min(overGrownHeapSize, requestedSize + 100663296)
-				var newSize = Math.min(
-					maxHeapSize,
-					alignUp(Math.max(requestedSize, overGrownHeapSize), 65536)
-				)
+				var newSize = Math.min(maxHeapSize, alignUp(Math.max(requestedSize, overGrownHeapSize), 65536))
 				var replacement = emscripten_realloc_buffer(newSize)
 				if (replacement) {
 					return true
 				}
 			}
-			err(
-				"Failed to grow the heap from " +
-					oldSize +
-					" bytes to " +
-					newSize +
-					" bytes, not enough memory!"
-			)
+			err("Failed to grow the heap from " + oldSize + " bytes to " + newSize + " bytes, not enough memory!")
 			return false
 		}
 		var ENV = {}
@@ -3079,10 +2973,8 @@ var $MODULE_NAME = (() => {
 		function getEnvStrings() {
 			if (!getEnvStrings.strings) {
 				var lang =
-					(
-						(typeof navigator === "object" && navigator.languages && navigator.languages[0]) ||
-						"C"
-					).replace("-", "_") + ".UTF-8"
+					((typeof navigator === "object" && navigator.languages && navigator.languages[0]) || "C").replace("-", "_") +
+					".UTF-8"
 				var env = {
 					USER: "web_user",
 					LOGNAME: "web_user",
@@ -3406,10 +3298,7 @@ var $MODULE_NAME = (() => {
 				"%j": function (date) {
 					return leadingNulls(
 						date.tm_mday +
-							__arraySum(
-								__isLeapYear(date.tm_year + 1900) ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR,
-								date.tm_mon - 1
-							),
+							__arraySum(__isLeapYear(date.tm_year + 1900) ? __MONTH_DAYS_LEAP : __MONTH_DAYS_REGULAR, date.tm_mon - 1),
 						3
 					)
 				},
@@ -3440,8 +3329,7 @@ var $MODULE_NAME = (() => {
 				},
 				"%U": function (date) {
 					var janFirst = new Date(date.tm_year + 1900, 0, 1)
-					var firstSunday =
-						janFirst.getDay() === 0 ? janFirst : __addDays(janFirst, 7 - janFirst.getDay())
+					var firstSunday = janFirst.getDay() === 0 ? janFirst : __addDays(janFirst, 7 - janFirst.getDay())
 					var endDate = new Date(date.tm_year + 1900, date.tm_mon, date.tm_mday)
 					if (compareByDay(firstSunday, endDate) < 0) {
 						var februaryFirstUntilEndMonth =
@@ -3605,20 +3493,20 @@ var $MODULE_NAME = (() => {
 			strftime_l: _strftime_l,
 		}
 		var asm = createWasm()
-		var ___wasm_call_ctors = (Module["___wasm_call_ctors"] =
-			createExportWrapper("__wasm_call_ctors"))
+		var ___wasm_call_ctors = (Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors"))
 		var _test_function = (Module["_test_function"] = createExportWrapper("test_function"))
 		var _malloc = (Module["_malloc"] = createExportWrapper("malloc"))
 		var ___getTypeName = (Module["___getTypeName"] = createExportWrapper("__getTypeName"))
-		var ___embind_register_native_and_builtin_types = (Module[
-			"___embind_register_native_and_builtin_types"
-		] = createExportWrapper("__embind_register_native_and_builtin_types"))
+		var ___embind_register_native_and_builtin_types = (Module["___embind_register_native_and_builtin_types"] =
+			createExportWrapper("__embind_register_native_and_builtin_types"))
 		var ___errno_location = (Module["___errno_location"] = createExportWrapper("__errno_location"))
 		var _fflush = (Module["_fflush"] = createExportWrapper("fflush"))
 		var _setThrew = (Module["_setThrew"] = createExportWrapper("setThrew"))
 		var _emscripten_stack_init = (Module["_emscripten_stack_init"] = function () {
-			return (_emscripten_stack_init = Module["_emscripten_stack_init"] =
-				Module["asm"]["emscripten_stack_init"]).apply(null, arguments)
+			return (_emscripten_stack_init = Module["_emscripten_stack_init"] = Module["asm"]["emscripten_stack_init"]).apply(
+				null,
+				arguments
+			)
 		})
 		var _emscripten_stack_get_free = (Module["_emscripten_stack_get_free"] = function () {
 			return (_emscripten_stack_get_free = Module["_emscripten_stack_get_free"] =
@@ -3633,8 +3521,7 @@ var $MODULE_NAME = (() => {
 		var stackAlloc = (Module["stackAlloc"] = createExportWrapper("stackAlloc"))
 		var _free = (Module["_free"] = createExportWrapper("free"))
 		var ___cxa_can_catch = (Module["___cxa_can_catch"] = createExportWrapper("__cxa_can_catch"))
-		var ___cxa_is_pointer_type = (Module["___cxa_is_pointer_type"] =
-			createExportWrapper("__cxa_is_pointer_type"))
+		var ___cxa_is_pointer_type = (Module["___cxa_is_pointer_type"] = createExportWrapper("__cxa_is_pointer_type"))
 		var dynCall_jiji = (Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji"))
 		var dynCall_viijii = (Module["dynCall_viijii"] = createExportWrapper("dynCall_viijii"))
 		var dynCall_iiiiij = (Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij"))
@@ -3710,20 +3597,20 @@ var $MODULE_NAME = (() => {
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_viiii(index, a1, a2, a3, a4) {
+		function invoke_i(index) {
 			var sp = stackSave()
 			try {
-				getWasmTableEntry(index)(a1, a2, a3, a4)
+				return getWasmTableEntry(index)()
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_i(index) {
+		function invoke_viiii(index, a1, a2, a3, a4) {
 			var sp = stackSave()
 			try {
-				return getWasmTableEntry(index)()
+				getWasmTableEntry(index)(a1, a2, a3, a4)
 			} catch (e) {
 				stackRestore(sp)
 				if (e !== e + 0 && e !== "longjmp") throw e
@@ -3790,24 +3677,7 @@ var $MODULE_NAME = (() => {
 				_setThrew(1, 0)
 			}
 		}
-		function invoke_viiiiiiiiiiiiiii(
-			index,
-			a1,
-			a2,
-			a3,
-			a4,
-			a5,
-			a6,
-			a7,
-			a8,
-			a9,
-			a10,
-			a11,
-			a12,
-			a13,
-			a14,
-			a15
-		) {
+		function invoke_viiiiiiiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15) {
 			var sp = stackSave()
 			try {
 				getWasmTableEntry(index)(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15)
@@ -3829,15 +3699,11 @@ var $MODULE_NAME = (() => {
 		}
 		if (!Object.getOwnPropertyDescriptor(Module, "intArrayFromString"))
 			Module["intArrayFromString"] = function () {
-				abort(
-					"'intArrayFromString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'intArrayFromString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "intArrayToString"))
 			Module["intArrayToString"] = function () {
-				abort(
-					"'intArrayToString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'intArrayToString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		Module["ccall"] = ccall
 		Module["cwrap"] = cwrap
@@ -3855,9 +3721,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "UTF8ArrayToString"))
 			Module["UTF8ArrayToString"] = function () {
-				abort(
-					"'UTF8ArrayToString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'UTF8ArrayToString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "UTF8ToString"))
 			Module["UTF8ToString"] = function () {
@@ -3865,9 +3729,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "stringToUTF8Array"))
 			Module["stringToUTF8Array"] = function () {
-				abort(
-					"'stringToUTF8Array' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'stringToUTF8Array' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "stringToUTF8"))
 			Module["stringToUTF8"] = function () {
@@ -3875,9 +3737,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "lengthBytesUTF8"))
 			Module["lengthBytesUTF8"] = function () {
-				abort(
-					"'lengthBytesUTF8' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'lengthBytesUTF8' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "stackTrace"))
 			Module["stackTrace"] = function () {
@@ -3905,21 +3765,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeStringToMemory"))
 			Module["writeStringToMemory"] = function () {
-				abort(
-					"'writeStringToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeStringToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeArrayToMemory"))
 			Module["writeArrayToMemory"] = function () {
-				abort(
-					"'writeArrayToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeArrayToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeAsciiToMemory"))
 			Module["writeAsciiToMemory"] = function () {
-				abort(
-					"'writeAsciiToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeAsciiToMemory' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "addRunDependency"))
 			Module["addRunDependency"] = function () {
@@ -3935,9 +3789,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "FS_createFolder"))
 			Module["FS_createFolder"] = function () {
-				abort(
-					"'FS_createFolder' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'FS_createFolder' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "FS_createPath"))
 			Module["FS_createPath"] = function () {
@@ -3985,21 +3837,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getFunctionTables"))
 			Module["getFunctionTables"] = function () {
-				abort(
-					"'getFunctionTables' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getFunctionTables' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "alignFunctionTables"))
 			Module["alignFunctionTables"] = function () {
-				abort(
-					"'alignFunctionTables' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'alignFunctionTables' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerFunctions"))
 			Module["registerFunctions"] = function () {
-				abort(
-					"'registerFunctions' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerFunctions' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "addFunction"))
 			Module["addFunction"] = function () {
@@ -4023,9 +3869,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getCompilerSetting"))
 			Module["getCompilerSetting"] = function () {
-				abort(
-					"'getCompilerSetting' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getCompilerSetting' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "print"))
 			Module["print"] = function () {
@@ -4053,9 +3897,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "keepRuntimeAlive"))
 			Module["keepRuntimeAlive"] = function () {
-				abort(
-					"'keepRuntimeAlive' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'keepRuntimeAlive' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "zeroMemory"))
 			Module["zeroMemory"] = function () {
@@ -4063,9 +3905,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "stringToNewUTF8"))
 			Module["stringToNewUTF8"] = function () {
-				abort(
-					"'stringToNewUTF8' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'stringToNewUTF8' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setFileTime"))
 			Module["setFileTime"] = function () {
@@ -4073,9 +3913,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emscripten_realloc_buffer"))
 			Module["emscripten_realloc_buffer"] = function () {
-				abort(
-					"'emscripten_realloc_buffer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emscripten_realloc_buffer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ENV"))
 			Module["ENV"] = function () {
@@ -4131,9 +3969,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "GAI_ERRNO_MESSAGES"))
 			Module["GAI_ERRNO_MESSAGES"] = function () {
-				abort(
-					"'GAI_ERRNO_MESSAGES' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'GAI_ERRNO_MESSAGES' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "Protocols"))
 			Module["Protocols"] = function () {
@@ -4145,9 +3981,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getRandomDevice"))
 			Module["getRandomDevice"] = function () {
-				abort(
-					"'getRandomDevice' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getRandomDevice' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "traverseStack"))
 			Module["traverseStack"] = function () {
@@ -4155,9 +3989,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "convertFrameToPC"))
 			Module["convertFrameToPC"] = function () {
-				abort(
-					"'convertFrameToPC' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'convertFrameToPC' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "UNWIND_CACHE"))
 			Module["UNWIND_CACHE"] = function () {
@@ -4165,33 +3997,23 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "saveInUnwindCache"))
 			Module["saveInUnwindCache"] = function () {
-				abort(
-					"'saveInUnwindCache' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'saveInUnwindCache' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "convertPCtoSourceLocation"))
 			Module["convertPCtoSourceLocation"] = function () {
-				abort(
-					"'convertPCtoSourceLocation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'convertPCtoSourceLocation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgsArray"))
 			Module["readAsmConstArgsArray"] = function () {
-				abort(
-					"'readAsmConstArgsArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'readAsmConstArgsArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgs"))
 			Module["readAsmConstArgs"] = function () {
-				abort(
-					"'readAsmConstArgs' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'readAsmConstArgs' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "mainThreadEM_ASM"))
 			Module["mainThreadEM_ASM"] = function () {
-				abort(
-					"'mainThreadEM_ASM' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'mainThreadEM_ASM' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "jstoi_q"))
 			Module["jstoi_q"] = function () {
@@ -4203,9 +4025,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getExecutableName"))
 			Module["getExecutableName"] = function () {
-				abort(
-					"'getExecutableName' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getExecutableName' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "listenOnce"))
 			Module["listenOnce"] = function () {
@@ -4213,9 +4033,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "autoResumeAudioContext"))
 			Module["autoResumeAudioContext"] = function () {
-				abort(
-					"'autoResumeAudioContext' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'autoResumeAudioContext' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "dynCallLegacy"))
 			Module["dynCallLegacy"] = function () {
@@ -4231,51 +4049,35 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "callRuntimeCallbacks"))
 			Module["callRuntimeCallbacks"] = function () {
-				abort(
-					"'callRuntimeCallbacks' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'callRuntimeCallbacks' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "wasmTableMirror"))
 			Module["wasmTableMirror"] = function () {
-				abort(
-					"'wasmTableMirror' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'wasmTableMirror' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setWasmTableEntry"))
 			Module["setWasmTableEntry"] = function () {
-				abort(
-					"'setWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'setWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getWasmTableEntry"))
 			Module["getWasmTableEntry"] = function () {
-				abort(
-					"'getWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "handleException"))
 			Module["handleException"] = function () {
-				abort(
-					"'handleException' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'handleException' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "runtimeKeepalivePush"))
 			Module["runtimeKeepalivePush"] = function () {
-				abort(
-					"'runtimeKeepalivePush' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'runtimeKeepalivePush' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "runtimeKeepalivePop"))
 			Module["runtimeKeepalivePop"] = function () {
-				abort(
-					"'runtimeKeepalivePop' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'runtimeKeepalivePop' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "callUserCallback"))
 			Module["callUserCallback"] = function () {
-				abort(
-					"'callUserCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'callUserCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "maybeExit"))
 			Module["maybeExit"] = function () {
@@ -4339,15 +4141,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getSocketFromFD"))
 			Module["getSocketFromFD"] = function () {
-				abort(
-					"'getSocketFromFD' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getSocketFromFD' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getSocketAddress"))
 			Module["getSocketAddress"] = function () {
-				abort(
-					"'getSocketAddress' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getSocketAddress' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "JSEvents"))
 			Module["JSEvents"] = function () {
@@ -4355,75 +4153,51 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerKeyEventCallback"))
 			Module["registerKeyEventCallback"] = function () {
-				abort(
-					"'registerKeyEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerKeyEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "specialHTMLTargets"))
 			Module["specialHTMLTargets"] = function () {
-				abort(
-					"'specialHTMLTargets' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'specialHTMLTargets' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "maybeCStringToJsString"))
 			Module["maybeCStringToJsString"] = function () {
-				abort(
-					"'maybeCStringToJsString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'maybeCStringToJsString' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "findEventTarget"))
 			Module["findEventTarget"] = function () {
-				abort(
-					"'findEventTarget' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'findEventTarget' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "findCanvasEventTarget"))
 			Module["findCanvasEventTarget"] = function () {
-				abort(
-					"'findCanvasEventTarget' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'findCanvasEventTarget' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getBoundingClientRect"))
 			Module["getBoundingClientRect"] = function () {
-				abort(
-					"'getBoundingClientRect' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getBoundingClientRect' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillMouseEventData"))
 			Module["fillMouseEventData"] = function () {
-				abort(
-					"'fillMouseEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillMouseEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerMouseEventCallback"))
 			Module["registerMouseEventCallback"] = function () {
-				abort(
-					"'registerMouseEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerMouseEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerWheelEventCallback"))
 			Module["registerWheelEventCallback"] = function () {
-				abort(
-					"'registerWheelEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerWheelEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerUiEventCallback"))
 			Module["registerUiEventCallback"] = function () {
-				abort(
-					"'registerUiEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerUiEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerFocusEventCallback"))
 			Module["registerFocusEventCallback"] = function () {
-				abort(
-					"'registerFocusEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerFocusEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillDeviceOrientationEventData"))
 			Module["fillDeviceOrientationEventData"] = function () {
-				abort(
-					"'fillDeviceOrientationEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillDeviceOrientationEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerDeviceOrientationEventCallback"))
 			Module["registerDeviceOrientationEventCallback"] = function () {
@@ -4433,27 +4207,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillDeviceMotionEventData"))
 			Module["fillDeviceMotionEventData"] = function () {
-				abort(
-					"'fillDeviceMotionEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillDeviceMotionEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerDeviceMotionEventCallback"))
 			Module["registerDeviceMotionEventCallback"] = function () {
-				abort(
-					"'registerDeviceMotionEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerDeviceMotionEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "screenOrientation"))
 			Module["screenOrientation"] = function () {
-				abort(
-					"'screenOrientation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'screenOrientation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillOrientationChangeEventData"))
 			Module["fillOrientationChangeEventData"] = function () {
-				abort(
-					"'fillOrientationChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillOrientationChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerOrientationChangeEventCallback"))
 			Module["registerOrientationChangeEventCallback"] = function () {
@@ -4463,9 +4229,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillFullscreenChangeEventData"))
 			Module["fillFullscreenChangeEventData"] = function () {
-				abort(
-					"'fillFullscreenChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillFullscreenChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerFullscreenChangeEventCallback"))
 			Module["registerFullscreenChangeEventCallback"] = function () {
@@ -4475,21 +4239,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerRestoreOldStyle"))
 			Module["registerRestoreOldStyle"] = function () {
-				abort(
-					"'registerRestoreOldStyle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerRestoreOldStyle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "hideEverythingExceptGivenElement"))
 			Module["hideEverythingExceptGivenElement"] = function () {
-				abort(
-					"'hideEverythingExceptGivenElement' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'hideEverythingExceptGivenElement' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "restoreHiddenElements"))
 			Module["restoreHiddenElements"] = function () {
-				abort(
-					"'restoreHiddenElements' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'restoreHiddenElements' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setLetterbox"))
 			Module["setLetterbox"] = function () {
@@ -4497,15 +4255,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "currentFullscreenStrategy"))
 			Module["currentFullscreenStrategy"] = function () {
-				abort(
-					"'currentFullscreenStrategy' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'currentFullscreenStrategy' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "restoreOldWindowedStyle"))
 			Module["restoreOldWindowedStyle"] = function () {
-				abort(
-					"'restoreOldWindowedStyle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'restoreOldWindowedStyle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "softFullscreenResizeWebGLRenderTarget"))
 			Module["softFullscreenResizeWebGLRenderTarget"] = function () {
@@ -4515,15 +4269,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "doRequestFullscreen"))
 			Module["doRequestFullscreen"] = function () {
-				abort(
-					"'doRequestFullscreen' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'doRequestFullscreen' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillPointerlockChangeEventData"))
 			Module["fillPointerlockChangeEventData"] = function () {
-				abort(
-					"'fillPointerlockChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillPointerlockChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerPointerlockChangeEventCallback"))
 			Module["registerPointerlockChangeEventCallback"] = function () {
@@ -4539,15 +4289,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "requestPointerLock"))
 			Module["requestPointerLock"] = function () {
-				abort(
-					"'requestPointerLock' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'requestPointerLock' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillVisibilityChangeEventData"))
 			Module["fillVisibilityChangeEventData"] = function () {
-				abort(
-					"'fillVisibilityChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillVisibilityChangeEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerVisibilityChangeEventCallback"))
 			Module["registerVisibilityChangeEventCallback"] = function () {
@@ -4557,33 +4303,23 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerTouchEventCallback"))
 			Module["registerTouchEventCallback"] = function () {
-				abort(
-					"'registerTouchEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerTouchEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillGamepadEventData"))
 			Module["fillGamepadEventData"] = function () {
-				abort(
-					"'fillGamepadEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillGamepadEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerGamepadEventCallback"))
 			Module["registerGamepadEventCallback"] = function () {
-				abort(
-					"'registerGamepadEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerGamepadEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerBeforeUnloadEventCallback"))
 			Module["registerBeforeUnloadEventCallback"] = function () {
-				abort(
-					"'registerBeforeUnloadEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerBeforeUnloadEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "fillBatteryEventData"))
 			Module["fillBatteryEventData"] = function () {
-				abort(
-					"'fillBatteryEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'fillBatteryEventData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "battery"))
 			Module["battery"] = function () {
@@ -4591,21 +4327,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerBatteryEventCallback"))
 			Module["registerBatteryEventCallback"] = function () {
-				abort(
-					"'registerBatteryEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerBatteryEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setCanvasElementSize"))
 			Module["setCanvasElementSize"] = function () {
-				abort(
-					"'setCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'setCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getCanvasElementSize"))
 			Module["getCanvasElementSize"] = function () {
-				abort(
-					"'getCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "demangle"))
 			Module["demangle"] = function () {
@@ -4633,9 +4363,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "flush_NO_FILESYSTEM"))
 			Module["flush_NO_FILESYSTEM"] = function () {
-				abort(
-					"'flush_NO_FILESYSTEM' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'flush_NO_FILESYSTEM' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeI53ToI64"))
 			Module["writeI53ToI64"] = function () {
@@ -4643,27 +4371,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeI53ToI64Clamped"))
 			Module["writeI53ToI64Clamped"] = function () {
-				abort(
-					"'writeI53ToI64Clamped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeI53ToI64Clamped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeI53ToI64Signaling"))
 			Module["writeI53ToI64Signaling"] = function () {
-				abort(
-					"'writeI53ToI64Signaling' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeI53ToI64Signaling' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeI53ToU64Clamped"))
 			Module["writeI53ToU64Clamped"] = function () {
-				abort(
-					"'writeI53ToU64Clamped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeI53ToU64Clamped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeI53ToU64Signaling"))
 			Module["writeI53ToU64Signaling"] = function () {
-				abort(
-					"'writeI53ToU64Signaling' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'writeI53ToU64Signaling' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "readI53FromI64"))
 			Module["readI53FromI64"] = function () {
@@ -4675,39 +4395,27 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "convertI32PairToI53"))
 			Module["convertI32PairToI53"] = function () {
-				abort(
-					"'convertI32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'convertI32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "convertU32PairToI53"))
 			Module["convertU32PairToI53"] = function () {
-				abort(
-					"'convertU32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'convertU32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setImmediateWrapped"))
 			Module["setImmediateWrapped"] = function () {
-				abort(
-					"'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "clearImmediateWrapped"))
 			Module["clearImmediateWrapped"] = function () {
-				abort(
-					"'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "polyfillSetImmediate"))
 			Module["polyfillSetImmediate"] = function () {
-				abort(
-					"'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "uncaughtExceptionCount"))
 			Module["uncaughtExceptionCount"] = function () {
-				abort(
-					"'uncaughtExceptionCount' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'uncaughtExceptionCount' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "exceptionLast"))
 			Module["exceptionLast"] = function () {
@@ -4715,9 +4423,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "exceptionCaught"))
 			Module["exceptionCaught"] = function () {
-				abort(
-					"'exceptionCaught' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'exceptionCaught' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ExceptionInfo"))
 			Module["ExceptionInfo"] = function () {
@@ -4729,15 +4435,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "exception_addRef"))
 			Module["exception_addRef"] = function () {
-				abort(
-					"'exception_addRef' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'exception_addRef' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "exception_decRef"))
 			Module["exception_decRef"] = function () {
-				abort(
-					"'exception_decRef' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'exception_decRef' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "Browser"))
 			Module["Browser"] = function () {
@@ -4781,33 +4483,23 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "_setNetworkCallback"))
 			Module["_setNetworkCallback"] = function () {
-				abort(
-					"'_setNetworkCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'_setNetworkCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "tempFixedLengthArray"))
 			Module["tempFixedLengthArray"] = function () {
-				abort(
-					"'tempFixedLengthArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'tempFixedLengthArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "miniTempWebGLFloatBuffers"))
 			Module["miniTempWebGLFloatBuffers"] = function () {
-				abort(
-					"'miniTempWebGLFloatBuffers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'miniTempWebGLFloatBuffers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "heapObjectForWebGLType"))
 			Module["heapObjectForWebGLType"] = function () {
-				abort(
-					"'heapObjectForWebGLType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'heapObjectForWebGLType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "heapAccessShiftForWebGLHeap"))
 			Module["heapAccessShiftForWebGLHeap"] = function () {
-				abort(
-					"'heapAccessShiftForWebGLHeap' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'heapAccessShiftForWebGLHeap' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "GL"))
 			Module["GL"] = function () {
@@ -4815,33 +4507,23 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emscriptenWebGLGet"))
 			Module["emscriptenWebGLGet"] = function () {
-				abort(
-					"'emscriptenWebGLGet' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emscriptenWebGLGet' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "computeUnpackAlignedImageSize"))
 			Module["computeUnpackAlignedImageSize"] = function () {
-				abort(
-					"'computeUnpackAlignedImageSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'computeUnpackAlignedImageSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emscriptenWebGLGetTexPixelData"))
 			Module["emscriptenWebGLGetTexPixelData"] = function () {
-				abort(
-					"'emscriptenWebGLGetTexPixelData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emscriptenWebGLGetTexPixelData' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emscriptenWebGLGetUniform"))
 			Module["emscriptenWebGLGetUniform"] = function () {
-				abort(
-					"'emscriptenWebGLGetUniform' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emscriptenWebGLGetUniform' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "webglGetUniformLocation"))
 			Module["webglGetUniformLocation"] = function () {
-				abort(
-					"'webglGetUniformLocation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'webglGetUniformLocation' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "webglPrepareUniformLocationsBeforeFirstUse"))
 			Module["webglPrepareUniformLocationsBeforeFirstUse"] = function () {
@@ -4851,15 +4533,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "webglGetLeftBracePos"))
 			Module["webglGetLeftBracePos"] = function () {
-				abort(
-					"'webglGetLeftBracePos' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'webglGetLeftBracePos' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emscriptenWebGLGetVertexAttrib"))
 			Module["emscriptenWebGLGetVertexAttrib"] = function () {
-				abort(
-					"'emscriptenWebGLGetVertexAttrib' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emscriptenWebGLGetVertexAttrib' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "writeGLArray"))
 			Module["writeGLArray"] = function () {
@@ -4915,21 +4593,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "runAndAbortIfError"))
 			Module["runAndAbortIfError"] = function () {
-				abort(
-					"'runAndAbortIfError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'runAndAbortIfError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_handle_array"))
 			Module["emval_handle_array"] = function () {
-				abort(
-					"'emval_handle_array' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emval_handle_array' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_free_list"))
 			Module["emval_free_list"] = function () {
-				abort(
-					"'emval_free_list' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emval_free_list' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_symbols"))
 			Module["emval_symbols"] = function () {
@@ -4941,21 +4613,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "count_emval_handles"))
 			Module["count_emval_handles"] = function () {
-				abort(
-					"'count_emval_handles' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'count_emval_handles' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "get_first_emval"))
 			Module["get_first_emval"] = function () {
-				abort(
-					"'get_first_emval' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'get_first_emval' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getStringOrSymbol"))
 			Module["getStringOrSymbol"] = function () {
-				abort(
-					"'getStringOrSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getStringOrSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "Emval"))
 			Module["Emval"] = function () {
@@ -4967,27 +4633,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "craftEmvalAllocator"))
 			Module["craftEmvalAllocator"] = function () {
-				abort(
-					"'craftEmvalAllocator' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'craftEmvalAllocator' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_get_global"))
 			Module["emval_get_global"] = function () {
-				abort(
-					"'emval_get_global' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emval_get_global' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_methodCallers"))
 			Module["emval_methodCallers"] = function () {
-				abort(
-					"'emval_methodCallers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emval_methodCallers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "emval_registeredMethods"))
 			Module["emval_registeredMethods"] = function () {
-				abort(
-					"'emval_registeredMethods' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'emval_registeredMethods' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "InternalError"))
 			Module["InternalError"] = function () {
@@ -4999,15 +4657,11 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "UnboundTypeError"))
 			Module["UnboundTypeError"] = function () {
-				abort(
-					"'UnboundTypeError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'UnboundTypeError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "PureVirtualError"))
 			Module["PureVirtualError"] = function () {
-				abort(
-					"'PureVirtualError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'PureVirtualError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "init_embind"))
 			Module["init_embind"] = function () {
@@ -5015,39 +4669,27 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "throwInternalError"))
 			Module["throwInternalError"] = function () {
-				abort(
-					"'throwInternalError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'throwInternalError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "throwBindingError"))
 			Module["throwBindingError"] = function () {
-				abort(
-					"'throwBindingError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'throwBindingError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "throwUnboundTypeError"))
 			Module["throwUnboundTypeError"] = function () {
-				abort(
-					"'throwUnboundTypeError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'throwUnboundTypeError' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ensureOverloadTable"))
 			Module["ensureOverloadTable"] = function () {
-				abort(
-					"'ensureOverloadTable' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ensureOverloadTable' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "exposePublicSymbol"))
 			Module["exposePublicSymbol"] = function () {
-				abort(
-					"'exposePublicSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'exposePublicSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "replacePublicSymbol"))
 			Module["replacePublicSymbol"] = function () {
-				abort(
-					"'replacePublicSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'replacePublicSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "extendError"))
 			Module["extendError"] = function () {
@@ -5055,75 +4697,51 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "createNamedFunction"))
 			Module["createNamedFunction"] = function () {
-				abort(
-					"'createNamedFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'createNamedFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registeredInstances"))
 			Module["registeredInstances"] = function () {
-				abort(
-					"'registeredInstances' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registeredInstances' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getBasestPointer"))
 			Module["getBasestPointer"] = function () {
-				abort(
-					"'getBasestPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getBasestPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerInheritedInstance"))
 			Module["registerInheritedInstance"] = function () {
-				abort(
-					"'registerInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registerInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "unregisterInheritedInstance"))
 			Module["unregisterInheritedInstance"] = function () {
-				abort(
-					"'unregisterInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'unregisterInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getInheritedInstance"))
 			Module["getInheritedInstance"] = function () {
-				abort(
-					"'getInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getInheritedInstance' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getInheritedInstanceCount"))
 			Module["getInheritedInstanceCount"] = function () {
-				abort(
-					"'getInheritedInstanceCount' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getInheritedInstanceCount' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getLiveInheritedInstances"))
 			Module["getLiveInheritedInstances"] = function () {
-				abort(
-					"'getLiveInheritedInstances' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getLiveInheritedInstances' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registeredTypes"))
 			Module["registeredTypes"] = function () {
-				abort(
-					"'registeredTypes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registeredTypes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "awaitingDependencies"))
 			Module["awaitingDependencies"] = function () {
-				abort(
-					"'awaitingDependencies' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'awaitingDependencies' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "typeDependencies"))
 			Module["typeDependencies"] = function () {
-				abort(
-					"'typeDependencies' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'typeDependencies' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registeredPointers"))
 			Module["registeredPointers"] = function () {
-				abort(
-					"'registeredPointers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'registeredPointers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "registerType"))
 			Module["registerType"] = function () {
@@ -5131,27 +4749,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "whenDependentTypesAreResolved"))
 			Module["whenDependentTypesAreResolved"] = function () {
-				abort(
-					"'whenDependentTypesAreResolved' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'whenDependentTypesAreResolved' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "embind_charCodes"))
 			Module["embind_charCodes"] = function () {
-				abort(
-					"'embind_charCodes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'embind_charCodes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "embind_init_charCodes"))
 			Module["embind_init_charCodes"] = function () {
-				abort(
-					"'embind_init_charCodes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'embind_init_charCodes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "readLatin1String"))
 			Module["readLatin1String"] = function () {
-				abort(
-					"'readLatin1String' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'readLatin1String' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getTypeName"))
 			Module["getTypeName"] = function () {
@@ -5159,45 +4769,31 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "heap32VectorToArray"))
 			Module["heap32VectorToArray"] = function () {
-				abort(
-					"'heap32VectorToArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'heap32VectorToArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "requireRegisteredType"))
 			Module["requireRegisteredType"] = function () {
-				abort(
-					"'requireRegisteredType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'requireRegisteredType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "getShiftFromSize"))
 			Module["getShiftFromSize"] = function () {
-				abort(
-					"'getShiftFromSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'getShiftFromSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "integerReadValueFromPointer"))
 			Module["integerReadValueFromPointer"] = function () {
-				abort(
-					"'integerReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'integerReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "enumReadValueFromPointer"))
 			Module["enumReadValueFromPointer"] = function () {
-				abort(
-					"'enumReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'enumReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "floatReadValueFromPointer"))
 			Module["floatReadValueFromPointer"] = function () {
-				abort(
-					"'floatReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'floatReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "simpleReadValueFromPointer"))
 			Module["simpleReadValueFromPointer"] = function () {
-				abort(
-					"'simpleReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'simpleReadValueFromPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "runDestructors"))
 			Module["runDestructors"] = function () {
@@ -5209,33 +4805,23 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "craftInvokerFunction"))
 			Module["craftInvokerFunction"] = function () {
-				abort(
-					"'craftInvokerFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'craftInvokerFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "embind__requireFunction"))
 			Module["embind__requireFunction"] = function () {
-				abort(
-					"'embind__requireFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'embind__requireFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "tupleRegistrations"))
 			Module["tupleRegistrations"] = function () {
-				abort(
-					"'tupleRegistrations' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'tupleRegistrations' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "structRegistrations"))
 			Module["structRegistrations"] = function () {
-				abort(
-					"'structRegistrations' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'structRegistrations' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "genericPointerToWireType"))
 			Module["genericPointerToWireType"] = function () {
-				abort(
-					"'genericPointerToWireType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'genericPointerToWireType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "constNoSmartPtrRawPointerToWireType"))
 			Module["constNoSmartPtrRawPointerToWireType"] = function () {
@@ -5251,39 +4837,27 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "init_RegisteredPointer"))
 			Module["init_RegisteredPointer"] = function () {
-				abort(
-					"'init_RegisteredPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'init_RegisteredPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredPointer"))
 			Module["RegisteredPointer"] = function () {
-				abort(
-					"'RegisteredPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredPointer_getPointee"))
 			Module["RegisteredPointer_getPointee"] = function () {
-				abort(
-					"'RegisteredPointer_getPointee' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredPointer_getPointee' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredPointer_destructor"))
 			Module["RegisteredPointer_destructor"] = function () {
-				abort(
-					"'RegisteredPointer_destructor' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredPointer_destructor' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredPointer_deleteObject"))
 			Module["RegisteredPointer_deleteObject"] = function () {
-				abort(
-					"'RegisteredPointer_deleteObject' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredPointer_deleteObject' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredPointer_fromWireType"))
 			Module["RegisteredPointer_fromWireType"] = function () {
-				abort(
-					"'RegisteredPointer_fromWireType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredPointer_fromWireType' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "runDestructor"))
 			Module["runDestructor"] = function () {
@@ -5291,45 +4865,31 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "releaseClassHandle"))
 			Module["releaseClassHandle"] = function () {
-				abort(
-					"'releaseClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'releaseClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "finalizationGroup"))
 			Module["finalizationGroup"] = function () {
-				abort(
-					"'finalizationGroup' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'finalizationGroup' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "detachFinalizer_deps"))
 			Module["detachFinalizer_deps"] = function () {
-				abort(
-					"'detachFinalizer_deps' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'detachFinalizer_deps' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "detachFinalizer"))
 			Module["detachFinalizer"] = function () {
-				abort(
-					"'detachFinalizer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'detachFinalizer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "attachFinalizer"))
 			Module["attachFinalizer"] = function () {
-				abort(
-					"'attachFinalizer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'attachFinalizer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "makeClassHandle"))
 			Module["makeClassHandle"] = function () {
-				abort(
-					"'makeClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'makeClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "init_ClassHandle"))
 			Module["init_ClassHandle"] = function () {
-				abort(
-					"'init_ClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'init_ClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle"))
 			Module["ClassHandle"] = function () {
@@ -5337,27 +4897,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle_isAliasOf"))
 			Module["ClassHandle_isAliasOf"] = function () {
-				abort(
-					"'ClassHandle_isAliasOf' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ClassHandle_isAliasOf' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "throwInstanceAlreadyDeleted"))
 			Module["throwInstanceAlreadyDeleted"] = function () {
-				abort(
-					"'throwInstanceAlreadyDeleted' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'throwInstanceAlreadyDeleted' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle_clone"))
 			Module["ClassHandle_clone"] = function () {
-				abort(
-					"'ClassHandle_clone' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ClassHandle_clone' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle_delete"))
 			Module["ClassHandle_delete"] = function () {
-				abort(
-					"'ClassHandle_delete' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ClassHandle_delete' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "deletionQueue"))
 			Module["deletionQueue"] = function () {
@@ -5365,21 +4917,15 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle_isDeleted"))
 			Module["ClassHandle_isDeleted"] = function () {
-				abort(
-					"'ClassHandle_isDeleted' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ClassHandle_isDeleted' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "ClassHandle_deleteLater"))
 			Module["ClassHandle_deleteLater"] = function () {
-				abort(
-					"'ClassHandle_deleteLater' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'ClassHandle_deleteLater' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "flushPendingDeletes"))
 			Module["flushPendingDeletes"] = function () {
-				abort(
-					"'flushPendingDeletes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'flushPendingDeletes' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "delayFunction"))
 			Module["delayFunction"] = function () {
@@ -5387,27 +4933,19 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "setDelayFunction"))
 			Module["setDelayFunction"] = function () {
-				abort(
-					"'setDelayFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'setDelayFunction' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "RegisteredClass"))
 			Module["RegisteredClass"] = function () {
-				abort(
-					"'RegisteredClass' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'RegisteredClass' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "shallowCopyInternalPointer"))
 			Module["shallowCopyInternalPointer"] = function () {
-				abort(
-					"'shallowCopyInternalPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'shallowCopyInternalPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "downcastPointer"))
 			Module["downcastPointer"] = function () {
-				abort(
-					"'downcastPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'downcastPointer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "upcastPointer"))
 			Module["upcastPointer"] = function () {
@@ -5427,9 +4965,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "makeLegalFunctionName"))
 			Module["makeLegalFunctionName"] = function () {
-				abort(
-					"'makeLegalFunctionName' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'makeLegalFunctionName' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "warnOnce"))
 			Module["warnOnce"] = function () {
@@ -5465,9 +5001,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "lengthBytesUTF16"))
 			Module["lengthBytesUTF16"] = function () {
-				abort(
-					"'lengthBytesUTF16' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'lengthBytesUTF16' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "UTF32ToString"))
 			Module["UTF32ToString"] = function () {
@@ -5479,9 +5013,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "lengthBytesUTF32"))
 			Module["lengthBytesUTF32"] = function () {
-				abort(
-					"'lengthBytesUTF32' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'lengthBytesUTF32' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "allocateUTF8"))
 			Module["allocateUTF8"] = function () {
@@ -5489,9 +5021,7 @@ var $MODULE_NAME = (() => {
 			}
 		if (!Object.getOwnPropertyDescriptor(Module, "allocateUTF8OnStack"))
 			Module["allocateUTF8OnStack"] = function () {
-				abort(
-					"'allocateUTF8OnStack' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"
-				)
+				abort("'allocateUTF8OnStack' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)")
 			}
 		Module["writeStackCookie"] = writeStackCookie
 		Module["checkStackCookie"] = checkStackCookie
@@ -5599,7 +5129,7 @@ var $MODULE_NAME = (() => {
 		}
 		run()
 
-		return $MODULE_NAME.ready
+		return WFC.ready
 	}
 })()
-export default $MODULE_NAME
+export default WFC
