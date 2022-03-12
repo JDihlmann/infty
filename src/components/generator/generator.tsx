@@ -4,6 +4,7 @@ import dynamic from "next/dynamic"
 import { useFrame } from "@react-three/fiber"
 import FullGenerator from "./fullGenerator"
 import StepGenerator from "./stepGenerator"
+import { FullGeneratorLoader, StepGeneratorLoader } from "./loader"
 
 const Generator = () => {
 	const [generateFull, setGenerateFull] = useState(false)
@@ -25,7 +26,7 @@ const Generator = () => {
 			>
 				<p> {generateFull ? "Delete" : "Full Generation"} </p>
 			</button>
-			{generateFull && <FullGenerator />}
+			{generateFull && <FullGeneratorLoader />}
 			<button
 				style={{
 					pointerEvents: "all",
@@ -39,7 +40,7 @@ const Generator = () => {
 			>
 				<p> {generateStep ? "Delete" : "Step Generation"} </p>
 			</button>
-			{generateStep && <StepGenerator />}
+			{generateStep && <StepGeneratorLoader />}
 		</>
 	)
 }

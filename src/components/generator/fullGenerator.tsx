@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react"
-//import wfc from "@/utils/wasmLoader"
-import WFC from "@/stores/wfc"
-import dynamic from "next/dynamic"
 import { useGenerationStore } from "@/stores/generationStore"
+import { useEffect, useState } from "react"
+import WFC from "../../wfc/wfc"
 
-const FullGenerator = dynamic({
-	ssr: false,
-	loader: async () => {
-		const size = useGenerationStore.getState().size
-		const prototypes = useGenerationStore.getState().prototypes
-		const setGeneration = useGenerationStore.getState().setGeneration
+const FullGenerator = () => {
+	const size = useGenerationStore((state) => state.size)
+	const prototypes = useGenerationStore((state) => state.prototypes)
+	const setGeneration = useGenerationStore((state) => state.setGeneration)
 
-		console.log(size)
-		const WFC = await import("../../stores/wfc")
+	const [module, setModule] = useState(undefined)
 
+	useEffect(() => {
 		//@ts-ignore
-		WFC.default().then((module) => {
-			// Init Helper
+		WFC().then((module) => {
+			setModule(module)
+		})
+	}, [])
+
+	useEffect(() => {
+		if (module) {
+			// @ts-ignore
 			const processHelper = new module.ForwardPropagationSolverProcessHelper3D_32_16_32(prototypes.length, false, false)
 
 			// Enable Heuristic
@@ -84,10 +86,10 @@ const FullGenerator = dynamic({
 
 			// Set Generation
 			setGeneration(waves)
-		})
+		}
+	})
 
-		return () => <></>
-	},
-})
+	return <></>
+}
 
 export default FullGenerator

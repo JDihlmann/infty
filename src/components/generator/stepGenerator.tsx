@@ -1,22 +1,26 @@
-import { useEffect, useState } from "react"
-//import wfc from "@/utils/wasmLoader"
-import WFC from "@/stores/wfc"
-import dynamic from "next/dynamic"
 import { useGenerationStore } from "@/stores/generationStore"
+import WFC from "@/wfc/wfc"
+import useInterval from "@/utils/useInterval"
+import { useEffect, useState } from "react"
 
-const StepGenerator = dynamic({
-	ssr: false,
-	loader: async () => {
-		const size = useGenerationStore.getState().size
-		const prototypes = useGenerationStore.getState().prototypes
-		const setGeneration = useGenerationStore.getState().setGeneration
+const StepGenerator = () => {
+	const size = useGenerationStore((state) => state.size)
+	const prototypes = useGenerationStore((state) => state.prototypes)
+	const setGeneration = useGenerationStore((state) => state.setGeneration)
 
-		// Loading Module
-		const WFC = await import("../../stores/wfc")
+	const [module, setModule] = useState(undefined)
+	const [processHelper, setProcessHelper] = useState<any>(undefined)
 
+	useEffect(() => {
 		//@ts-ignore
-		WFC.default().then((module) => {
-			// Init Helper
+		WFC().then((module) => {
+			setModule(module)
+		})
+	}, [])
+
+	useEffect(() => {
+		if (module) {
+			// @ts-ignore
 			const processHelper = new module.ForwardPropagationSolverProcessHelper3D_32_16_32(prototypes.length, false, false)
 
 			// Enable Heuristic
@@ -63,44 +67,44 @@ const StepGenerator = dynamic({
 				}
 			}
 
-			const stepper = () => {
-				// Run
-				processHelper.run_step()
+			setProcessHelper(processHelper)
+		}
+	}, [module, prototypes, size])
 
-				// Log Error
-				if (processHelper.had_error()) {
-					console.log(processHelper.get_last_error())
-				}
+	useInterval(() => {
+		if (processHelper) {
+			// Run
+			processHelper.run_step()
 
-				// Get Result
-				const waves = new Array(size.x)
-					.fill(0)
-					.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
-
-				const entropies = new Array(size.x)
-					.fill(0)
-					.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
-
-				for (let x = 0; x < size.x; x++) {
-					for (let y = 0; y < size.y; y++) {
-						for (let z = 0; z < size.z; z++) {
-							//@ts-ignore
-							waves[x][y][z] = [processHelper.query(x, y, z) - 1]
-
-							//@ts-ignore
-							entropies[x][y][z] = processHelper.num_valid_in_pattern_buffer_coordinates(x, y, z)
-						}
-					}
-				}
-
-				setGeneration(waves)
-				setTimeout(() => stepper(), 50)
+			// Log Error
+			if (processHelper.had_error()) {
+				console.log(processHelper.get_last_error())
 			}
 
-			stepper()
-		})
-		return () => <></>
-	},
-})
+			// Get Result
+			const waves = new Array(size.x).fill(0).map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
+
+			const entropies = new Array(size.x)
+				.fill(0)
+				.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
+
+			for (let x = 0; x < size.x; x++) {
+				for (let y = 0; y < size.y; y++) {
+					for (let z = 0; z < size.z; z++) {
+						//@ts-ignore
+						waves[x][y][z] = [processHelper.query(x, y, z) - 1]
+
+						//@ts-ignore
+						entropies[x][y][z] = processHelper.num_valid_in_pattern_buffer_coordinates(x, y, z)
+					}
+				}
+			}
+
+			setGeneration(waves)
+		}
+	}, 50)
+
+	return <></>
+}
 
 export default StepGenerator
