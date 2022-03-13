@@ -15,7 +15,7 @@ const Body: FunctionComponent<BodyProps> = ({ children, className = undefined })
 				width: "100%",
 				height: "100%",
 				overflow: "hidden",
-				zIndex: -1,
+				zIndex: 0,
 				display: "flex",
 				flexDirection: "column",
 				boxSizing: "border-box",
