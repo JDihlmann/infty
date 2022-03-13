@@ -15,6 +15,7 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 
 	const [wfcModule, setWFCModule] = useState(undefined)
 	const [done, setDone] = useState(false)
+	const [completedGeneration, setCompletedGeneration] = useState(false)
 
 	const [processHelper, setProcessHelper] = useState<any>(undefined)
 
@@ -84,7 +85,7 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 	}, [wfcModule, prototypes, size, doneCallback, done])
 
 	useInterval(() => {
-		if (processHelper) {
+		if (processHelper && !completedGeneration) {
 			// Run
 			processHelper.run_step()
 
@@ -100,6 +101,7 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 				.fill(0)
 				.map(() => new Array(size.y).fill(0).map(() => new Array(size.z).fill(0)))
 
+			let filledCounter = 0
 			for (let x = 0; x < size.x; x++) {
 				for (let y = 0; y < size.y; y++) {
 					for (let z = 0; z < size.z; z++) {
@@ -107,9 +109,16 @@ const StepGenerator: FunctionComponent<StepGeneratorProps> = ({ doneCallback }) 
 						waves[x][y][z] = [processHelper.query(x, y, z) - 1]
 
 						//@ts-ignore
-						entropies[x][y][z] = processHelper.num_valid_in_pattern_buffer_coordinates(x, y, z)
+						entropies[x][y][z] = processHelper.num_valid_in_pattern_buffer_coordinates(x, y, z) // only for debugging
+						if (entropies[x][y][z] == 1) {
+							filledCounter++
+						}
 					}
 				}
+			}
+
+			if (filledCounter === size.x * size.y * size.z) {
+				setCompletedGeneration(true)
 			}
 
 			setGeneration(waves)
