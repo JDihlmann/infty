@@ -94,7 +94,7 @@ export const useGenerationStore = create<GenerationStore>(
 							const prototypeName = prototypeIds[protoypeId]
 							if (prototypeName !== "Empty" && prototypeName !== undefined) {
 								prototypeObjects.push({
-									key: "" + x + "-" + y + "-" + z,
+									key: "" + x + "_" + y + "_" + z,
 									id: prototypeIds[protoypeId],
 									position: new Vector3(x, y, z),
 								})
