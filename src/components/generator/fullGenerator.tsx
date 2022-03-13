@@ -9,6 +9,7 @@ interface FullGeneratorProps {
 const FullGenerator = memo<FullGeneratorProps>(({ doneCallback }) => {
 	const size = useGenerationStore((state) => state.size)
 	const prototypes = useGenerationStore((state) => state.prototypes)
+	const probabilities = useGenerationStore((state) => state.probabilities)
 	const setGeneration = useGenerationStore((state) => state.setGeneration)
 
 	const [wfcModule, setWFCModule] = useState(undefined)
@@ -44,14 +45,9 @@ const FullGenerator = memo<FullGeneratorProps>(({ doneCallback }) => {
 						const z = parseInt(posId.split("_")[2])
 						processHelper.set_rule(id, neighbourId, x, y, z, true)
 
-						if (prototype.id == "Empty") {
-							processHelper.set_density_probability(id, 10)
-						} else if (prototype.id.split("_")[0] == "Wall") {
-							processHelper.set_density_probability(id, 2)
-						} else if (prototype.id.split("_")[0] == "Stairs") {
-							processHelper.set_density_probability(id, 1)
-						} else if (prototype.id.split("_")[0] == "StairsLeft" || prototype.id.split("_")[0] == "StairsRight") {
-							processHelper.set_density_probability(id, 3)
+						const probability = probabilities[prototype.id.split("_")[0]]
+						if (probability !== undefined) {
+							processHelper.set_density_probability(id, probability)
 						} else {
 							processHelper.set_density_probability(id, 1)
 						}

@@ -26,6 +26,7 @@ type GenerationStore = {
 	entropyObjects: PrototypeObject[]
 	prototypeObjects: PrototypeObject[]
 	setGeneration: (waves: number[][][][]) => void
+	probabilities: Record<string, number>
 }
 
 const constraintIdArray = Object.keys(constraints)
@@ -69,6 +70,14 @@ export const useGenerationStore = create<GenerationStore>(
 		prototypeObjects: [],
 		entropyObjects: [],
 		waves: [[[]]],
+		probabilities: {
+			Empty: 10,
+			Wall: 2,
+			Stairs: 1,
+			StairsLeft: 3,
+			StairsRight: 3,
+		},
+
 		setGeneration: (waves: number[][][][]): void => {
 			set((state) => {
 				const prototypeObjects: PrototypeObject[] = []
