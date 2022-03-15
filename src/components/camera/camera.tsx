@@ -13,7 +13,7 @@ const Camera = () => {
 				maxPolarAngle={angle}
 				minPolarAngle={angle}
 				minDistance={10}
-				maxDistance={50}
+				maxDistance={60}
 			/>
 			<PerspectiveCamera makeDefault position={[-2, 50, -2]} />
 		</>

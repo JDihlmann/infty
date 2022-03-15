@@ -71,7 +71,7 @@ export const useGenerationStore = create<GenerationStore>(
 		entropyObjects: [],
 		waves: [[[]]],
 		probabilities: {
-			Empty: 10,
+			Empty: 10, // 10
 			Wall: 2,
 			Stairs: 1,
 			StairsLeft: 3,
