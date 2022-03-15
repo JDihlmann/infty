@@ -2,7 +2,9 @@
 
 > Demo of the wave form collapse (WFC) algorithm with react three fiber and web assembly (WASM)
 
-https://user-images.githubusercontent.com/9963865/158366864-d67b4abd-6bc6-4fc2-8848-c234893fd6b8.mp4
+
+https://user-images.githubusercontent.com/9963865/158373612-9377a198-a6fe-454f-8d7d-085650761d01.mov
+
 
 The WFC algorithm is part of the family of procedural algorithms and allows to construct object grids that follow human designed neighbouring rules. 
 It was first introduced by [Maxim Gumin][original] and apated for 3D by many others such as in the [Stålberg experiments][stahlberg] or [generative cities][city].
