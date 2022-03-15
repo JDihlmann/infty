@@ -66,4 +66,3 @@ Big thanks to [Martin Donald][martinDonald] for his amazing [tutorial][youtube] 
 [marian]: https://twitter.com/marian42_
 [original]: https://github.com/mxgmn/WaveFunctionCollapse
 [praktikum]: https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/computergrafik/lehrstuhl/lehre/praktikum-computergrafik/
-[mm]: https://github.com/maximilian-maurer
