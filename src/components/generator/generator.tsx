@@ -11,6 +11,7 @@ const Generator = () => {
 	const [generateFullDone, setGenerateFullDone] = useState(false)
 	const [generateStep, setGenerateStep] = useState(false)
 	const [generateStepDone, setGenerateStepDone] = useState(false)
+	const setExport = useGenerationStore((state) => state.setExport)
 
 	return (
 		<>
@@ -97,6 +98,19 @@ const Generator = () => {
 				) : (
 					<p> {generateStep ? "Delete" : "Step Generation"} </p>
 				)}
+			</button>
+
+			<button
+				style={{
+					marginLeft: "10px",
+					pointerEvents: "all",
+					backgroundColor: "#222222",
+				}}
+				onClick={() => {
+					setExport(true)
+				}}
+			>
+				<p> Export </p>
 			</button>
 
 			{generateStep && (
