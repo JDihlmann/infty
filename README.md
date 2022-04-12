@@ -1,6 +1,6 @@
 # Infinite World Generation 
 
-> Demo of the wave form collapse (WFC) algorithm with react three fiber and web assembly (WASM)
+> Demo of the wave form collapse (WFC) algorithm with react three fiber and web assembly (WASM) [Tweet][tweet]
 
 
 https://user-images.githubusercontent.com/9963865/158373612-9377a198-a6fe-454f-8d7d-085650761d01.mov
@@ -21,6 +21,7 @@ The solver features a backtracking step, to avoid getting stuck in unsolvable si
 For the exporter part of the pipeline we used blender to model the objects. 
 One is able to export the models and adjacency examples with the provided python scripts. 
 The results of the compination of the exporter and the WASM can be viewed in the demo, which also has a generate and a step mode. 
+Models can be exported and smapling rate can be changed. 
 
 ## Contents
 In the following you find a short description of the most important files that are in connection with WFC. 
@@ -68,3 +69,4 @@ Big thanks to [Martin Donald][martinDonald] for his amazing [tutorial][youtube] 
 [marian]: https://twitter.com/marian42_
 [original]: https://github.com/mxgmn/WaveFunctionCollapse
 [praktikum]: https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/computergrafik/lehrstuhl/lehre/praktikum-computergrafik/
+[tweet]: https://twitter.com/JDihlmann/status/1511717277959442432?s=20&t=UFAo1s9EnVkQ7GC3kXmQfw
