@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { useMediaQuery } from "react-responsive"
+import { useEffect, useRef, useState } from "react"
 
 const Header = ({}) => {
 	return (
@@ -55,14 +57,7 @@ const Header = ({}) => {
 						alignItems: "center",
 						zIndex: 100,
 					}}
-				>
-					<a
-						href="https://twitter.com/JDihlmann"
-						style={{ textDecoration: "none", fontWeight: "bold", pointerEvents: "all" }}
-					>
-						@JDihlmann
-					</a>
-				</div>
+				></div>
 			</div>
 		</div>
 	)

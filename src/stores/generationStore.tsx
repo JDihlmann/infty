@@ -29,6 +29,7 @@ type GenerationStore = {
 	probabilities: Record<string, number>
 	exporting: boolean
 	setExport: (exporting: boolean) => void
+	setProbabilities: (probabilities: Record<string, number>) => void
 }
 
 const constraintIdArray = Object.keys(constraints)
@@ -114,6 +115,12 @@ export const useGenerationStore = create<GenerationStore>(
 		setExport: (exporting: boolean): void => {
 			set((state) => {
 				state.exporting = exporting
+			})
+		},
+
+		setProbabilities: (probabilities: Record<string, number>): void => {
+			set((state) => {
+				state.probabilities = probabilities
 			})
 		},
 	}))

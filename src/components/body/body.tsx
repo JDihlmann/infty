@@ -1,5 +1,7 @@
 import Header from "@/components/header/header"
 import React, { FunctionComponent } from "react"
+import { Leva } from "leva"
+import ConstraintsSampler from "../constraintsSampler/constraintsSampler"
 
 interface BodyProps {
 	className?: string
@@ -25,6 +27,8 @@ const Body: FunctionComponent<BodyProps> = ({ children, className = undefined })
 			}}
 		>
 			<Header />
+			<ConstraintsSampler />
+
 			<div
 				style={{
 					flex: 1,

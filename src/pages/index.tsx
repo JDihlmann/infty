@@ -20,6 +20,23 @@ const Home = () => {
 			</div>
 			<Body>
 				<Generator />
+				<div
+					style={{
+						position: "absolute",
+						flexDirection: "row",
+						alignItems: "center",
+						zIndex: 100,
+						paddingBottom: 10,
+						right: 20,
+					}}
+				>
+					<a
+						href="https://twitter.com/JDihlmann"
+						style={{ textDecoration: "none", fontWeight: "bold", pointerEvents: "all" }}
+					>
+						@JDihlmann
+					</a>
+				</div>
 			</Body>
 		</>
 	)
