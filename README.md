@@ -2,14 +2,15 @@
 
 > Demo of the wave form collapse (WFC) algorithm with react three fiber and web assembly (WASM)
 
-![](misc/title.png)
+
+https://user-images.githubusercontent.com/9963865/158373612-9377a198-a6fe-454f-8d7d-085650761d01.mov
+
 
 The WFC algorithm is part of the family of procedural algorithms and allows to construct object grids that follow human designed neighbouring rules. 
 It was first introduced by [Maxim Gumin][original] and apated for 3D by many others such as in the [Stålberg experiments][stahlberg] or [generative cities][city].
 This project provides a baseline of the WFC algorithm in a flexible but still a very performant manner. 
 We present a pipeline containing three parts the fast flexible WFC WASM implementation, a model and adjancency exporter and a demo that showcases the results and interacts with the WFC WASM.
 In this repository one will find the adjancency exporter, the compiled WASM and the demo. 
-If you need the original C++ implementation reach out to [Maximilian Maurer][mm].
 The demo can be tested at https://inftyworld.vercel.app/.
 
 ## Features
@@ -67,4 +68,3 @@ Big thanks to [Martin Donald][martinDonald] for his amazing [tutorial][youtube] 
 [marian]: https://twitter.com/marian42_
 [original]: https://github.com/mxgmn/WaveFunctionCollapse
 [praktikum]: https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/computergrafik/lehrstuhl/lehre/praktikum-computergrafik/
-[mm]: https://github.com/maximilian-maurer
